@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="archive" extends="default"  namespace="/archive">
+		<action name="*" class="archiveAction" method="{1}">
+			<result name="success" type="redirect">index.do?model.archiveType.id=${model.archiveType.id}</result>
+			<result name="input">/pages/archive/edit.jsp</result> 
+			<result name="index">/pages/archive/index.jsp</result> 
+			<result name="archiveIndex">/pages/archive/file/lend/archive_index.jsp</result>
+			<result name="view">/pages/archive/view.jsp</result>
+			<result name="allView">/pages/archive/allView.jsp</result>
+			<result name="showIndex">/pages/archive/showIndex.jsp</result>
+		</action>
+	</package>
+	<package name="archive.type" extends="default"  namespace="/archive/type">
+		<action name="*" class="archiveTypeAction" method="{1}">
+			<result name="success" type="redirect">index.do</result>
+			<result name="input">/pages/archive/type/edit.jsp</result> 
+			<result name="index">/pages/archive/type/index.jsp</result> 
+			<result name="view">/pages/archive/type/view.jsp</result>
+		</action>
+	</package>
+	<package name="archive.cabinet" extends="default"  namespace="/archive/cabinet">
+		<action name="*" class="archiveCabinetAction" method="{1}">
+			<result name="success" type="redirect">index.do</result>
+			<result name="input">/pages/archive/cabinet/edit.jsp</result> 
+			<result name="index">/pages/archive/cabinet/index.jsp</result> 
+			<result name="view">/pages/archive/cabinet/view.jsp</result>
+		</action>
+	</package>
+	<package name="archive.file" extends="default"  namespace="/archive/file">
+		<action name="*" class="archiveFileAction" method="{1}">
+			<result name="success" type="redirect">index.do</result>
+			<result name="input">/pages/archive/file/edit.jsp</result> 
+			<result name="index">/pages/archive/file/index.jsp</result> 
+			<result name="fileIndex">/pages/archive/file/lend/file_index.jsp</result> 
+			<result name="view">/pages/archive/file/view.jsp</result>
+		</action>
+	</package>
+	<package name="archive.file.lend" extends="json"  namespace="/archive/file/lend">
+		<action name="*" class="archiveFileLendAction" method="{1}">
+			<result name="success" type="redirect">index.do</result>
+			<result name="input">/pages/archive/file/lend/edit.jsp</result> 
+			<result name="index">/pages/archive/file/lend/index.jsp</result>
+			<result name="allIndex">/pages/archive/file/lend/allIndex.jsp</result> 
+			<result name="view">/pages/archive/file/lend/view.jsp</result>
+			<result name="index">/pages/archive/file/lend/index.jsp</result> 
+			<result name="auditEdit">/pages/archive/file/lend/audit_edit.jsp</result>
+			<result name="auditIndex">/pages/archive/file/lend/audit_index.jsp</result>
+			<result name="historyAuditIndex">/pages/archive/file/lend/audit_history_index.jsp</result>
+			<result name="jsonSuccess" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+	<package name="archive.tran" extends="default"  namespace="/archive/tran">
+		<action name="*" class="archiveTranAction" method="{1}">
+			<result name="success" type="redirect">/pages/success.jsp?url=${url}</result>
+			<result name="input">/pages/archive/tran/edit.jsp</result> 
+			<result name="index">/pages/archive/tran/index.jsp</result>
+			<result name="indexRedirect" type="redirect">/archive/tran/index.do</result>
+			<result name="view">/pages/archive/tran/view.jsp</result>
+			<result name="proView">/pages/archive/tran/proView.jsp</result>
+			<result name="auditEdit">/pages/archive/tran/audit_edit.jsp</result>
+			<result name="archiveAllView" type="redirect">/archive/allView.do?model.project.id=${model.project.id}</result>
+		</action>
+	</package>
+	<package name="archive.tran.detail" extends="default"  namespace="/archive/tran/detail">
+		<action name="*" class="archiveTranDetailAction" method="{1}">
+			<result name="success" type="redirect">/archive/tran/edit.do?model.project.id=${model.archiveTran.project.id}</result>
+		</action>
+	</package>
+	
+</struts>

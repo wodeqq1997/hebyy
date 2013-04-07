@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="scos.article.type" extends="json"  namespace="/article/type">
+		<action name="*" class="articleTypeAction" method="{1}">
+			<result name="index">/pages/scos/article/type/index.jsp</result> 
+			<result name="input">/pages/scos/article/type/edit.jsp</result> 
+			<result name="success" type="redirect">index.do</result>
+			<result name="view">/pages/scos/article/type/view.jsp</result>	
+			
+			<result name="indexTypes" type="json">
+				<param name="root">items</param>
+			</result>	
+		</action>
+	</package>
+	<package name="scos.article" extends="json"  namespace="/article">
+		<action name="*" class="articleAction" method="{1}">
+			<result name="index">/pages/scos/article/index.jsp</result> 
+			<result name="input">/pages/scos/article/edit.jsp</result> 
+			<result name="success" type="redirect">index.do</result>
+			<result name="view">/pages/scos/article/view.jsp</result>
+			<result name="save_article_comment" type="redirect">view.do?model.id=${model.id}</result>
+			<result name="indexArticles" type="json">
+				<param name="root">indexArticles</param>
+			</result>
+			<result name="indexArticlePhotos" type="json">
+				<param name="root">indexArticles</param>
+			</result>
+		</action>
+	</package>
+	<package name="scos.article.comment" extends="default"  namespace="/article/comment">
+		<action name="*" class="articleCommentAction" method="{1}">
+			<result name="success" type="redirect">/article/view.do?model.id=${articleId}</result>				
+			<result name="commentIndex">/pages/scos/article/comment/comment_index.jsp</result>			
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="scos.survey.survey" extends="default" namespace="/survey">
+		<!-- 问卷调查主题 -->
+		<action name="*" class="surveyAction" method="{1}">
+			<result name="index">/pages/scos/survey/survey/index.jsp</result>
+			<result name="input">/pages/scos/survey/survey/edit.jsp</result>
+			<result name="success" type="redirect">/survey/index.do?showTimeOut=${#session.showTimeOut}</result>
+			<result name="release">/pages/scos/survey/survey/release.jsp</result>
+			<result name="view">/pages/scos/survey/survey/view.jsp</result>
+			<result name="joinSurvey">/pages/scos/survey/survey/joinSurvey.jsp</result>
+			<result name="showResult">/pages/scos/survey/survey/result.jsp</result>
+			<result name="error">/pages/scos/survey/survey/error.jsp</result>
+		</action>
+	</package>
+	<package name="scos.survey.item" extends="default" namespace="/survey/item">
+		<!-- 问卷调查项目 -->
+		<action name="*" class="surveyItemAction" method="{1}">
+			<result name="index">/pages/scos/survey/surveyItem/index.jsp?surveyId=${model.survey.id}</result>
+			<result name="input">/pages/scos/survey/surveyItem/edit.jsp</result>
+			<result name="success" type="redirect">/survey/item/index.do?model.survey.id=${model.survey.id}</result>
+			<result name="view">/pages/scos/survey/surveyItem/view.jsp</result>
+			
+		</action>
+	</package>
+
+	<package name="scos.survey.subitem" extends="default" namespace="/survey/subitem">
+		<!-- 问卷调查项目选项 -->
+		<action name="*" class="surveySubitemAction" method="{1}">
+			<result name="index">/pages/scos/survey/surveySubitem/index.jsp?surveyId=${surveyId}</result>
+			<result name="input">/pages/scos/survey/surveySubitem/edit.jsp?surveyId=${surveyId}</result>
+			<result name="success" type="redirect">/survey/subitem/index.do?model.surveyItem.id=${model.surveyItem.id}&amp;surveyId=${surveyId}</result>
+			<result name="vote" type="redirect">/survey/showResult.do?model.id=${surveyId}</result>
+		</action>
+	</package>
+
+	<package name="scos.voter" extends="json" namespace="/voter">
+		<!-- 问卷调查参与人 -->
+		<action name="*" class="voterAction" method="{1}">
+			<result name="index" type="redirect">/survey/item/view.do?model.survey.id=${model.survey.id}</result>
+			<result name="success" type="redirect">/survey/item/voteResult.do?model.survey.id=${#session.surveyId}</result>
+			<result name="save" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="scos.document" extends="default"  namespace="/document">
+		<action name="*" class="documentAction" method="{1}">
+			<result name="index">/pages/scos/document/index.jsp</result> 
+			<result name="mySuccess" type="redirect">myDocumentIndex.do</result>
+			<result name="publicSuccess" type="redirect">publicDocumentIndex.do</result>
+			<result name="myDocumentIndex">/pages/scos/document/myDocumentIndex.jsp</result> 
+			<result name="publicDocumentIndex">/pages/scos/document/publicDocumentIndex.jsp</result>
+			<result name="input">/pages/scos/document/edit.jsp</result> 
+			<result name="view">/pages/scos/document/view.jsp</result>	
+			<result name="share">/pages/scos/document/share.jsp</result>				
+		</action>
+	</package>
+	<package name="scos.document.type" extends="json"  namespace="/document/type">
+		<action name="*" class="docTypeAction" method="{1}">
+			<result name="index">/pages/scos/document/type/index.jsp</result> 
+			<result name="input">/pages/scos/document/type/edit.jsp</result> 
+			<result name="success" type="redirect">index.do?model.isPublic=${model.isPublic}</result>
+			<result name="publicIndex">/pages/scos/document/publicType/index.jsp</result> 
+			<result name="complete" type="json">
+				<param name="root">result</param>
+			</result>
+			<!-- <result name="region" type="json"> -->
+			<!-- <param name="root">region</param> -->
+			<!-- </result> -->
+			<result name="tree" type="json">
+				<param name="root">docTypes</param>
+			</result>
+		</action>
+	</package>
+</struts>

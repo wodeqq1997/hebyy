@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="scos.attendance" extends="json"  namespace="/attendance">
+		<action name="*" class="attendanceAction" method="{1}">
+			<result name="index">/pages/scos/attendance/index.jsp</result> 
+			<result name="input">/pages/scos/attendance/edit.jsp</result>
+			<result name="view">/pages/scos/attendance/view.jsp</result>
+			<result name="wageTemplate">/pages/zjimis/finance/wage/wageTemplate.jsp</result>
+			<result name="success" type="redirect">index.do</result>
+			<result name="attendanceJson" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+	<package name="scos.attendance.leave" extends="default"  namespace="/attendance/leave">
+		<action name="*" class="leaveAction" method="{1}">
+			<result name="index">/pages/scos/attendance/leave/index.jsp</result> 
+			<result name="input">/pages/scos/attendance/leave/edit.jsp</result>
+			<result name="view">/pages/scos/attendance/leave/view.jsp</result>
+			<result name="success" type="redirect">index.do</result>
+ 		</action>
+	</package>
+	<package name="scos.attendance.annleave" extends="default"  namespace="/attendance/annleave">
+		<action name="*" class="annualLeaveAction" method="{1}">
+			<result name="index">/pages/scos/attendance/annleave/index.jsp</result> 
+			<result name="input">/pages/scos/attendance/annleave/edit.jsp</result>
+			<result name="view">/pages/scos/attendance/annleave/view.jsp</result>
+			<result name="success" type="redirect">index.do</result>
+ 		</action>
+	</package>
+	<package name="scos.reportedAtte" extends="default"  namespace="/reportedAtte">
+		<action name="*" class="reportedAtteAction" method="{1}">
+			<result name="index">/pages/scos/attendance/reported/index.jsp</result> 
+			<result name="input">/pages/scos/attendance/reported/edit.jsp</result>
+			<result name="view">/pages/scos/attendance/reported/view.jsp</result>
+			<result name="success" type="redirect">index.do</result>
+			<result name="saveAtte" type="redirect">index.do</result>
+			<result name="report" type="redirect">index.do</result>
+			<result name="editAtte">/pages/scos/attendance/reported/editAtte.jsp</result>
+ 		</action>
+	</package>
+</struts>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="scos.diary" extends="json"  namespace="/diary">
+		<action name="*" class="diaryAction" method="{1}">
+			<result name="index">/pages/scos/diary/index.jsp</result> 
+			<result name="subUserDiaryIndex">/pages/scos/diary/subUserDiaryIndex.jsp</result> 
+			<result name="input">/pages/scos/diary/edit.jsp</result> 
+			<result name="success" type="redirect">index.do</result>
+			<result name="view">/pages/scos/diary/view.jsp</result>
+            <result name="indexByUser">/pages/scos/diary/indexByUser.jsp</result>
+
+        </action>
+	</package>
+
+    <package name="scos.diary.comment" extends="default"  namespace="/diary/comment">
+        <action name="*" class="diaryCommentAction" method="{1}">
+            <result name="success" type="redirect">/diary/view.do?model.id=${model.diary.id}</result>
+        </action>
+    </package>
+</struts>

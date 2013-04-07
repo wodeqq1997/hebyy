@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="scos.car" extends="default"  namespace="/car">
+		<action name="*" class="carAction" method="{1}">
+			<result name="index">/pages/scos/car/index.jsp</result> 
+			<result name="input">/pages/scos/car/edit.jsp</result> 
+			<result name="success" type="redirect">index.do</result>
+			<result name="view">/pages/scos/car/view.jsp</result>
+			<result name="showIndex">/pages/scos/car/showIndex.jsp</result> 
+		</action>
+	</package>
+	<package name="scos.car.repair" extends="default"  namespace="/car/repair">
+		<action name="*" class="carRepairAction" method="{1}">
+			<result name="index">/pages/scos/car/repair/index.jsp</result> 
+			<result name="input">/pages/scos/car/repair/edit.jsp</result> 
+			<result name="success" type="redirect">index.do</result>
+			<result name="view">/pages/scos/car/repair/view.jsp</result>
+		</action>
+	</package>
+	<package name="scos.car.apply" extends="default"  namespace="/car/apply">
+		<action name="*" class="carApplyAction" method="{1}">
+			<result name="success" type="redirect">index.do</result>
+			<result name="myIndexSuccess" type="redirect">myIndex.do</result>
+			<result name="index">/pages/scos/car/apply/index.jsp</result>
+			<result name="myIndex">/pages/scos/car/apply/myIndex.jsp</result> 
+			<result name="input">/pages/scos/car/apply/edit.jsp</result> 
+			<result name="view">/pages/scos/car/apply/view.jsp</result>
+		</action>
+	</package>	
+	
+	<package name="scos.car.transfer" extends="default"  namespace="/car/transfer">
+		<action name="*" class="carTransferAction" method="{1}">
+			<result name="success" type="redirect">index.do</result>
+			<result name="index">/pages/scos/car/transfer/index.jsp</result>
+			<result name="input">/pages/scos/car/transfer/edit.jsp</result> 
+			<result name="view">/pages/scos/car/transfer/view.jsp</result>
+		</action>
+	</package>
+	<package name="scos.carrecord" extends="default"  namespace="/car/record">
+		<action name="*" class="carUseRecordAction" method="{1}">
+			<result name="success" type="redirect">index.do</result>
+			<result name="index">/pages/scos/car/record/index.jsp</result>
+			<result name="input">/pages/scos/car/record/edit.jsp</result> 
+			<result name="view">/pages/scos/car/record/view.jsp</result>
+		</action>
+	</package>	
+</struts>

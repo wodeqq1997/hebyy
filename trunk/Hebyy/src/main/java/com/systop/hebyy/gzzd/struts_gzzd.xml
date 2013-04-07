@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="gzzd" extends="json" namespace="/gzzd">
+		<action name="*" class="gzzdAction" method="{1}">
+			<result name="index">/pages/hebyy/gzzd/gzzd.jsp</result>
+			<result name="index1">/pages/hebyy/gzzd/cxgzzd.jsp</result>
+			
+			
+			<result name="input1">/pages/hebyy/gzzd/gzzdInput.jsp</result>
+			<result name="success" type="redirect">queryxx.do</result>
+<result type="json" name="indexGzzds">
+		        <param name="ignoreHierarchy">false</param>
+		        <param name="root">gzzds</param>
+				<param name="includeProperties">
+					\[\d+\]\.zcxx\.zcMc,
+				   \[\d+\]\.zcxx\.zcxh
+				</param>
+		    </result>
+		</action>
+	</package>
+
+
+
+
+</struts>

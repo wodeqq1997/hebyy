@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="scos.mail" extends="json"  namespace="/mail">
+		<action name="*" class="mailAction" method="{1}">
+			<result name="index">/pages/scos/mail/index.jsp</result> 
+			<result name="input">/pages/scos/mail/edit.jsp</result> 
+			<result name="view">/pages/scos/mail/view.jsp?recipientIDs=${recipientIDs}</result> 
+			<result name="success" type="redirect">/pages/scos/mail/success.jsp</result>
+			<result name="delSuccess" type="redirect">/pages/scos/mail/delSuccess.jsp</result>
+			<result name="indexDraft">/pages/scos/mail/indexDraft.jsp</result>
+			<result name="draftSuccess" type="redirect">indexDraft.do</result>
+			
+			<result name="indexMails" type="json">
+				<param name="root">indexMails</param>
+			</result>
+		</action>
+	</package>
+</struts>

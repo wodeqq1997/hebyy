@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<package name="scos.hrm.job" extends="default"  namespace="/hrm/job">
+		<action name="*" class="jobAction" method="{1}">
+			<result name="success" type="redirect">index.do</result>
+			<result name="index">/pages/scos/hrm/job/index.jsp</result> 
+			<result name="input">/pages/scos/hrm/job/edit.jsp</result> 
+			<result name="view">/pages/scos/hrm/job/view.jsp</result>
+		</action>
+	</package>
+</struts>

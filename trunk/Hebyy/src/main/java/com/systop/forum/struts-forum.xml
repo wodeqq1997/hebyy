@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!-- 板块管理 --> 
+	<package name="forum.board" extends="default"  namespace="/forum/board">
+		<action name="*" class="boardAction" method="{1}">
+			<result name="index">/pages/forum/index.jsp</result> 
+			
+		    <result name="adminIndex" >/pages/forum/board/index.jsp</result> 
+		    
+		    <result name="input">/pages/forum/board/edit.jsp</result> 
+			<result name="success" type="redirect">adminIndex.do</result>
+		</action>
+	</package>
+	
+	<!-- 帖子管理 -->
+	<package name="forum.topic" extends="json"  namespace="/forum/topic">
+		<action name="*" class="topicAction" method="{1}">
+		    <result name="input">/pages/forum/topic/edit.jsp</result> 
+		    <result name="view">/pages/forum/topic/view.jsp</result>
+		    
+		    <result name="saveTopicSuccess" type="redirect">view.do?model.id=${model.id}</result>
+		    <result name="editTopicSuccess" type="redirect">index.do</result>
+		    <result name="reTopicSuccess" type="redirect">view.do?model.id=${model.parent.id}</result>
+			
+			<result name="topicIndex" >/pages/forum/topicIndex.jsp</result>
+			
+		    <result name="index">/pages/forum/topic/index.jsp</result> 
+			<result name="success" type="redirect">index.do</result>
+			<result name="indexTopics" type="json">
+				<param name="root">topics</param>
+			</result>
+		</action>
+	</package>
+</struts>
