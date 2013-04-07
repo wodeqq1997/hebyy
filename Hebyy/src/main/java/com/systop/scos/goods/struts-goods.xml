@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="scos.goods" extends="default"  namespace="/goods">
+		<action name="*" class="goodsAction" method="{1}">
+			<result name="success" type="redirect">index.do</result>
+			<result name="index">/pages/scos/goods/index.jsp</result> 
+			<result name="input">/pages/scos/goods/edit.jsp</result> 
+			<result name="view">/pages/scos/goods/view.jsp</result>
+			<result name="showIndex">/pages/scos/goods/showIndex.jsp</result>
+		</action>
+	</package>
+	<package name="scos.goods.type" extends="default"  namespace="/goods/type">
+		<action name="*" class="goodsTypeAction" method="{1}">
+			<result name="index">/pages/scos/goods/type/index.jsp</result> 
+			<result name="input">/pages/scos/goods/type/edit.jsp</result> 
+			<result name="success" type="redirect">index.do</result>
+			<result name="view">/pages/scos/goods/type/view.jsp</result>				
+		</action>
+	</package>
+	<package name="scos.goods.instock" extends="default"  namespace="/goods/instock">
+		<action name="*" class="inStockAction" method="{1}">
+			<result name="index">/pages/scos/goods/instock/index.jsp</result> 
+			<result name="input">/pages/scos/goods/instock/edit.jsp</result> 
+			<result name="success" type="redirect">index.do</result>
+			<result name="view">/pages/scos/goods/instock/view.jsp</result>				
+		</action>
+	</package>
+	<package name="scos.goods.apply" extends="default"  namespace="/goods/apply">
+		<action name="*" class="goodsApplyAction" method="{1}">
+			<result name="success" type="redirect">myIndex.do</result>
+			<result name="indexSuccess" type="redirect">index.do</result>
+			<result name="index">/pages/scos/goods/apply/index.jsp</result> 
+			<result name="myIndex">/pages/scos/goods/apply/myIndex.jsp</result> 
+			<result name="input">/pages/scos/goods/apply/edit.jsp</result> 
+			<result name="view">/pages/scos/goods/apply/view.jsp</result>				
+		</action>
+	</package>
+	
+	<package name="scos.goods.supplier" extends="default"  namespace="/goods/supplier">
+		<action name="*" class="goodsSupplierAction" method="{1}">
+			<result name="input">/pages/scos/goods/supplier/edit.jsp</result> 
+			<result name="index">/pages/scos/goods/supplier/index.jsp</result> 
+			<result name="view">/pages/scos/goods/supplier/view.jsp</result>
+			
+			<result name="success" type="redirect">index.do</result>
+			<result name="selectSupplier">/pages/scos/goods/supplier/selector/selectSupplier.jsp</result>
+		</action>
+	</package>
+	<package name="scos.goods.inquiry" extends="default"  namespace="/goods/inquiry">
+		<action name="*" class="goodsInquiryAction" method="{1}">
+			<result name="success" type="redirect">index.do</result>
+			<result name="input">/pages/scos/goods/supplier/inquiry/edit.jsp</result> 
+			<result name="index">/pages/scos/goods/supplier/inquiry/index.jsp</result> 
+			<result name="view">/pages/scos/goods/supplier/inquiry/view.jsp</result>
+		</action>
+	</package>
+</struts>

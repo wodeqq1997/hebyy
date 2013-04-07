@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	
+	
+	
+	<package name="zcxx" extends="json"  namespace="/zcxx">
+		
+		<action name="*" class="zcxxAction" method="{1}">
+	
+			<result name="zc_index">/pages/hebyy/gzzd/zcxx.jsp</result>
+			<result name="input">/pages/hebyy/gzzd/zcxxInput.jsp</result>
+			
+			
+			<result name="zc_success" type="redirect">queryxx.do</result>
+			<result type="json" name="indexZcxxs">
+		       
+		        <param name="root">zcxxs</param>
+				
+		    </result>
+		
+		</action>
+	</package>
+	
+	
+	
+	
+</struts>

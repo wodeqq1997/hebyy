@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="scos.asset.type" extends="default"  namespace="/asset/type">
+		<action name="*" class="assetTypeAction" method="{1}">
+			<result name="index">/pages/scos/asset/type/index.jsp</result> 
+			<result name="input">/pages/scos/asset/type/edit.jsp</result> 
+			<result name="success" type="redirect">index.do</result>
+			<result name="view">/pages/scos/asset/type/view.jsp</result>		
+		</action>
+	</package>
+	<package name="scos.asset" extends="default"  namespace="/asset">
+		<action name="*" class="assetAction" method="{1}">
+			<result name="index">/pages/scos/asset/index.jsp</result> 
+			<result name="input">/pages/scos/asset/edit.jsp</result> 
+			<result name="success" type="redirect">index.do</result>
+			<result name="view">/pages/scos/asset/view.jsp</result>
+			<result name="showIndex">/pages/scos/asset/showIndex.jsp</result> 		
+		</action>
+	</package>
+	<package name="scos.asset.storage" extends="default"  namespace="/asset/storage">
+		<action name="*" class="assetStorageAction" method="{1}">
+			<result name="success" type="redirect">index.do</result>
+			<result name="index">/pages/scos/asset/storage/index.jsp</result> 
+			<result name="inputTake">/pages/scos/asset/storage/editTake.jsp</result> 
+			<result name="inputBring">/pages/scos/asset/storage/editBring.jsp</result> 
+			<result name="view">/pages/scos/asset/storage/view.jsp</result>
+		</action>
+	</package>
+		<package name="scos.asset.instock" extends="default"  namespace="/asset/instock">
+		<action name="*" class="assetInStockAction" method="{1}">
+			<result name="index">/pages/scos/asset/instock/index.jsp</result> 
+			<result name="input">/pages/scos/asset/instock/edit.jsp</result> 
+			<result name="success" type="redirect">index.do</result>
+			<result name="view">/pages/scos/asset/instock/view.jsp</result>				
+		</action>
+	</package>
+	<package name="scos.asset.repair" extends="default"  namespace="/asset/repair">
+		<action name="*" class="assetRepairAction" method="{1}">
+			<result name="index">/pages/scos/asset/repair/index.jsp</result> 
+			<result name="input">/pages/scos/asset/repair/edit.jsp</result> 
+			<result name="success" type="redirect">index.do</result>
+			<result name="view">/pages/scos/asset/repair/view.jsp</result>
+		</action>
+	</package>
+	
+	<package name="scos.asset.check" extends="default"  namespace="/asset/check">
+		<action name="*" class="assetCheckAction" method="{1}">
+			<result name="success" type="redirect">index.do</result>
+			<result name="index">/pages/scos/asset/check/index.jsp</result> 
+			<result name="input">/pages/scos/asset/check/edit.jsp</result> 
+			<result name="view">/pages/scos/asset/check/view.jsp</result>
+		</action>
+	</package>
+</struts>

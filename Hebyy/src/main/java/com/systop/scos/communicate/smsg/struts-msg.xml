@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="scos.msg" extends="json"  namespace="/msg">
+		<action name="*" class="messageAction" method="{1}">
+			<result name="sendIndex">/pages/scos/msg/sendIndex.jsp</result> 
+			<result name="receiveIndex">/pages/scos/msg/receiveIndex.jsp</result> 
+			<result name="input">/pages/scos/msg/edit.jsp</result> 
+			<result name="view">/pages/scos/msg/view.jsp?receiverIds=${receiverIds}</result> 
+			<result name="success" type="redirect">/pages/scos/msg/success.jsp</result>
+			<result name="receives" type="redirect">receiveIndex.do?model.msgType=${model.msgType}</result>
+			<result name="newmsg" type="json">
+		   		<param name="root">newMsgs</param>
+			</result>
+			<result name="ajaxReadAllMsgs" type="json">
+		   		<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+</struts>

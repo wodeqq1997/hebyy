@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<package name="scos.resume" extends="json"  namespace="/resume">
+		<action name="*" class="resumeAction" method="{1}">
+			<result name="success" type="redirect">index.do</result>
+			<result name="input">/pages/scos/hrm/resume/edit.jsp</result> 
+			<result name="index">/pages/scos/hrm/resume/index.jsp</result> 
+			<result name="view">/pages/scos/hrm/resume/view.jsp</result>
+		</action>
+	</package>
+	<package name="scos.resume.template" extends="json"  namespace="/resume/template">
+		<action name="*" class="resumeTemplateAction" method="{1}">
+			<result name="success" type="redirect">index.do</result>
+			<result name="input">/pages/scos/hrm/resume/template/edit.jsp</result> 
+			<result name="index">/pages/scos/hrm/resume/template/index.jsp</result> 
+			<result name="view">/pages/scos/hrm/resume/view.jsp</result>
+		</action>
+	</package>
+</struts>

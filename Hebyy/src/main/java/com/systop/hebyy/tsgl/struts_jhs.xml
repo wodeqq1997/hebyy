@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	
+	
+	
+	<package name="jhs" extends="json"  namespace="/jhs">
+		
+		<action name="*" class="jhsxxAction" method="{1}">
+	
+			<result name="jh_index">/pages/hebyy/tsgl/hsIndex.jsp</result>
+			<result name="hsInput">/pages/hebyy/tsgl/hsInput.jsp</result>
+			<result name="cxhsxx">/pages/hebyy/tsgl/cxhsxx.jsp</result>
+			
+			<result name="jh_success" type="redirect">queryxx.do</result>
+			<result name="jh_success1" type="redirect">queryxx1.do</result>
+		</action>
+	</package>
+	
+	
+	
+	
+</struts>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<package name="scos.empcontract" extends="json"  namespace="/empcontract">
+		<action name="*" class="empContractAction" method="{1}">
+			<result name="success" type="redirect">userContractView.do?model.user.id=${model.user.id}</result>
+			<result name="input">/pages/scos/hrm/contract/edit.jsp</result> 
+			<result name="showusers" >/pages/scos/hrm/contract/showusers.jsp</result> 
+			<result name="usercontractview">/pages/scos/hrm/contract/view.jsp</result>
+		</action>
+	</package>
+</struts>

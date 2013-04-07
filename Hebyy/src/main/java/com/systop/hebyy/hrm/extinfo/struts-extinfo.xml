@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+<package name="scos.enterpriseext" extends="json"  namespace="/enterpriseext">
+		<action name="*" class="enterpriseExtAction" method="{1}">
+			<result name="success" type="redirect">showUsers.do</result>
+			<result name="input">/pages/scos/hrm/extinfo/edit.jsp</result> 
+			<result name="index">/pages/scos/hrm/extinfo/index.jsp</result> 
+			<result name="view">/pages/scos/hrm/extinfo/view.jsp</result>
+			<result name="showusers">/pages/scos/hrm/extinfo/showusers.jsp</result> 
+		</action>
+	</package>
+</struts>
