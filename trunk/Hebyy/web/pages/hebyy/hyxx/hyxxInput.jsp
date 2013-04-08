@@ -69,35 +69,8 @@ textarea {
 
 					<td width="125" align="right"><span class="warn">*</span>会议纪要类别:</td>
 					<td width="575">
-					<s:if test='#attr.model.hytype == "董事会议纪要"'>
-							<s:select name="model.hytype"
-								cssStyle="width:260px; height:22px;" list="{'董事会议纪要','党委会议纪要','总经理会议纪要','经理会议纪要'}"
-								headerKey="董事会议纪要" headerValue="董事会议纪要"
-								 />
-						</s:if> 
-						
-						<s:if test='#attr.model.hytype == "党委会议纪要"'>
-							<s:select name="model.hytype"
-								cssStyle="width:260px; height:22px;" list="{'董事会议纪要','党委会议纪要','总经理会议纪要','经理会议纪要'}"
-								headerKey="党委会议纪要" headerValue="党委会议纪要" />			
-						</s:if>
-						
-						 <s:if test='#attr.model.hytype == "总经理会议纪要"'>
-							<s:select name="model.hytype"
-								cssStyle="width:260px; height:22px;" list="{'董事会议纪要','党委会议纪要','总经理会议纪要','经理会议纪要'}"
-								headerKey="总经理会议纪要" headerValue="总经理会议纪要"  />
-						</s:if> 
-						 <s:if test='#attr.model.hytype == "经理会议纪要"'>
-							<s:select name="model.hytype"
-								cssStyle="width:260px; height:22px;" list="{'董事会议纪要','党委会议纪要','总经理会议纪要','经理会议纪要'}"
-								headerKey="经理会议纪要" headerValue="经理会议纪要" />
-						</s:if> 
-						
-						<s:if test='#attr.model.hytype != "董事会议纪要"&&#attr.model.hytype != "党委会议纪要"&&#attr.model.hytype != "总经理会议纪要"&&#attr.model.hytype != "经理会议纪要"'>
-							<s:select name="model.hytype" maxLength="18"
-								cssStyle="width:260px; height:22px;" list="{'董事会议纪要','党委会议纪要','总经理会议纪要','经理会议纪要'}"
-								headerKey="" headerValue="请选择"  />
-						</s:if>
+			<s:select name="model.hytype" list='names'
+							cssStyle="width:260px;" headerKey="" headerValue="请选择" />
 					
 					</td>
 				</tr>

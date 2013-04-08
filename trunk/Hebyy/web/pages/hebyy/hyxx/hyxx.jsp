@@ -28,10 +28,8 @@
 					会议名称：<s:textfield name="model.hyMc"
 						maxLength="12" cssStyle="width:100px; height:16px;" />
 					&nbsp;会议纪要类别：
-					<s:select name="model.hytype"
-								cssStyle="width:100px; height:22px;" list="{'董事会议纪要','党委会议纪要','总经理会议纪要','经理会议纪要'}"
-								headerKey="" headerValue="不限--"
-								 />
+					<s:select name="model.hytype" list='names'
+							cssStyle="width:100px;" headerKey="" headerValue="请选择" />
 					&nbsp;&nbsp;&nbsp;起止时间：
 						<input type="text" name="model.startTime" style="width:90px; height:16px;" readonly="readonly" 
 							   value='<s:date name="model.startTime" format="yyyy-MM-dd"/>'
@@ -46,32 +44,40 @@
 	      
 	       <input type="submit" value="查询" class="button"/>
 	    	<input type="button" onclick="jkjsSave()"  class="button" 
-						value="查询全部" >
+					style="width: 60px;"	value="查询全部" >
 	   </s:form> </td>
 	   </tr>
 	   <tr>
 	    <td align="right">
-	   <a href="edit.do" title="添加会议信息记录"> 
+	   <a href="toEdit.do?zx=0" title="添加会议信息记录"> 
 						<img src="${ctx}/images/icons/add.gif">&nbsp;新建</a>
 						&nbsp;&nbsp;
 						<a href="javascript:changeUser('pageQueryForm','确认要删除信息吗?');" title="删除会议信息记录"
 							> <img
 								src="${ctx}/images/icons/delete.gif">删除</a> 
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;
+							<a href="${ctx}/hylb/index.do"
+			title="会议纪要类别管理"> <img src="${ctx}/images/icons/add.gif">&nbsp;会议纪要类别管理</a>
+		&nbsp;&nbsp;
+							
+							&nbsp;&nbsp;&nbsp;&nbsp;
 	    </td>
 	    
 	  </tr>
 	</table>
 </div>
 <div class="x-panel-body">
-		
-		
-			<table id="fineTable" width="800">
-				<tr>
+<div align="right">
+		<table>
+		<tr>
 					<td colspan="13" style="border: 0px; padding-top: 4px;"
 						align="right"><%@include file="/pages/common/messages.jsp"%>
 					</td>
 				</tr>
+		</table>
+	</div>	
+			<table id="fineTable" width="800">
+				
 				<tr>
 				    <th>选择</th>
                     <th>序号</th>
@@ -102,7 +108,7 @@
 
 
 						<td align="center" valign="middle"><a
-							href="edit.do?model.id=${item.id}" title="修改会议信息记录"> <img
+							href="toEdit.do?model.id=${item.id}&zx=1" title="修改会议信息记录"> <img
 								src="${ctx}/images/icons/edit.png">
 						</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 					</tr>
