@@ -13,8 +13,8 @@
 <body>
 
 <div id="r_main">
-<div class="x-header" style="border-bottom: 1px solid #99bbe8;">
-<span class="r_nav_item">借书还书信息查询</span></div>
+<div class="x-header" style="border-bottom: 1px solid #99bbe8;"><span
+	class="r_nav_item">借书还书信息查询</span></div>
 
 <div class="x-toolbar">
 <table width="100%" style="margin: 4px 0px;" cellpadding="0"
@@ -48,21 +48,25 @@
 </table>
 </div>
 <div class="x-panel-body">
-
-<table id="fineTable" width="800">
+<div align="right">
+<table>
 	<tr>
-		<td colspan="9" style="border: 0px; padding-top: 4px;" align="right"><%@include
+		<td colspan="13" style="border: 0px; padding-top: 4px;" align="right"><%@include
 			file="/pages/common/messages.jsp"%></td>
 	</tr>
+</table>
+</div>
+<table id="fineTable" width="800">
+
 	<tr>
-        <th>序号</th>
+		<th>序号</th>
 		<th width="110">书名</th>
 		<th width="75">作者</th>
 		<th width="95">图书类别</th>
 		<th width="60">总数量</th>
 		<th width="65">剩余数量</th>
 		<th width="78">入库日期</th>
-		<th >图书备注</th>
+		<th>图书备注</th>
 
 
 		<th>操作</th>
@@ -79,8 +83,8 @@
 			<td width="65" align="center">${item.syNum}</td>
 			<td width="78" align="center"><fmt:formatDate
 				value="${item.rkTime}" pattern="yyyy-MM-dd" /></td>
-			<td >${item.descn} <input
-				type="hidden" name="item.lbxx.lbMc" value="${item.lbxx.lbMc}" /></td>
+			<td>${item.descn} <input type="hidden" name="item.lbxx.lbMc"
+				value="${item.lbxx.lbMc}" /></td>
 
 
 

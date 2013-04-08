@@ -55,13 +55,17 @@
 	</table>
 </div>
 <div class="x-panel-body">
-
-			<table id="fineTable" width="800">
-				<tr>
-					<td colspan="9" style="border: 0px; padding-top: 4px;"
+<div align="right">
+		<table>
+		<tr>
+					<td colspan="13" style="border: 0px; padding-top: 4px;"
 						align="right"><%@include file="/pages/common/messages.jsp"%>
 					</td>
 				</tr>
+		</table>
+	</div>	
+			<table id="fineTable" width="800">
+				
 				<tr>
 				    <th> 序号 </th>
                     <th  width="95">书名</th>
