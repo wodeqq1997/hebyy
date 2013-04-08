@@ -108,7 +108,7 @@ public class EmpContractAction extends DefaultCrudAction<EmpContract, EmpContrac
 	//员工合同信息列表
 	public String userContractView(){
 		if(getModel()!= null && getModel().getUser() != null && getModel().getUser().getId() != null){
-			Page page = PageUtil.getPage(getPageNo(), getPageSize());
+			page = PageUtil.getPage(getPageNo(), getPageSize());
 			getManager().getUserContractByUid(page, getModel().getUser().getId());
 			restorePageData(page);
 		}
