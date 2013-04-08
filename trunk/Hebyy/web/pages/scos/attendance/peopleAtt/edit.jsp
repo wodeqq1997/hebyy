@@ -22,7 +22,7 @@
 <body>
 <div class="x-panel" style="width: 100%">
 <div class="x-panel-header" style="border-bottom: 1px solid #99bbe8;">
-<div style="float: left;">个人考勤1111111111</div>
+<div style="float: left;">个人考勤</div>
 </div>
 <div align="center" style="width: 100%"><s:form action="save"
 	id="save" validate="true" method="POST">
@@ -92,11 +92,10 @@
 	</table>
 </s:form></div>
 </div>
-<input type="button" value="查看记录222222222222222222222222222222222" onclick="index()" class="button">
+<input type="button" value="查看记录" onclick="index()" class="button">
 <script type="text/javascript">
 	function sub(sta) {
-		window.location.href = "${ctx}/peopleAtt/save.do?sta=" + sta
-				+ "&model.id=" + ${model.id};
+		window.location.href = "${ctx}/peopleAtt/save.do?sta=" + sta+ "&model.id=" + ${model.id};
 	}
 	function index(){
 		window.location.href="${ctx}/peopleAtt/index.do";
