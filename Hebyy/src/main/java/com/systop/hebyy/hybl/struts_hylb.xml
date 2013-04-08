@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	
+	
+	
+	<package name="hylb" extends="json"  namespace="/hylb">
+		
+		<action name="*" class="hyLbAction" method="{1}">
+	
+			<result name="index">/pages/hebyy/hyxx/hylb.jsp</result>
+			<result name="input">/pages/hebyy/hyxx/hylbInput.jsp</result>
+			<result name="success" type="redirect">index.do</result>
+		
+		</action>
+	</package>
+	
+	
+	
+	
+</struts>

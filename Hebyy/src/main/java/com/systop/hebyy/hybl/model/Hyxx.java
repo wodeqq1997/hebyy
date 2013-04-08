@@ -55,6 +55,11 @@ public class Hyxx extends BaseModel {
 
 	// 上传的文件
 	private String fileAttachIds;
+	
+	//会议类别id
+	private String typeId;
+
+
 
 	@Id
 	@GeneratedValue(generator = "hibseq")
@@ -133,6 +138,7 @@ public class Hyxx extends BaseModel {
 		this.pageNum = pageNum;
 	}
 
+	@Transient
 	public String getHytype() {
 		return hytype;
 	}
@@ -149,5 +155,15 @@ public class Hyxx extends BaseModel {
 	public void setFileAttachIds(String fileAttchIds) {
 		this.fileAttachIds = fileAttchIds;
 	}
+
+	public String getTypeId() {
+		return typeId;
+	}
+
+	public void setTypeId(String typeId) {
+		this.typeId = typeId;
+	}
+
+	
 
 }
