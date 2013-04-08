@@ -54,12 +54,12 @@ public class PeopleAttAction extends
 
 		args.add(getLoginUser().getId());
 		if (startDate != null) {
-			hql.append(" and p.punchTime > ? ");
+			hql.append(" and p.date > ? ");
 			args.add(startDate);
 		}
 
 		if (endDate != null) {
-			hql.append(" and p.punchTime < ? ");
+			hql.append(" and p.date < ? ");
 			args.add(endDate);
 		}
 
@@ -169,9 +169,9 @@ public class PeopleAttAction extends
 		} else if (sta.equals(AttendanceConstants.AFTWORK)) {
 			getModel().setAftWorkPunch(date);
 			if (date.after(standard)) {
-				getModel().setAftOverStatus(AttendanceConstants.STATUS_LATER);
+				getModel().setAftWorkStatus(AttendanceConstants.STATUS_LATER);
 			} else {
-				getModel().setAftOverStatus(AttendanceConstants.STATUS_NORMAL);
+				getModel().setAftWorkStatus(AttendanceConstants.STATUS_NORMAL);
 			}
 		} else {
 			getModel().setAftOverPunch(date);
