@@ -32,15 +32,34 @@ public class PeopleAtt extends BaseModel{
 	private User persion;
 	
 	/**
-	 * 打卡时间
+	 * 上午上班
 	 */
-	private Date punchTime;
+	private Date morWorkPunch;
+	
+	//上午下班
+	private Date morOverPunch;
+	
+	//下午上班
+	private Date aftWorkPunch;
+	
+	//下午下班
+	private Date aftOverPunch;
 	
 	/**
-	 * 状态
+	 * 日期
 	 */
-	private String status;
-
+	private Date date;
+	/**
+	 * 上午上班状态
+	 */
+	private String morWorkStatus;
+	
+	private String morOverStatus;
+	
+	private String aftWorkStatus;
+	
+	private String aftOverStatus;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
@@ -62,22 +81,77 @@ public class PeopleAtt extends BaseModel{
 		this.persion = persion;
 	}
 
-	@Column(name = "punch_time")
-	public Date getPunchTime() {
-		return punchTime;
+	@Column(name = "date")
+	public Date getDate() {
+		return date;
 	}
 
-	public void setPunchTime(Date punchTime) {
-		this.punchTime = punchTime;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
-	@Column(name = "status")
-	public String getStatus() {
-		return status;
+	public Date getMorWorkPunch() {
+		return morWorkPunch;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setMorWorkPunch(Date morWorkPunch) {
+		this.morWorkPunch = morWorkPunch;
 	}
-	
+
+	public Date getMorOverPunch() {
+		return morOverPunch;
+	}
+
+	public void setMorOverPunch(Date morOverPunch) {
+		this.morOverPunch = morOverPunch;
+	}
+
+	public Date getAftWorkPunch() {
+		return aftWorkPunch;
+	}
+
+	public void setAftWorkPunch(Date aftWorkPunch) {
+		this.aftWorkPunch = aftWorkPunch;
+	}
+
+	public Date getAftOverPunch() {
+		return aftOverPunch;
+	}
+
+	public void setAftOverPunch(Date aftOverPunch) {
+		this.aftOverPunch = aftOverPunch;
+	}
+
+	public String getMorWorkStatus() {
+		return morWorkStatus;
+	}
+
+	public void setMorWorkStatus(String morWorkStatus) {
+		this.morWorkStatus = morWorkStatus;
+	}
+
+	public String getMorOverStatus() {
+		return morOverStatus;
+	}
+
+	public void setMorOverStatus(String morOverStatus) {
+		this.morOverStatus = morOverStatus;
+	}
+
+	public String getAftWorkStatus() {
+		return aftWorkStatus;
+	}
+
+	public void setAftWorkStatus(String aftWorkStatus) {
+		this.aftWorkStatus = aftWorkStatus;
+	}
+
+	public String getAftOverStatus() {
+		return aftOverStatus;
+	}
+
+	public void setAftOverStatus(String aftOverStatus) {
+		this.aftOverStatus = aftOverStatus;
+	}
+
 }
