@@ -27,9 +27,8 @@
 					会议文件名称：<s:textfield name="model.hyMc" maxLength="12"
 				cssStyle="width:100px; height:16px;" />
 					&nbsp;会议纪要类别：
-					<s:select name="model.hytype" cssStyle="width:100px; height:22px;"
-				list="{'董事会议纪要','党委会议纪要','总经理会议纪要','经理会议纪要'}" headerKey=""
-				headerValue="不限--" />&nbsp;起止时间：
+					<s:select name="model.hytype" list='names'
+							cssStyle="width:100px;" headerKey="" headerValue="请选择" />&nbsp;起止时间：
 						<input type="text" name="model.startTime"
 				style="width: 90px; height: 16px;" readonly="readonly"
 				value='<s:date name="model.startTime" format="yyyy-MM-dd"/>'
@@ -41,7 +40,7 @@
 				onClick="WdatePicker({skin:'blueFresh'})" class="Wdate" />
 			<s:hidden name="ec_p" id="ec_p" />
 			<input type="submit" value="查询" class="button" />
-			<input type="button" onclick="jkjsSave()" class="button" value="查询全部">
+			<input type="button" onclick="jkjsSave()" class="button" style="width: 60px;"  value="查询全部" >
 		</s:form></td>
 	</tr>
 
@@ -49,12 +48,17 @@
 </div>
 <div class="x-panel-body">
 
-
+<div align="right">
+		<table>
+		<tr>
+					<td colspan="13" style="border: 0px; padding-top: 4px;"
+						align="right"><%@include file="/pages/common/messages.jsp"%>
+					</td>
+				</tr>
+		</table>
+	</div>	
 <table id="fineTable" width="800">
-	<tr>
-		<td colspan="13" style="border: 0px; padding-top: 4px;" align="right"><%@include
-			file="/pages/common/messages.jsp"%></td>
-	</tr>
+	
 	<tr>
 
 		<th>序号</th>
