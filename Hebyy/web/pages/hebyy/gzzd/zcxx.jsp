@@ -38,12 +38,17 @@
 			</div>
 		</div>
 		<div style="margin: 10px;">
-			<table id="fineTable" width="800">
-				<tr>
+		<div align="right">
+		<table>
+		<tr>
 					<td colspan="13" style="border: 0px; padding-top: 4px;"
 						align="right"><%@include file="/pages/common/messages.jsp"%>
 					</td>
 				</tr>
+		</table>
+	</div>	
+			<table id="fineTable" width="800">
+				
 				<tr>
 				    <th>选择</th>
                     <th>章程编号</th>
