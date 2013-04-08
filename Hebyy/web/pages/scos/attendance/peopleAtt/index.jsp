@@ -43,10 +43,10 @@
 					<tr onmousemove="this.className='trOver';"
 						onmouseout="this.className='trOut';">
 	                    <td width="120px" align="center"><fmt:formatDate value="${item.date}" pattern="yyyy-MM-dd"/></td>
-						<td width="120px"align="center"><fmt:formatDate value="${item.morWorkPunch }" pattern="hh:mm"/>-<s:if test="#attr.item.morWorkStatus == 'later'">迟到</s:if><s:elseif test="#attr.item.morWorkStatus == 'normal'" >正常</s:elseif><s:else>未签到</s:else></td>
-						<td width="120px"align="center"><fmt:formatDate value="${item.morOverPunch }" pattern="hh:mm"/>-<s:if test="#attr.item.morOverStatus == 'early'">早退</s:if><s:elseif test="#attr.item.morOverStatus == 'normal'" >正常</s:elseif><s:else>未签到</s:else></td>
-						<td width="120px"align="center"><fmt:formatDate value="${item.aftWorkPunch }" pattern="hh:mm"/>-<s:if test="#attr.item.aftWorkStatus == 'later'">迟到</s:if><s:elseif test="#attr.item.aftWorkStatus == 'normal'" >正常</s:elseif><s:else>未签到</s:else></td>
-						<td width="120px"align="center"><fmt:formatDate value="${item.aftOverPunch }" pattern="hh:mm"/>-<s:if test="#attr.item.aftOverStatus == 'early'">早退</s:if><s:elseif test="#attr.item.aftOverStatus == 'normal'" >正常</s:elseif><s:else>未签到</s:else></td>
+						<td width="120px"align="center"><fmt:formatDate value="${item.morWorkPunch }" pattern="HH:mm"  />-<s:if test="#attr.item.morWorkStatus == 'later'">迟到</s:if><s:elseif test="#attr.item.morWorkStatus == 'normal'" >正常</s:elseif><s:else>未签到</s:else></td>
+						<td width="120px"align="center"><fmt:formatDate value="${item.morOverPunch }" pattern="HH:mm" />-<s:if test="#attr.item.morOverStatus == 'early'">早退</s:if><s:elseif test="#attr.item.morOverStatus == 'normal'" >正常</s:elseif><s:else>未签到</s:else></td>
+						<td width="120px"align="center"><fmt:formatDate value="${item.aftWorkPunch }" pattern="HH:mm" />-<s:if test="#attr.item.aftWorkStatus == 'later'">迟到</s:if><s:elseif test="#attr.item.aftWorkStatus == 'normal'" >正常</s:elseif><s:else>未签到</s:else></td>
+						<td width="120px"align="center"><fmt:formatDate value="${item.aftOverPunch }" pattern="HH:mm" />-<s:if test="#attr.item.aftOverStatus == 'early'">早退</s:if><s:elseif test="#attr.item.aftOverStatus == 'normal'" >正常</s:elseif><s:else>未签到</s:else></td>
 						<td><a href="edit.do?model.id=${item.id}">打卡</a></td>
 					</tr>
 				</s:iterator>
