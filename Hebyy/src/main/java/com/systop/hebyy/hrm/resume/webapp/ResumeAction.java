@@ -10,7 +10,6 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import com.systop.core.dao.support.Page;
 import com.systop.core.util.PageUtil;
 import com.systop.core.webapp.struts2.action.DefaultCrudAction;
 import com.systop.hebyy.hrm.resume.model.Resume;
@@ -36,30 +35,30 @@ public class ResumeAction extends DefaultCrudAction<Resume,ResumeManager>{
 	 * 简历检索管理
 	 * */
 	public String index(){
-		Page page = PageUtil.getPage(getPageNo(), getPageSize());
 		StringBuffer sql = new StringBuffer("from Resume r where 1=1");
 		List<Object> args = new ArrayList<Object>();
-			if (getModel().getName() != null) {
-				sql.append(" and r.name like ?");
-				args.add(MatchMode.ANYWHERE.toMatchString(getModel().getName()));
-			}
-			if (StringUtils.isNotBlank(getModel().getDegree())) {// 学位
-				sql.append(" and r.degree like ?");
-				args.add(MatchMode.ANYWHERE.toMatchString(getModel().getDegree()));
-			}
-			if (StringUtils.isNotBlank(getModel().getMajor())) {// 专业
-				sql.append(" and r.major like ?");
-				args.add(MatchMode.ANYWHERE.toMatchString(getModel().getMajor()));
-			}
-			if (StringUtils.isNotBlank(getModel().getGraduatCollege())) {// 毕业院校
-				sql.append(" and r.graduatCollege like ?");
-				args.add(MatchMode.ANYWHERE.toMatchString(getModel().getGraduatCollege()));
-			}
-			if (StringUtils.isNotBlank(getModel().getGraduationTime())) {// 现居住地
-				sql.append(" and r.graduationTime = ?");
-				args.add(getModel().getGraduationTime());
-			}
+		if (StringUtils.isNotBlank(getModel().getName())) {
+			sql.append(" and r.name like ?");
+			args.add(MatchMode.ANYWHERE.toMatchString(getModel().getName()));
+		}
+		if (StringUtils.isNotBlank(getModel().getDegree())) {// 学位
+			sql.append(" and r.degree like ?");
+			args.add(MatchMode.ANYWHERE.toMatchString(getModel().getDegree()));
+		}
+		if (StringUtils.isNotBlank(getModel().getMajor())) {// 专业
+			sql.append(" and r.major like ?");
+			args.add(MatchMode.ANYWHERE.toMatchString(getModel().getMajor()));
+		}
+		if (StringUtils.isNotBlank(getModel().getGraduatCollege())) {// 毕业院校
+			sql.append(" and r.graduatCollege like ?");
+			args.add(MatchMode.ANYWHERE.toMatchString(getModel().getGraduatCollege()));
+		}
+		if (StringUtils.isNotBlank(getModel().getGraduationTime())) {// 现居住地
+			sql.append(" and r.graduationTime = ?");
+			args.add(getModel().getGraduationTime());
+		}
 		sql.append(" order by r.createTime desc");
+		page = PageUtil.getPage(getPageNo(), getPageSize());
 		page = getManager().pageQuery(page, sql.toString(), args.toArray());
 		restorePageData(page);
 		return INDEX;
