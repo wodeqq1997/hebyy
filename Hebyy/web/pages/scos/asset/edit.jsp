@@ -45,12 +45,12 @@
 					<tr>
 						<td align="right">物资类别：</td>
 						<td> 
-							<s:select list="assetTypeMap" name="model.assetType.id" headerKey="" id="assetTypeId" headerValue="全部" cssStyle="width:210px;" cssClass="assetTypeCheck"/>
+							<s:select list="assetTypeMap" name="model.assetType.id" headerKey="" id="assetTypeId" headerValue="全部" cssStyle="width:146px;" cssClass="assetTypeCheck"/>
 							<font color="red">*</font>
 						</td>
 						<td align="right">物资状态：</td>
 						<td> 
-							<s:select list="#{'好':'好','损坏':'损坏','报废':'报废'}" name="model.status" headerKey="" id="status" headerValue="全部" cssStyle="width:210px;" cssClass="statusCheck"/>
+							<s:select list="#{'好':'好','损坏':'损坏','报废':'报废'}" name="model.status" headerKey="" id="status" headerValue="全部" cssStyle="width:146px;" cssClass="statusCheck"/>
 							<font color="red">*</font>
 						</td>
 					</tr>

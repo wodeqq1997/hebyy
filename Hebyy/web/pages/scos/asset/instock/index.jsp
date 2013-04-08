@@ -85,8 +85,7 @@ function remove(id) {
 	</s:iterator>
 	<s:if test="#attr.items.size()!=0">
 			<tr style="background-color: #ffe3ee">
-				<td colspan="5" align="center" id="No1"
-					style="font-weight: bold; border-top: 0px; border-bottom: 0px; border-left: 0px">合计(全部)</td>
+				<td colspan="5" align="center" id="No1">合计(全部)</td>
 				<td style="font-weight: bold; word-wrap: break-word; word-break: break-all; text-align: right">${totalInCounts}</td>
 				<td>&nbsp;</td>
 				<td style="font-weight: bold; word-wrap: break-word; word-break: break-all; text-align: right">${totalAmount}</td>
@@ -97,7 +96,7 @@ function remove(id) {
 			</tr>
 	</s:if>
 	<tr>
-		<td colspan="13" style="border: 0px; padding-top: 10px;"
+		<td colspan="11" style="border: 0px; padding-top: 10px;"
 			align="right"><%@include file="/pages/common/page.jsp"%>
 		</td>
 	</tr>
