@@ -54,6 +54,9 @@ html,body {
 var nodes = [
     {name:"我的桌面", open:true, icon:"${ctx}/images/computer_on_min.png", children:[
         {name:"修改个人资料", url:"${ctx}/security/user/editSelf.do", target:"main", icon:"${ctx}/images/icons/user.gif"},
+        {name:"考勤", url:"${ctx}/peopleAtt/edit.do", target:"main", icon:"${ctx}/images/icons/user.gif"},
+        {name:"考勤时间", url:"${ctx}/time/edit.do", target:"main", icon:"${ctx}/images/icons/user.gif"},
+        
         {name:"我的工作日志", url:"${ctx}/diary/index.do", target:"main", icon:"${ctx}/images/icons/diary.png"},
         {name:"我的待办事项", url:"${ctx}/flow/node/myIndex.do", target:"main", icon:"${ctx}/images/icons/myplan.png"},
         {name:"我的消息", icon:"${ctx}/images/icons/message.png", children:[
