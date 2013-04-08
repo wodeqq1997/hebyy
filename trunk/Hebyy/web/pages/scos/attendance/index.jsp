@@ -78,10 +78,10 @@
 		</td>
 	</tr>
 	<tr>
-	    <th>序号</th>
-        <th>考勤记录</th>
-		<th>创建日期</th>
-		<th>操作 </th>
+		<td style="background-color: #d0def0;" align="center"><b>序号</b></td>
+		<td style="background-color: #d0def0;" align="center"><b>考勤记录</b></td>
+		<td style="background-color: #d0def0;" align="center"><b>创建日期</b></td>
+		<td style="background-color: #d0def0;" align="center"><b>操作</b></td>
 	</tr>
 	<s:iterator value="#attr.items"  var="item" status="st">
 		<tr onmousemove="this.className='trOver';"
