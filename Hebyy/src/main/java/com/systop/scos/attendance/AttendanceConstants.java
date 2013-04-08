@@ -39,10 +39,15 @@ public class AttendanceConstants {
 	/**
 	 * 下午上班
 	 */
-	public static final String AFTWORK = "1";
+	public static final String AFTWORK = "2";
 
 	/**
 	 * 下午下班
 	 */
-	public static final String AFTOVEW = "1";
+	public static final String AFTOVEW = "3";
+	
+	/**
+	 * 打卡时间范围
+	 */
+	public static final String TIME = "1";
 }

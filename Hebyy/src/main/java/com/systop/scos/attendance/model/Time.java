@@ -14,24 +14,25 @@ import com.systop.core.model.BaseModel;
  *@version 1.0
  */
 @Entity
-@Table(name = "persion_att")
+@Table(name = "time")
 @SuppressWarnings("serial")
 public class Time extends BaseModel{
 
 	private Integer id;
 	
 	//上午上班
-	private String morWork = "8:30";
+	private String morWork ;
 	
 	//上午下班
-	private String morOver = "12:00";
+	private String morOver ;
 	
 	//下午上班
-	private String afWork = "14:00";
+	private String afWork ;
 	
 	//下午下班
-	private String afOver = "18:00";
+	private String afOver ;
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)

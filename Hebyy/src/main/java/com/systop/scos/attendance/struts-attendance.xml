@@ -42,4 +42,18 @@
 			<result name="editAtte">/pages/scos/attendance/reported/editAtte.jsp</result>
  		</action>
 	</package>
+	<package name="scos.peopleAtt" extends="default"  namespace="/peopleAtt">
+		<action name="*" class="peopleAttAction" method="{1}">
+			<result name="view">/pages/scos/attendance/peopleAtt/view.jsp</result>
+			<result name="success" type="redirect">edit.do</result>
+			<result name="index">/pages/scos/attendance/peopleAtt/index.jsp</result> 
+			<result name="input">/pages/scos/attendance/peopleAtt/edit.jsp</result>
+ 		</action>
+	</package>
+	<package name="scos.time" extends="default"  namespace="/time">
+		<action name="*" class="timeAction" method="{1}">
+			<result name="success" type="redirect">edit.do</result>
+			<result name="input">/pages/scos/attendance/time/edit.jsp</result>
+ 		</action>
+	</package>
 </struts>
