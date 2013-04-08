@@ -79,7 +79,7 @@
 							<s:if test='#attr.item.sex == "M"'>男</s:if>
 							<s:else>女</s:else>
 						</ec:column>
-						<ec:column width="100" property="dept.name" title="部门"/>
+						<ec:column width="90" property="dept.name" title="部门"/>
 						<ec:column width="90" property="position.name" title="职务"/>
 						<ec:column width="90" property="phone" title="办公电话"/>
 						<ec:column width="90" property="mobile" title="移动电话"/>
