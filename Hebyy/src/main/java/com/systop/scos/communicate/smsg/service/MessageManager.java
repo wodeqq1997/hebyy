@@ -256,6 +256,19 @@ public class MessageManager extends BaseGenericsManager<Message> {
 
     }
 
-
+    /**
+	 * 下属关系确认消息提示
+	 * 
+	 * @param args
+	 * @param user
+	 */
+	@Transactional
+	public void saveSubUserMsg(Object[] args, User user) {
+		if (args == null || args.length != 3) {
+			throw new ApplicationException("参数为空或长度错误");
+		}
+		String pattern = "下属关系待确认，【{0}】将你设置为其下属。&nbsp;<a href=\"{1}/subuser/view.do?model.id={2}\">点击查看</a>";
+		saveSysMsg("下属关系待确认", pattern, args, user);
+	}
 
 }
