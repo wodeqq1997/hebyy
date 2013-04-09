@@ -27,10 +27,10 @@
                     <td align="right">所属类别：</td>
                     <td>
                         <div id='comboxWithTree'></div>
-                        <s:textfield name="model.docType.id" id="docTypeId" class="checkDocType" style="visibility: hidden;width: 0;" />
+                        <s:textfield name="docTypeId" id="docTypeId" class="checkDocType" style="visibility: hidden;width: 0;" />
                     </td>
                 </tr>
-                        </table>
+            </table>
             <div align="center">
                 <input type="submit" value="保存" class="button">　<input type="reset" value="重置" class="button">
             </div>

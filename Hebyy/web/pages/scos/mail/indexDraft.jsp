@@ -11,7 +11,7 @@
 <body>
 <div class="x-panel-header">草稿</div>
 <div class="x-toolbar" style="height: 25px; padding: 3px 5px;">
-<form action="sendIndex.do" method="post" id="pageQueryForm"><s:hidden
+<form action="indexDraft.do" method="post" id="pageQueryForm"><s:hidden
 	name="ec_p" id="ec_p" />
 <table width="99%">
 	<tr>
@@ -36,7 +36,7 @@
 	<s:iterator value="#attr.items" var="item" status="st">
 		<tr onmousemove="this.className='trOver';"
 			onmouseout="this.className='trOut';">
-			<td width="40px" align="center">${(page.pageNo)*20 + st.index+1}</td>
+			<td width="40px" align="center">${(page.pageNo-1)*20 + st.index+1}</td>
 			<td width="300px"> ${item.recipientNames}</td>
 			<td width="340px"><a href="view.do?mailId=${item.id}"><font color="blue">${empty
 			item.subject ? "无标题":item.subject}</font>  </a></td>
