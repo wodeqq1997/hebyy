@@ -48,11 +48,11 @@ textarea {
 			 	<s:if test='#attr.model.id == 0 || #attr.model.id == null'>
 			 	第&nbsp; <s:textfield
 				name="model.zcxh" cssClass="required number"
-				style="width:20px; height:18px;" /> &nbsp;章&nbsp;
+				style="width:20px; height:22px;" /> &nbsp;章&nbsp;
 				</s:if>
 				<s:if test='#attr.model.id != 0 &&#attr.model.id != null'>
 					<s:textfield name="model.zcxh"
-				style="width:260px; height:18px;" cssClass="required"
+				style="width:260px; height:22px;" cssClass="required"
 				maxlength="255" /> 
 					
 					</s:if>
@@ -64,7 +64,7 @@ textarea {
 		<tr>
 			<td class="td1"><span class="warn">*</span> 章程目录名称</td>
 			<td><s:textfield name="model.zcMc"
-				style="width:650px; height:18px;" cssClass="required"
+				style="width:650px; height:22px;" cssClass="required"
 				maxlength="255" /> <font color="red">*</font></td>
 
 		</tr>
