@@ -19,6 +19,9 @@ public final class FileConstants {
 
 	/** 附件类别：文档 */
 	public static final String DOCUMENT = "document";
+	
+	/** 附件类别：游戏 */
+	public static final String GAMES = "games";
 
 	/** 附件类别：文章 */
 	public static final String ARTICLE = "article";
