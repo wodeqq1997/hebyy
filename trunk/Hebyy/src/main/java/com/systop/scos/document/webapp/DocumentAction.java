@@ -34,6 +34,7 @@ public class DocumentAction extends
 	@Autowired
 	private DocTypeManager docTypeManager;
 
+	private String docTypeId;
 	// 附件ID
 	private String fileAttchIds;
 
@@ -139,9 +140,16 @@ public class DocumentAction extends
 	 * @author wangyaping 用于将个人文档分享到公共文档中
 	 */
 	public String share() {
-		if(getModel().getId() != null && getModel().getDocType() != null){
-			getModel().setIsPublic("1");// 设为公共分享的文档
-			save();
+		if (getModel().getId() != null && StringUtils.isNotBlank(docTypeId)) {
+			Document document = new Document();
+			getModel().setStatus(getModel().getId().toString());
+			getManager().save(getModel());
+			document = getModel();
+			document.setId(null);
+			document.setDocType(docTypeManager.get(Integer.parseInt(docTypeId)));
+			document.setIsPublic(Constants.YES);
+			document.setOwner(null);
+			getManager().save(document);
 		}
 		return "mySuccess"; // 跳回个人文档页面
 
@@ -160,14 +168,34 @@ public class DocumentAction extends
 	 */
 	public String desShare() {
 		if (getModel().getId() != null) {
-			getModel().setIsPublic("0");
-			save();
+			String hql = "from Document d where d.status = ? ";
+			List<Document> list = getManager().query(hql,
+					getModel().getStatus());
+			if (list != null) {
+				for (Document document : list) {
+					if (Constants.YES.equals(document.getIsPublic())) {
+						getManager().remove(document);
+					}
+				}
+			}
+			getModel().setStatus(null);
+			getManager().save(getModel());
 		}
+		setModel(null);
 		return this.myDocumentIndex();
 	}
 
 	public String remove() {
-		getManager().remove(getModel());
+		if (StringUtils.isNotBlank(getModel().getStatus())) {
+			String hql = "from Document d where d.status = ? ";
+			List<Document> list = getManager().query(hql,
+					getModel().getStatus());
+			if (list != null) {
+				for (Document document : list) {
+					getManager().remove(document);
+				}
+			}
+		}
 		if (Constants.YES.equals(getModel().getIsPublic())) {
 			return "publicSuccess";
 		} else {
@@ -202,4 +230,13 @@ public class DocumentAction extends
 	public void setFileAttchIds(String fileAttchIds) {
 		this.fileAttchIds = fileAttchIds;
 	}
+
+	public String getDocTypeId() {
+		return docTypeId;
+	}
+
+	public void setDocTypeId(String docTypeId) {
+		this.docTypeId = docTypeId;
+	}
+
 }
