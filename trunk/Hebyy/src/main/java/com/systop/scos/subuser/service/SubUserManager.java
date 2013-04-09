@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.systop.common.modules.security.user.model.User;
 import com.systop.core.ApplicationException;
+import com.systop.core.Constants;
 import com.systop.core.service.BaseGenericsManager;
 import com.systop.scos.communicate.smsg.service.MessageManager;
 import com.systop.scos.subuser.model.SubUser;
@@ -59,8 +60,8 @@ public class SubUserManager extends BaseGenericsManager<SubUser> {
 	}
 
 	private List<SubUser> getSubs(Integer ownerId) {
-		String hql = "from SubUser su where su.owner.id = ?";
-		return query(hql, ownerId);
+		String hql = "from SubUser su where su.owner.id = ? and su.status = ?";
+		return query(hql, ownerId , Constants.YES);
 	}
 	
 	/**

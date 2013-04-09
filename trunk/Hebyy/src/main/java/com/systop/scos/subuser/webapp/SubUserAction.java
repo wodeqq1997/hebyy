@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 
 import com.systop.core.ApplicationException;
 import com.systop.core.Constants;
+import com.systop.core.util.PageUtil;
 import com.systop.core.webapp.struts2.action.DefaultCrudAction;
 import com.systop.scos.subuser.model.SubUser;
 import com.systop.scos.subuser.service.SubUserManager;
@@ -45,7 +46,7 @@ public class SubUserAction extends DefaultCrudAction<SubUser, SubUserManager> {
 	}
 
 	/**
-	 * 查看下级用户,未采用分页查询
+	 * 查看下级用户
 	 */
 	public String index() {
 		List<Object> args = new ArrayList<Object>();
@@ -60,7 +61,9 @@ public class SubUserAction extends DefaultCrudAction<SubUser, SubUserManager> {
 					.getName()));
 		}
 		// 上级部门 下级部门 所属公司一致
-		items = getManager().query(hql.toString(), args.toArray());
+		page = PageUtil.getPage(getPageNo(), getPageSize());
+		page = getManager().pageQuery(page, hql.toString(), args.toArray());
+		restorePageData(page);
 		return INDEX;
 	}
 
