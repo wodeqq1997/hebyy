@@ -19,7 +19,7 @@
 					<tr>
 						<td width="100" align="right">图书名称：</td>
 						<td width="350">
-							${model.author}
+							${model.tsMc}
 						</td>
 						<td width="300" rowspan="8" align="center">
 							<div style="border:1px solid #ccc;width: 250px;height: 270px;">

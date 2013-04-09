@@ -85,10 +85,10 @@
 			<td width="33" align="center"><input type="checkbox"
 				name="selectedItems" id="selectedItems" value="${item.id}"
 				class="checkbox" /></td>
-			<td width="100" align="center">${item.tsMc}</td>
-			<td width="75" align="center"><a
+			<td width="100" align="center"><a
 				href="view.do?model.id=${item.id}" title="查看详情"><font
-				color="blue">${item.author}</font></a></td>
+				color="blue">${item.tsMc}</font></a></td>
+			<td width="75" align="center">${item.author}</td>
 			<td width="85" align="center">${item.lbxx.lbMc}
 			<td width="65" align="center">${item.totalNum}</td>
 			<td width="70" align="center">${item.syNum}</td>
