@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="scos.games" extends="default"  namespace="/games">
+		<action name="*" class="gamesAction" method="{1}">
+			<result name="index">/pages/scos/games/index.jsp</result> 
+			<result name="input">/pages/scos/games/edit.jsp</result> 
+			<result name="view">/pages/scos/games/view.jsp</result>	
+		</action>
+	</package>
+</struts>
