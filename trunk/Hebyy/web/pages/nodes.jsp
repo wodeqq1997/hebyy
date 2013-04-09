@@ -89,6 +89,10 @@ var nodes = [
  		{name:"我的文档", url:"${ctx}/document/index.do?model.isPublic=0", target:"main", icon:"${ctx}/images/icons/file_folder.gif"},                                                         
  		{name:"公共文档", url:"${ctx}/document/index.do?model.isPublic=1", target:"main", icon:"${ctx}/images/icons/folder_table.gif"}                                                                
        ]},
+       {name:"下属管理", icon:"${ctx}/images/icons/users.png", children:[
+            {name:"我的下属", url:"${ctx}/subuser/index.do", target:"main", icon:"${ctx}/images/icons/users.png"},
+            {name:"下属工作日志", url:"${ctx}/diary/subUserDiaryIndex.do", target:"main", icon:"${ctx}/images/icons/diary_sub.gif"}
+        ]},
        {name:"工作日志", url:"${ctx}/diary/index.do", target:"main", icon:"${ctx}/images/icons/diary.png"},
        {name:"个人考勤", url:"${ctx}/peopleAtt/edit.do", target:"main", icon:"${ctx}/images/icons/user.gif"},
        {name:"考勤时间", url:"${ctx}/time/edit.do", target:"main", icon:"${ctx}/images/icons/user.gif"},
