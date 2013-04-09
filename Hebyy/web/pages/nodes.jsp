@@ -105,9 +105,9 @@ var nodes = [
         {name:"会议历史查询", url:"${ctx}/hybl/queryxx1.do", target:"main", icon:"${ctx}/images/icons/erp_min.gif"},
         {name:"规章制度管理", url:"${ctx}/gzzd/queryxx.do", target:"main", icon:"${ctx}/images/icons/visit_p.gif"},
         {name:"图书管理", icon:"${ctx}/images/forum/bbs.gif", children:[
-        {name:"图书维护", url:"${ctx}/tsgl/queryxx.do", target:"main", icon:"${ctx}/images/icons/role.gif"},
-        {name:"图书借还管理", url:"${ctx}/tsgl/queryxx1.do", target:"main", icon:"${ctx}/images/icons/role.gif"},
-        {name:"图书信息查询", url:"${ctx}/tsgl/queryxx2.do", target:"main", icon:"${ctx}/images/icons/role.gif"}
+        {name:"图书维护", url:"${ctx}/tsgl/queryxx.do", target:"main", icon:"${ctx}/images/forum/bbs.gif"},
+        {name:"图书借还管理", url:"${ctx}/tsgl/queryxx1.do", target:"main", icon:"${ctx}/images/forum/bbs.gif"},
+        {name:"图书信息查询", url:"${ctx}/tsgl/queryxx2.do", target:"main", icon:"${ctx}/images/forum/bbs.gif"}
         ]},
         {name:"办公用品申请", url:"${ctx}/goods/apply/myIndex.do", target:"main", icon:"${ctx}/images/icons/office-tackle.png"}
         ,
