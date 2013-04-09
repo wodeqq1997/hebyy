@@ -101,9 +101,9 @@ var nodes = [
        ,
        {name:"",isHidden:true},
     {name:"综合行政", icon:"${ctx}/images/bmsz.gif", children:[                                                   
-        {name:"会议管理", url:"${ctx}/hybl/queryxx.do", target:"main", icon:"${ctx}/images/icons/role.gif"},
-        {name:"会议历史查询", url:"${ctx}/hybl/queryxx1.do", target:"main", icon:"${ctx}/images/icons/role.gif"},
-        {name:"规章制度管理", url:"${ctx}/gzzd/queryxx.do", target:"main", icon:"${ctx}/images/icons/role.gif"},
+        {name:"会议管理", url:"${ctx}/hybl/queryxx.do", target:"main", icon:"${ctx}/images/icons/erp_min.gif"},
+        {name:"会议历史查询", url:"${ctx}/hybl/queryxx1.do", target:"main", icon:"${ctx}/images/icons/erp_min.gif"},
+        {name:"规章制度管理", url:"${ctx}/gzzd/queryxx.do", target:"main", icon:"${ctx}/images/icons/visit_p.gif"},
         {name:"图书管理", icon:"${ctx}/images/forum/bbs.gif", children:[
         {name:"图书维护", url:"${ctx}/tsgl/queryxx.do", target:"main", icon:"${ctx}/images/icons/role.gif"},
         {name:"图书借还管理", url:"${ctx}/tsgl/queryxx1.do", target:"main", icon:"${ctx}/images/icons/role.gif"},
