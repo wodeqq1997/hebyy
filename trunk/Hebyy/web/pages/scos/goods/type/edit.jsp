@@ -20,7 +20,7 @@
 					<tr>
 						<td width="200" align="right">类别名称:</td>
 						<td width="300">
-							<s:textfield name="model.name" id="name"  maxlength="20" cssClass="required"/>
+							<s:textfield name="model.name" id="name"  maxlength="20" style="width:260px; " cssClass="required"/>
 							<span id="nameDescn"></span>
 							<font color="red">*</font>
 						</td>
