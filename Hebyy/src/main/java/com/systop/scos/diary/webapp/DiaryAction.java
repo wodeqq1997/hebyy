@@ -2,26 +2,33 @@ package com.systop.scos.diary.webapp;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.xwork.StringUtils;
 import org.hibernate.criterion.MatchMode;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import com.systop.common.modules.security.user.model.User;
 import com.systop.core.util.DateUtil;
 import com.systop.core.util.PageUtil;
 import com.systop.core.webapp.struts2.action.DefaultCrudAction;
 import com.systop.scos.diary.model.Diary;
 import com.systop.scos.diary.service.DiaryManager;
+import com.systop.scos.subuser.service.SubUserManager;
 
 @SuppressWarnings("serial")
 @Controller
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class DiaryAction extends DefaultCrudAction<Diary, DiaryManager> {
 
+
+	@Autowired
+	private SubUserManager subUserManager;
 
 	private List<Map<String, Object>> subUserDiarys;
 
@@ -103,6 +110,19 @@ public class DiaryAction extends DefaultCrudAction<Diary, DiaryManager> {
         }
         return "indexByUser";
     }
+    
+    public String subUserDiaryIndex() {
+		List<User> subUsers = subUserManager.getSubUsers(getLoginUser().getId());
+		subUserDiarys = new ArrayList<Map<String, Object>>();
+		for (User u : subUsers) {
+			Map<String, Object> userDiaryMap = new HashMap<String, Object>();
+			userDiaryMap.put("user", u);
+			Diary d = getManager().last(u.getId());
+			userDiaryMap.put("diary", d);
+			subUserDiarys.add(userDiaryMap);
+		}
+		return "subUserDiaryIndex";
+	}
 
 	public Date getQueryDate() {
 		return queryDate;
