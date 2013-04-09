@@ -54,77 +54,14 @@ html,body {
 var nodes = [
     {name:"我的桌面", open:true, icon:"${ctx}/images/computer_on_min.png", children:[
         {name:"修改个人资料", url:"${ctx}/security/user/editSelf.do", target:"main", icon:"${ctx}/images/icons/user.gif"},
-        {name:"考勤", url:"${ctx}/peopleAtt/edit.do", target:"main", icon:"${ctx}/images/icons/user.gif"},
-        {name:"考勤时间", url:"${ctx}/time/edit.do", target:"main", icon:"${ctx}/images/icons/user.gif"},
-        
-        {name:"我的工作日志", url:"${ctx}/diary/index.do", target:"main", icon:"${ctx}/images/icons/diary.png"},
-        {name:"我的待办事项", url:"${ctx}/flow/node/myIndex.do", target:"main", icon:"${ctx}/images/icons/myplan.png"},
-        {name:"我的消息", icon:"${ctx}/images/icons/message.png", children:[
-            {name:"发送短消息", url:"${ctx}/msg/newMsg.do", target:"main", icon:"${ctx}/images/icons/modify.gif"},
-            {name:"接收的个人消息", url:"${ctx}/msg/receiveIndex.do?model.msgType=personal", target:"main", icon:"${ctx}/images/icons/user_go.gif"},
-            {name:"接收的系统消息", url:"${ctx}/msg/receiveIndex.do?model.msgType=sys", target:"main", icon:"${ctx}/images/icons/sms.gif"},
-            {name:"已发的短消息", url:"${ctx}/msg/sendIndex.do", target:"main", icon:"${ctx}/images/icons/diary.png"}
-        ]},
-        {name:"我的文件", icon:"${ctx}/images/icons/mail.png", children:[
-            {name:"发送文件", url:"${ctx}/mail/newMail.do", target:"main", icon:"${ctx}/images/icons/mail_3.gif"},
-            {name:"已收文件", url:"${ctx}/mail/index.do?mailIndexType=receive", target:"main", icon:"${ctx}/images/icons/folder-in.gif"},
-            {name:"已发文件", url:"${ctx}/mail/index.do", target:"main", icon:"${ctx}/images/icons/folder_go.gif"},
-            {name:"草稿箱", url:"${ctx}/mail/indexDraft.do", target:"main", icon:"${ctx}/images/icons/folder_edit.gif"}
-        ]},
-
+        {name:"我的待办事项", url:"${ctx}/flow/node/myIndex.do", target:"main", icon:"${ctx}/images/icons/myplan.png"}
         <%--{name:"我的邮件", url:"${ctx}/pages/scos/mail/mailLayout.jsp", target:"main", icon:"${ctx}/images/icons/mail.png"},--%>
-      
-        {name:"组织架构", url:"${ctx}/security/user/show.do", target:"main", icon:"${ctx}/images/proj/flow_chart.png"}
+       
     ]},
     {name:"公共事物", icon:"${ctx}/images/icons/erp.gif", children:[
         {name:"通知公告", url:"${ctx}/notice/index.do", target:"main", icon:"${ctx}/images/icons/class.gif"},
         {name:"新闻管理", url:"${ctx}/article/index.do", target:"main", icon:"${ctx}/images/icons/article.gif"},
-     
-      
-        {name:"问卷调查", url:"${ctx}/survey/view.do", target:"main", icon:"${ctx}/images/icons/ask.gif"},
-        {name:"部门考勤上报", url:"${ctx}/reportedAtte/index.do", target:"main", icon:"${ctx}/images/icons/attendance.gif"},
         {name:"",isHidden:true}
-    ]},
-
-    {name:"人力资源", icon:"${ctx}/images/hrm/hr.jpg", children:[
-    	{name:"",isHidden:true}
-        ,{name:"考勤", icon:"${ctx}/images/icons/attendance.gif", children:[
-          
-            {name:"部门考勤上报", url:"${ctx}/reportedAtte/index.do", target:"main", icon:"${ctx}/images/icons/attendance.gif"}
-        ]},
-        {name:"员工", icon:"${ctx}/images/hrm/training.gif", children:[
-           {name:"员工信息", url:"${ctx}/enterpriseext/showUsers.do", target:"main", icon:"${ctx}/images/hrm/training.gif"},
-           {name:"员工合同", url:"${ctx}/empcontract/showUsers.do", target:"main", icon:"${ctx}/images/hrm/training.gif"},
-           {name:"简历管理", url:"${ctx}/resume/index.do", target:"main", icon:"${ctx}/images/icons/curriculum_vitae.png"}
-          
-       ]},
-
-        {name:"问卷调查管理", url:"${ctx}/survey/index.do", target:"main", icon:"${ctx}/images/icons/ask.gif"}
-    ] },
-
-    {name:"实用工具", icon:"${ctx}/images/forum/comm.gif", children:[
- 		{name:"火车时刻", url:"http://www.huoche.com.cn/", target:"_blank", icon:"${ctx}/images/icons/skype.gif"},
-        {name:"飞机航班", url:"http://flight.qunar.com/status/alphlet_order.jsp?ex_track=bd_aladding_flightsk_title", target:"_blank", icon:"${ctx}/images/icons/vido.png"},
-        {name:"邮编/区号", url:"http://post.tao123.com/", target:"_blank", icon:"${ctx}/images/icons/down.gif"},
-        {name:"国际时间", url:"http://www.china.org.cn/worldclock/worldclock.htm", target:"_blank", icon:"${ctx}/images/icons/down.gif"},
-        {name:"",isHidden:true}
-     ]},
-    {name:"信息交流", icon:"${ctx}/images/forum/comm.gif", children:[
-		{name:"信息交流", url:"${ctx}/pages/admin/security/user/skype/index.jsp", target:"main", icon:"${ctx}/images/icons/skype.gif"},
-        {name:"视频会议", url:"${ctx}/pages/video/videoClientSystopCms.jsp", target:"main", icon:"${ctx}/images/icons/vido.png"},
-        {name:"讨论区", url:"${ctx}/forum/board/index.do", target:"main", icon:"${ctx}/images/icons/down.gif"},
-        {name:"论坛管理", icon:"${ctx}/images/forum/bbs.gif", children:[
-            {name:"论坛.板块", url:"${ctx}/forum/board/adminIndex.do", target:"main", icon:"${ctx}/images/icons/more2.gif"},
-            {name:"论坛.帖子", url:"${ctx}/forum/topic/index.do", target:"main", icon:"${ctx}/images/icons/a_list.gif"}
-        ]},
-        {name:"",isHidden:true}
-    ]},
-    {name:"档案管理", icon:"${ctx}/images/icons/roll_manage.gif", children:[
-        {name:"案卷管理", target:"main", url:"${ctx}/archive/index.do",icon:"${ctx}/images/icons/roll_manage.gif"},
-        {name:"文件管理", target:"main", url:"${ctx}/archive/file/index.do",icon:"${ctx}/images/icons/roll_manage.gif"},
-        {name:"案卷借阅", url:"${ctx}/archive/file/lend/index.do", target:"main", icon:"${ctx}/images/icons/roll_manage.gif"},
-        {name:"案卷借阅记录", target:"main", url:"${ctx}/archive/file/lend/allIndex.do",icon:"${ctx}/images/icons/roll_manage.gif"}
-
     ]},
     {name:"系统管理", icon:"${ctx}/images/bmsz.gif", children:[
 		{name:"职位管理", url:"${ctx}/position/index.do", target:"main", icon:"${ctx}/images/icons/folder.gif"},
@@ -134,7 +71,31 @@ var nodes = [
         {name:"权限管理", url:"${ctx}/security/permission/index.do", target:"main", icon:"${ctx}/images/icons/authority.gif"},
         {name:"资源管理", url:"${ctx}/security/resource/index.do", target:"main", icon:"${ctx}/images/icons/news.gif"},
         {name:"登录记录", url:"${ctx}/userHistory/userHistoryList.do", target:"main", icon:"${ctx}/images/icons/application.gif"}
-    ] },
+    ]},
+    {name:"个人办公", icon:"${ctx}/images/bmsz.gif", children:[
+	{name:"短消息", icon:"${ctx}/images/icons/message.png", children:[
+	    {name:"发送短消息", url:"${ctx}/msg/newMsg.do", target:"main", icon:"${ctx}/images/icons/modify.gif"},
+	    {name:"接收的个人消息", url:"${ctx}/msg/receiveIndex.do?model.msgType=personal", target:"main", icon:"${ctx}/images/icons/user_go.gif"},
+	    {name:"接收的系统消息", url:"${ctx}/msg/receiveIndex.do?model.msgType=sys", target:"main", icon:"${ctx}/images/icons/sms.gif"},
+	    {name:"已发的短消息", url:"${ctx}/msg/sendIndex.do", target:"main", icon:"${ctx}/images/icons/diary.png"}
+	]},
+	{name:"文件传送", icon:"${ctx}/images/icons/mail.png", children:[
+	    {name:"发送文件", url:"${ctx}/mail/newMail.do", target:"main", icon:"${ctx}/images/icons/mail_3.gif"},
+	    {name:"已收文件", url:"${ctx}/mail/index.do?mailIndexType=receive", target:"main", icon:"${ctx}/images/icons/folder-in.gif"},
+	    {name:"已发文件", url:"${ctx}/mail/index.do", target:"main", icon:"${ctx}/images/icons/folder_go.gif"},
+	    {name:"草稿箱", url:"${ctx}/mail/indexDraft.do", target:"main", icon:"${ctx}/images/icons/folder_edit.gif"}
+	]},                                                  
+      	{name:"个人文件柜", icon:"${ctx}/images/forum/bbs.gif", children:[
+ 		{name:"我的文档", url:"${ctx}/document/index.do?model.isPublic=0", target:"main", icon:"${ctx}/images/icons/file_folder.gif"},                                                         
+ 		{name:"公共文档", url:"${ctx}/document/index.do?model.isPublic=1", target:"main", icon:"${ctx}/images/icons/folder_table.gif"}                                                                
+       ]},
+       {name:"工作日志", url:"${ctx}/diary/index.do", target:"main", icon:"${ctx}/images/icons/diary.png"},
+       {name:"个人考勤", url:"${ctx}/peopleAtt/edit.do", target:"main", icon:"${ctx}/images/icons/user.gif"},
+       {name:"考勤时间", url:"${ctx}/time/edit.do", target:"main", icon:"${ctx}/images/icons/user.gif"},
+       {name:"通讯录", url:"${ctx}/security/user/show.do", target:"main", icon:"${ctx}/images/proj/flow_chart.png"}
+       ]}    
+       ,
+       {name:"",isHidden:true},
     {name:"综合行政", icon:"${ctx}/images/bmsz.gif", children:[                                                   
         {name:"会议管理", url:"${ctx}/hybl/queryxx.do", target:"main", icon:"${ctx}/images/icons/role.gif"},
         {name:"会议历史查询", url:"${ctx}/hybl/queryxx1.do", target:"main", icon:"${ctx}/images/icons/role.gif"},
@@ -156,10 +117,8 @@ var nodes = [
             {name:"设备物资维修记录", url:"${ctx}/asset/repair/index.do", target:"main", icon:"${ctx}/images/icons/a_list.gif"},
             {name:"设备物资检测记录", icon:"${ctx}/images/icons/a_list.gif", target:"main", url:"${ctx}/asset/check/index.do"},
             {name:"设备进出场记录", url:"${ctx}/asset/storage/index.do", target:"main", icon:"${ctx}/images/icons/a_list.gif"}
-        ]},
-
-        {name:"",isHidden:true}
-        ,  {name:"考勤管理", url:"${ctx}/attendance/index.do", target:"main", icon:"${ctx}/images/icons/attendance.gif"}
+        ]}
+        ,{name:"考勤管理", url:"${ctx}/attendance/index.do", target:"main", icon:"${ctx}/images/icons/attendance.gif"}
         ,{name:"车辆", icon:"${ctx}/images/icons/car.png", children:[
          {name:"车辆管理", url:"${ctx}/car/index.do", target:"main", icon:"${ctx}/images/icons/car.png"},
          {name:"车辆使用申请", url:"${ctx}/car/apply/myIndex.do", target:"main", icon:"${ctx}/images/icons/car.png"},
@@ -169,13 +128,48 @@ var nodes = [
          {name:"车辆维护记录", url:"${ctx}/car/repair/index.do", target:"main", icon:"${ctx}/images/icons/car.png"}
      ]}
         ]},
+        {name:"网上交流", icon:"${ctx}/images/forum/comm.gif", children:[
+   		{name:"信息交流", url:"${ctx}/pages/admin/security/user/skype/index.jsp", target:"main", icon:"${ctx}/images/icons/skype.gif"},
+        {name:"视频会议", url:"${ctx}/pages/video/videoClientSystopCms.jsp", target:"main", icon:"${ctx}/images/icons/vido.png"},
+        {name:"讨论区", url:"${ctx}/forum/board/index.do", target:"main", icon:"${ctx}/images/icons/down.gif"},
+        {name:"论坛管理", icon:"${ctx}/images/forum/bbs.gif", children:[
+            {name:"论坛.板块", url:"${ctx}/forum/board/adminIndex.do", target:"main", icon:"${ctx}/images/icons/more2.gif"},
+            {name:"论坛.帖子", url:"${ctx}/forum/topic/index.do", target:"main", icon:"${ctx}/images/icons/a_list.gif"}
+        ]},
+        {name:"投票管理", url:"${ctx}/survey/index.do", target:"main", icon:"${ctx}/images/icons/ask.gif"}
+        ,
+        {name:"投票", url:"${ctx}/survey/view.do", target:"main", icon:"${ctx}/images/icons/ask.gif"},
         
-        {name:"个人办公", icon:"${ctx}/images/bmsz.gif", children:[                                                   
-       	{name:"个人文件柜", icon:"${ctx}/images/forum/bbs.gif", children:[
-  		{name:"我的文档", url:"${ctx}/document/index.do?model.isPublic=0", target:"main", icon:"${ctx}/images/icons/file_folder.gif"},                                                         
-  		{name:"公共文档", url:"${ctx}/document/index.do?model.isPublic=1", target:"main", icon:"${ctx}/images/icons/folder_table.gif"}                                                                
-        ]}                                                                                                            
-        ]}    
+        {name:"",isHidden:true}
+       ]},
+       {name:"实用工具", icon:"${ctx}/images/forum/comm.gif", children:[
+    	{name:"火车时刻", url:"http://www.huoche.com.cn/", target:"_blank", icon:"${ctx}/images/icons/skype.gif"},
+        {name:"飞机航班", url:"http://flight.qunar.com/status/alphlet_order.jsp?ex_track=bd_aladding_flightsk_title", target:"_blank", icon:"${ctx}/images/icons/vido.png"},
+        {name:"邮编/区号", url:"http://post.tao123.com/", target:"_blank", icon:"${ctx}/images/icons/down.gif"},
+        {name:"国际时间", url:"http://www.china.org.cn/worldclock/worldclock.htm", target:"_blank", icon:"${ctx}/images/icons/down.gif"},
+        {name:"",isHidden:true}
+        ]}
+       ,
+       {name:"人力资源", icon:"${ctx}/images/hrm/hr.jpg", children:[
+       	{name:"",isHidden:true}
+           ,{name:"考勤", icon:"${ctx}/images/icons/attendance.gif", children:[
+               {name:"部门考勤上报", url:"${ctx}/reportedAtte/index.do", target:"main", icon:"${ctx}/images/icons/attendance.gif"}
+           ]},
+           {name:"员工", icon:"${ctx}/images/hrm/training.gif", children:[
+           {name:"员工信息", url:"${ctx}/enterpriseext/showUsers.do", target:"main", icon:"${ctx}/images/hrm/training.gif"},
+           {name:"员工合同", url:"${ctx}/empcontract/showUsers.do", target:"main", icon:"${ctx}/images/hrm/training.gif"},
+           {name:"简历管理", url:"${ctx}/resume/index.do", target:"main", icon:"${ctx}/images/icons/curriculum_vitae.png"}
+             
+          ]}
+       ] }
+       ,
+        {name:"档案管理", icon:"${ctx}/images/icons/roll_manage.gif", children:[
+        {name:"案卷管理", target:"main", url:"${ctx}/archive/index.do",icon:"${ctx}/images/icons/roll_manage.gif"},
+        {name:"文件管理", target:"main", url:"${ctx}/archive/file/index.do",icon:"${ctx}/images/icons/roll_manage.gif"},
+        {name:"案卷借阅", url:"${ctx}/archive/file/lend/index.do", target:"main", icon:"${ctx}/images/icons/roll_manage.gif"},
+        {name:"案卷借阅记录", target:"main", url:"${ctx}/archive/file/lend/allIndex.do",icon:"${ctx}/images/icons/roll_manage.gif"}
+
+     ]}
 
 ];
 var setting = {
