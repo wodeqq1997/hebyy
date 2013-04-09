@@ -6,13 +6,11 @@
 
 <head>
 <script type="text/javascript" src="${ctx}/scripts/my97/WdatePicker.js"></script>
-<script type="text/javascript">
-	var URL_CTX = '${ctx}';
-</script>
+
 <script type="text/javascript"
 	src="${ctx}/pages/admin/fileattch/fileattch.js"></script>
 <%@include file="/pages/common/meta.jsp"%>
-<%@include file="/pages/common/validator.jsp"%>
+<%@include file="/common/validator.jsp"%>
 <style type="text/css">
 td {
 	padding: 4px 2px 2px 3px;
@@ -43,30 +41,28 @@ textarea {
 
 <fieldset><legend>基本信息</legend>
 <table border="0" align="center" style="line-height: 30px; width: 100%">
-	<s:form id="bmxxForm" method="post" validate="true">
+	<s:form id="save" method="post" validate="true">
 		<tr>
-			<td width="125" align="right"><span class="warn">*</span> 图书名称:</td>
-			<td width="575"><input name="model.bookMc" value="${model.bookMc}"
-				style="width: 280px;" disabled></td>
+			<td align="right">图书名称：</td>
+			<td width="575"><input name="model.bookMc"
+				value="${model.bookMc}" style="width: 280px;" disabled></td>
 		</tr>
 		<tr>
-			<td align="right"><span class="warn">*</span> 图书作者:</td>
-			<td><input name="zz" value="${zz}" style="width: 280px;" disabled>
-			</td>
+			<td align="right">图书作者：</td>
+			<td><input name="zz" value="${zz}" style="width: 280px;"
+				disabled></td>
 		</tr>
 		<tr>
-			<td align="right"><span class="warn">*</span> 还 书 人:</td>
-			<td><input id="hsr" name="model.hsr"  style="width: 280px;">
-		
-			<input
-				type="hidden" value="${model.jsr}" name="model.jsr"  id="jsr" />
-			</td>
+			<td align="right">还 书 人：</td>
+			<td><input id="hsr" name="model.hsr" style="width: 280px;"
+				class="required" /> <font color="red">*</font> <input type="hidden"
+				value="${model.jsr}" name="model.jsr" id="jsr" /></td>
 		</tr>
 		<tr>
-			<td align="right"><span class="warn">*</span> 还书时间：</td>
-			<td><input type="text" id="hstime" name="model.hsTime" style="width: 280px;"
-				readonly="readonly" onClick="WdatePicker({skin:'blueFresh'})"
-				class="Wdate" /></td>
+			<td align="right">还书时间：</td>
+			<td><input type="text" id="hstime" name="model.hsTime"
+				style="width: 280px;" readonly="readonly"
+				onClick="WdatePicker({skin:'blueFresh'})" class="Wdate" /></td>
 
 		</tr>
 		<tr>
@@ -94,49 +90,34 @@ textarea {
 
 </div>
 <script type="text/javascript">
+	$(document).ready(function() {
+		$("#save").validate();
+	});
 	function jkjsSave() {
-
-		var hsr = $("#hsr").val();
-		if (hsr == null || hsr.length == 0) {
-			alert("请填写还书人姓名！");
-			return;
-		}
-	
-		var hstime = $("#hstime").val();
-		if (hstime == null || hstime.length == 0) {
-			alert("请填写还书时间！");
-			return;
-		}
-		
-		$('#bmxxForm').attr("action", "${ctx}/jhs/hs.do");
-		$('#bmxxForm').submit();
+		$('#save').attr("action", "${ctx}/jhs/hs.do");
+		$('#save').submit();
 	}
-	
-	
-	function CurentTime()
-    { 
-        var now = new Date();
-        var year = now.getFullYear();       //年
-        var month = now.getMonth() + 1;     //月
-        var day = now.getDate();            //日
-        var clock=year + "-";
-        if(month < 10){
-            clock += "0";
-        }
-        clock += month + "-";
-        if(day < 10){
-            clock += "0";
-        }
-        clock += day ;
-        
-     
-        $("#hstime").val(clock);//默认还书时间为当前日期
-        var jyr = $("#jsr").val();
-        $("#hsr").val(jyr);//默认还书人为借书人
-        
-    } 
 
+	function CurentTime() {
+		var now = new Date();
+		var year = now.getFullYear(); //年
+		var month = now.getMonth() + 1; //月
+		var day = now.getDate(); //日
+		var clock = year + "-";
+		if (month < 10) {
+			clock += "0";
+		}
+		clock += month + "-";
+		if (day < 10) {
+			clock += "0";
+		}
+		clock += day;
 
+		$("#hstime").val(clock);//默认还书时间为当前日期
+		var jyr = $("#jsr").val();
+		$("#hsr").val(jyr);//默认还书人为借书人
+
+	}
 </script>
 </body>
 </html>

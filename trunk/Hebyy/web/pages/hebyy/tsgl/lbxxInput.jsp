@@ -3,14 +3,9 @@
 <%@include file="/pages/common/taglibs.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
-<script type="text/javascript" src="${ctx}/scripts/my97/WdatePicker.js"></script>
-<script type="text/javascript">
-	var URL_CTX = '${ctx}';
-</script>
 <%@include file="/pages/common/meta.jsp"%>
-<%@include file="/pages/common/validator.jsp"%>
+<%@include file="/common/validator.jsp"%>
 <style type="text/css">
 td {
 	padding: 4px 2px 2px 3px;
@@ -39,30 +34,22 @@ textarea {
 	</div>
 
 	<div id="content">
-		<s:form id="bmxxForm" method="post" validate="true">
+		<s:form id="save" method="post" validate="true">
 
 			<table id="fineTable" width="780">
-
-
 				<tr>
-					<th colspan="6" align="left">基本信息</th>
-				</tr>
-				
-				
-				<tr>
-					<td class="td1"><span class="warn">*</span> 图书类别名称</td>
+					<td class="td1"> 图书类别名称</td>
 					<td><s:hidden name="model.id" />
-					
-					 <input id="tslb" name="model.lbMc" value="${model.lbMc}" style="width:380px;height:22px;"> &nbsp;&nbsp;&nbsp;&nbsp;  
-				
+					<s:textfield name="model.lbMc"   style="width:380px;height:22px;"  cssClass="required"  maxlength="255"/>
+						<font color="red">*</font>
 					</td>
 
 				</tr>
 				<tr>
 					<td class="td1" > 图书类别备注</td>  
 					<td>
+					<s:textfield name="model.descn"   style="width:380px;height:22px;"   maxlength="255"/>
 					
-					<input style="width:650px; height:22px;" name="model.descn" value="${model.descn}">
 					</td>
 
 				</tr>
@@ -82,19 +69,12 @@ textarea {
 
 	</div>
 	<script type="text/javascript">
-		function jkjsSave() {
-			
-			var strNr = $("#tslb").val();
-
-			if (strNr == null || strNr.length == 0) {
-				alert("请填写图书类别名称！");
-				return;
-			}
-		
-			
-			
-			$('#bmxxForm').attr("action", "${ctx}/lbxx/lbsave.do");
-			$('#bmxxForm').submit();
+	$(document).ready(function() {
+		$("#save").validate();
+	});
+	function jkjsSave() {
+			$('#save').attr("action", "${ctx}/lbxx/lbsave.do");
+			$('#save').submit();
 		}
 	</script>
 </body>

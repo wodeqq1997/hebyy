@@ -6,7 +6,7 @@
 
 <head>
 <%@include file="/pages/common/meta.jsp"%>
-<%@include file="/pages/common/validator.jsp"%>
+<%@include file="/common/validator.jsp"%>
 <script type="text/javascript" src="${ctx}/scripts/my97/WdatePicker.js"></script>
 <script type="text/javascript" src="${ctx}/pages/admin/fileattch/fileattch.js"></script>
 <script type="text/javascript" src="${ctx}/scripts/select.user.js"></script>
@@ -39,39 +39,38 @@ textarea {
 	</div>
 
 	<div id="content">
-		<s:form id="bmxxForm" method="post" validate="true">
+		<s:form id="save" method="post" validate="true">
  <fieldset>
  <legend>基本信息</legend>
 		<table border="0" align="center" style="line-height: 30px;width:100%">
 
 		<tr>
-					<td width="125" align="right"><span class="warn">*</span> 图书名称:</td>
+					<td align="right"> 图书名称：</td>
 					<td width="575"><input id="sm" name="model.tsMc" disabled
 						value="${model.tsMc}" style="width:280px; "> </td>
 
 				</tr>
 				<tr>
-					<td  align="right"><span class="warn">*</span> 图书作者:</td>
+					<td align="right"> 图书作者：</td>
 					<td ><input id="zz" name="model.author" disabled
 						value="${model.author}" style="width:280px;"> </td>
 				</tr>
 				<tr>
-					<td  align="right"><span class="warn">*</span>借书人:</td>
-					<td ><input id="jsr" name="jsr" onfocus="showAuditUser();" 
-						
-						 style="width:280px;">
-					
+					<td align="right">借 书 人：</td>
+					<td ><input id="jsr" name="jsr" onclick="showAuditUser();" 
+						 style="width:280px;"  class="required" readonly="readonly" >
+				       <font color="red">*</font>
 						 <input type="hidden" id="jsrId" name="jsrId" />
 						 </td>
 				</tr>		
 				<tr>
-					<td  align="right"><span class="warn" >*</span> 借阅时间：</td>
+					<td align="right">借阅时间：</td>
 					<td ><input type="text" id="jytime"  name="jytime" style="width:280px; " readonly="readonly" 
 							value=""   onClick="WdatePicker({skin:'blueFresh'})" class="Wdate" / > </td>
 
 				</tr>
 				<tr>
-					<td  align="right">备注信息：</td>
+					<td align="right">备注信息：</td>
 					<td>
 					<s:textarea id="bzxx" name="bzxx"  cssStyle="width:280px;height: 45px;"/>
 					<s:hidden name="model.id" />
@@ -94,6 +93,10 @@ textarea {
 
 	</div>
 	<script type="text/javascript">
+	
+	$(document).ready(function() {
+		$("#save").validate();
+	});
 	/**
 	 * 选择显示审核用户 
 	 */
@@ -112,21 +115,8 @@ textarea {
     }
 	
 		function jkjsSave() {
-			
-			var jsr = $("#jsr").val();
-			if (jsr == null || jsr.length == 0) {
-				alert("请填写借书人！");
-				return;
-			}
-			
-			var jytime = $("#jytime").val();
-			if (jytime == null || jytime.length == 0) {
-				alert("请填写借书时间！");
-				return;
-			}
-
-			$('#bmxxForm').attr("action", "${ctx}/tsgl/js.do");
-			$('#bmxxForm').submit();
+			$('#save').attr("action", "${ctx}/tsgl/js.do");
+			$('#save').submit();
 		}
 		
 		function CurentTime()
