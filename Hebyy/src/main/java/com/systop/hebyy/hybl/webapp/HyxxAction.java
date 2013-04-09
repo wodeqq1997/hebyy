@@ -107,9 +107,12 @@ public class HyxxAction extends DefaultCrudAction<Hyxx, HyxxManager> {
 		page = getManager().pageQuery(page, hql.toString(), args.toArray());
 		items = page.getData();
 		for (Hyxx hyxx : items) {
+			
 			String id = hyxx.getTypeId();
+			if(StringUtils.isNotBlank(id)){
 			HyLb hyLb = hyLbManager.getHyLbByid(Integer.parseInt(id));
 			hyxx.setHytype(hyLb.getHyLbMc());
+			}
 
 		}
 
@@ -177,8 +180,10 @@ public class HyxxAction extends DefaultCrudAction<Hyxx, HyxxManager> {
 		items = page.getData();
 		for (Hyxx hyxx : items) {
 			String id = hyxx.getTypeId();
+			if(StringUtils.isNotBlank(id)){
 			HyLb hyLb = hyLbManager.getHyLbByid(Integer.parseInt(id));
 			hyxx.setHytype(hyLb.getHyLbMc());
+			}
 
 		}
 		return "index1";// 跳转到第一个页面
