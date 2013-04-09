@@ -53,13 +53,12 @@
 			<td>${item.docType.name}</td>
 			<td><fmt:formatDate value="${item.createTime}"
 				pattern="yyyy-MM-dd" /></td>
-			<td><a href="edit.do?model.id=${item.id}" title="">修改&nbsp;|</a>&nbsp; <a href="#"
-				onclick="remove('${item.id}')" title=""> 删除&nbsp;|</a> <s:if
-				test='#attr.item.isPublic == 0'>
+			<td><a href="edit.do?model.id=${item.id}" title="">修改&nbsp;|</a>&nbsp; <a href="remove.do?model.id=${item.id}"
+				title=""> 删除&nbsp;|</a>  
 				<a href="toShare.do?model.id=${item.id}" title="">&nbsp;分享</a>
-			</s:if><s:if
-				test='#attr.item.isPublic == 1'>
-				<a href="desShare.do?model.id=${item.id}" title="">&nbsp;取消分享</a>
+			<s:if
+				test='#attr.item.status != null'>
+				|<a href="desShare.do?model.id=${item.id}" title="">&nbsp;取消分享</a>
 			</s:if></td>
 		</tr>
 	</s:iterator>
