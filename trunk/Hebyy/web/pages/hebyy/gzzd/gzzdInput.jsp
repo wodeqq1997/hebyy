@@ -10,7 +10,7 @@
 	var URL_CTX = '${ctx}';
 </script>
 <%@include file="/pages/common/meta.jsp"%>
-<%@include file="/pages/common/validator.jsp"%>
+<%@include file="/common/validator.jsp"%>
 <style type="text/css">
 td {
 	padding: 4px 2px 2px 3px;
@@ -33,68 +33,64 @@ textarea {
 <title>规章制度编辑页面</title>
 </head>
 <body>
-	<div class="x-header" style="border-bottom: 1px solid #99bbe8;" >
-		当前位置： <span class="r_nav_item">规章制度条例</span> <span
-			class="r_nav_item">规章制度编辑页面</span>
-	</div>
+<div class="x-header" style="border-bottom: 1px solid #99bbe8;">
+当前位置： <span class="r_nav_item">规章制度条例</span> <span class="r_nav_item">规章制度编辑页面</span>
+</div>
 
-	<div id="content">
-		<s:form id="bmxxForm" method="post" validate="true">
+<div id="content"><s:form id="save" method="post"
+	validate="true">
 
-			<table id="fineTable" width="780">
+	<table id="fineTable" width="780">
+		<tr>
+			<td class="td1"> 章程目录</td>
+			<td><s:select name="model.zcml" list='names'
+				cssStyle="width:650px;" headerKey="" headerValue="请选择" cssClass="typeCheck" />
+				<span id="typeDescn"></span>
+				<font color="red">*</font>
+			</td>
+   				
+		</tr>
+		<tr>
+			<td class="td1"> 规章制度内容</td>
+			<td><s:textarea id="hynr" name="model.zdContent"
+				cssStyle="width:650px;height: 185px;" cssClass="required"/>
+				<font color="red">*</font>
+				 <s:hidden name="model.id" />
+			</td>
+		</tr>
 
+		<tr>
+			<td colspan="6" style="border: 0px;" align="center"><%@include
+				file="/pages/common/messages.jsp"%> <input
+				type="button" onclick="jkjsSave()" class="button" value=" 保 存 ">&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;<input type="button"
+				onclick="javascript:window.location.href='${ctx}/gzzd/queryxx.do';"
+				class="button" value=" 返 回 "></td>
 
-				<tr>
-					<th colspan="6" align="left">基本信息</th>
-				</tr>
-				
-				<tr>
-					<td class="td1"><span class="warn">*</span> 章程目录</td>
-					<td><s:select name="model.zcml" list='names'
-							cssStyle="width:660px;" headerKey="" headerValue="请选择" /></td>
+		</tr>
+	</table>
 
-				</tr>
-				
-				
-				<tr>
-					<td class="td1"><span class="warn">*</span> 规章制度内容</td>
-					<td>
-					<s:textarea id="hynr" name="model.zdContent"  cssStyle="width:660px;height: 185px;"/>
-					<s:hidden name="model.id" />
-					</td>
-				</tr>
-
-				<tr>
-					<td colspan="6" style="border: 0px;" align="center"><%@include
-							file="/pages/common/messages.jsp"%> <input
-						type="button" onclick="jkjsSave()" class="button" value=" 保 存 ">&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;<input type="button"
-						onclick="javascript:window.location.href='${ctx}/gzzd/queryxx.do';"
-						class="button" value=" 返 回 "></td>
-
-				</tr>
-			</table>
-
-		</s:form>
-
-	</div>
-	<script type="text/javascript">
-		function jkjsSave() {
-			
-			var strNr = $("#hynr").val();
-
-			if (strNr == null || strNr.length == 0) {
-				alert("请填写规章制度内容！");
-				return;
+</s:form></div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#save").validate();
+	});
+	
+	$(function() {
+		$.validator.addMethod("typeCheck", function(value, element) {
+			if (value == null || value.length == 0) {
+				return false;
+			} else {
+				$("#typeDescn").html("");
+				return true;
 			}
-			
-			
-		
-			
-			
-			$('#bmxxForm').attr("action", "${ctx}/gzzd/jkjsSave.do");
-			$('#bmxxForm').submit();
-		}
-	</script>
+		}, "必填");
+	});
+
+	function jkjsSave() {
+		$('#save').attr("action", "${ctx}/gzzd/jkjsSave.do");
+		$('#save').submit();
+	}
+</script>
 </body>
 </html>

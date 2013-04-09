@@ -10,7 +10,7 @@
 	var URL_CTX = '${ctx}';
 </script>
 <%@include file="/pages/common/meta.jsp"%>
-<%@include file="/pages/common/validator.jsp"%>
+<%@include file="/common/validator.jsp"%>
 <style type="text/css">
 td {
 	padding: 4px 2px 2px 3px;
@@ -33,81 +33,62 @@ textarea {
 <title>章程目录编辑页面</title>
 </head>
 <body>
-	<div class="x-header" style="border-bottom: 1px solid #99bbe8;" >
-		当前位置： <span class="r_nav_item">章程目录</span> <span
-			class="r_nav_item">章程目录编辑页面</span>
-	</div>
+<div class="x-header" style="border-bottom: 1px solid #99bbe8;">
+当前位置： <span class="r_nav_item">章程目录</span> <span class="r_nav_item">章程目录编辑页面</span>
+</div>
 
-	<div id="content">
-		<s:form id="bmxxForm" method="post" validate="true">
+<div id="content"><s:form id="save" method="post"
+	validate="true">
 
-			<table id="fineTable" width="780">
-
-
-				<tr>
-					<th colspan="6" align="left">基本信息</th>
-				</tr>
-				
-				
-				
-				
-				<tr>
-					<td class="td1"><span class="warn">*</span> 章程目录序号</td>
-					<td><s:hidden name="model.id" />
-					<s:if test='#attr.model.id == 0 || #attr.model.id == null'>
+	<table id="fineTable" width="780">
+		<tr>
+			<td class="td1"><span class="warn">*</span> 章程目录序号</td>
+			<td>
+				<s:hidden name="model.id" />
+			 	<s:if test='#attr.model.id == 0 || #attr.model.id == null'>
+			 	第&nbsp; <s:textfield
+				name="model.zcxh" cssClass="required number"
+				style="width:20px; height:18px;" /> &nbsp;章&nbsp;
+				</s:if>
+				<s:if test='#attr.model.id != 0 &&#attr.model.id != null'>
+					<s:textfield name="model.zcxh"
+				style="width:260px; height:18px;" cssClass="required"
+				maxlength="255" /> 
 					
-					第&nbsp;  <input id="hynr" name="model.zcxh" value="${model.zcxh}" style="width:20px; height:18px;"> &nbsp;章&nbsp;&nbsp;&nbsp;&nbsp;  
 					</s:if>
-					<s:if test='#attr.model.id != 0 &&#attr.model.id != null'>
-					
-					&nbsp;  <input id="hynr" name="model.zcxh" value="${model.zcxh}" style="width:125px; height:18px;"> &nbsp;&nbsp;&nbsp;&nbsp;  
-					</s:if>
-					</td>
+				
+				 <font color="red">*</font>
+			</td>
 
-				</tr>
-				<tr>
-					<td class="td1" ><span class="warn">*</span> 章程目录名称</td>  
-					<td>
-					
-					<input id="hynr1" style="width:650px; height:18px;" name="model.zcMc" value="${model.zcMc}">
-					</td>
+		</tr>
+		<tr>
+			<td class="td1"><span class="warn">*</span> 章程目录名称</td>
+			<td><s:textfield name="model.zcMc"
+				style="width:650px; height:18px;" cssClass="required"
+				maxlength="255" /> <font color="red">*</font></td>
 
-				</tr>
+		</tr>
 
-				<tr>
-					<td colspan="6" style="border: 0px;" align="center"><%@include
-							file="/pages/common/messages.jsp"%> <input
-						type="button" onclick="jkjsSave()" class="button" value=" 保 存 ">&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;<input type="button"
-						onclick="javascript:window.location.href='${ctx}/zcxx/queryxx.do';"
-						class="button" value=" 返 回 "></td>
+		<tr>
+			<td colspan="6" style="border: 0px;" align="center"><%@include
+				file="/pages/common/messages.jsp"%> <input
+				type="button" onclick="jkjsSave()" class="button" value=" 保 存 ">&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;<input type="button"
+				onclick="javascript:window.location.href='${ctx}/zcxx/queryxx.do';"
+				class="button" value=" 返 回 "></td>
 
-				</tr>
-			</table>
+		</tr>
+	</table>
 
-		</s:form>
-
-	</div>
-	<script type="text/javascript">
-		function jkjsSave() {
-			
-			var strNr = $("#hynr").val();
-
-			if (strNr == null || strNr.length == 0) {
-				alert("请填写章程目录编号！");
-				return;
-			}
-			var strNr1 = $("#hynr1").val();
-
-			if (strNr1 == null || strNr1.length == 0) {
-				alert("请填写章程目录名称！");
-				return;
-			}
-			
-			
-			$('#bmxxForm').attr("action", "${ctx}/zcxx/zcsave.do");
-			$('#bmxxForm').submit();
-		}
-	</script>
+</s:form></div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#save").validate();
+	});
+	function jkjsSave() {
+		$('#save').attr("action", "${ctx}/zcxx/zcsave.do");
+		$('#save').submit();
+	}
+</script>
 </body>
 </html>
