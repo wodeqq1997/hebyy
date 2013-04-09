@@ -43,32 +43,34 @@ function remove(id) {
 <div class="x-panel-body">
 
 <table id="fineTable" width="800" style="margin-left: 0px;margin-top: 0px">
-				<tr>
-                    <th>标题</th>
-					<th>创建日期</th>
-					<th>最后修改时间</th>
-					<th>内容</th>
-					<th>操作</th>
-				</tr>
-				<s:iterator value="#attr.items"  var="item" status="st">
-					<tr onmousemove="this.className='trOver';"
-						onmouseout="this.className='trOut';">
-	                    <td width="120px" align="center"><a href="view.do?model.id=${item.id}" target="_blank"><font color="blue">${item.title}</font></a></td>
-						<td width="80px"align="center"><fmt:formatDate value="${item.createTime}" pattern="yyyy-MM-dd"/></td>
-						<td width="120px"align="center"><fmt:formatDate value="${item.updateTime}" pattern="yyyy-MM-dd"/></td>
-						<td width="420px">${item.content}</td>
-						<td width="80px" align="center" valign="middle">
-							<a href="edit.do?model.id=${item.id}" title="">修改</a>&nbsp;|&nbsp;
-							<a href="#" onclick="remove('${item.id}')" title="">删除</a>
-						</td>
-					</tr>
-				</s:iterator>
-				<tr>
-					<td colspan="13" style="border: 0px; padding-top: 10px;"
-						align="right"><%@include file="/pages/common/page.jsp"%>
-					</td>
-				</tr>
-			</table>
+	<tr>
+		<th>标题</th>
+		<th>创建日期</th>
+		<th>最后修改时间</th>
+		<th>内容</th>
+		<th>操作</th>
+	</tr>
+	<s:iterator value="#attr.items" var="item" status="st">
+		<tr onmousemove="this.className='trOver';"
+			onmouseout="this.className='trOut';">
+			<td width="120px" align="center"><a
+				href="view.do?model.id=${item.id}" target="_blank"><font
+				color="blue">${item.title}</font></a></td>
+			<td width="80px" align="center"><fmt:formatDate
+				value="${item.createTime}" pattern="yyyy-MM-dd" /></td>
+			<td width="120px" align="center"><fmt:formatDate
+				value="${item.updateTime}" pattern="yyyy-MM-dd" /></td>
+			<td width="420px">${item.content}</td>
+			<td width="80px" align="center" valign="middle"><a
+				href="edit.do?model.id=${item.id}" title="">修改</a>&nbsp;|&nbsp; <a
+				href="#" onclick="remove('${item.id}')" title="">删除</a></td>
+		</tr>
+	</s:iterator>
+	<tr>
+		<td colspan="13" style="border: 0px; padding-top: 10px;" align="right"><%@include
+			file="/pages/common/page.jsp"%></td>
+	</tr>
+</table>
 </div>
 </div>
 </body>
