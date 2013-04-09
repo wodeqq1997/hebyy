@@ -47,6 +47,7 @@ public class Document extends BaseModel {
 	//附件文档主键
 	private String fileattchIds;
 
+	private String status;
 	/*是否共享*/
 	private String isPublic = Constants.NO;
 	/**
@@ -63,6 +64,15 @@ public class Document extends BaseModel {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	@Column(name = "status")
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	@Column(name = "title", length = 255)

@@ -16,7 +16,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 
 import com.systop.common.modules.security.user.model.User;
-import com.systop.core.dao.support.Page;
 import com.systop.core.util.DateUtil;
 import com.systop.core.util.PageUtil;
 import com.systop.core.webapp.struts2.action.DefaultCrudAction;
@@ -237,7 +236,7 @@ public class MailAction extends DefaultCrudAction<Mail, MailManager> {
 	public String indexDraft() {
 		Assert.notNull(getLoginUser());
 		String hql = "from Mail m where m.sender.id = ? and m.mailStatus = ? order by m.sendTime desc";
-		Page page = PageUtil.getPage(getPageNo(), getPageSize());
+		page = PageUtil.getPage(getPageNo(), getPageSize());
 		page = getManager().pageQuery(page, hql,
 				new Object[] { getLoginUser().getId(), this.mailStatus });
 		restorePageData(page);
