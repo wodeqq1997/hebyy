@@ -96,7 +96,7 @@ textarea {
 		$("#save").validate();
 	});
 	/**
-	 * 选择显示审核用户 
+	 * 选择显示用户 
 	 */
 	function showAuditUser() {
       openSel(returnAction);
@@ -107,9 +107,6 @@ textarea {
     	// alert(users[0].id);
     	 $("#jsr").val(users[0].name);
     	 $("#jsrId").val(users[0].id);
-    	 
-    	 
-    	
     }
 	
 		function jkjsSave() {
