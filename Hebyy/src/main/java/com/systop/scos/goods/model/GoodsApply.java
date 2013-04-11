@@ -18,7 +18,7 @@ import com.systop.core.model.BaseModel;
 /**
  * 物品领用单,物品出库单
  * 
- * @author Nice
+ * @author wyp
  */
 @Entity
 @Table(name = "goods_applys")
@@ -28,32 +28,36 @@ public class GoodsApply extends BaseModel {
 	// 主键
 	private Integer id;
 
-	// 申请日期
+	// 领用日期
 	private Date applyDate;
-
-	// 申请单编号
-	private String applyNo;
 
 	// 使用数量
 	private Integer useCount;
 
-	// 申请人
+	// 领用请人
 	private User proposer;
 	
-	// 审核人
-	private User auditor;
-
 	// 备注
 	private String notes;
-
-	// 审批状态 0：未审核 1：通过 2：未通过
-	private String status;
-
-	//申请物品价格
-	private Double totalPrice;
 	
 	// 物品
 	private Goods goods;
+	
+	
+
+	// 领用单编号（不需要）
+	private String applyNo;
+
+	// 审批状态 0：未审核 1：通过 2：未通过（不需要）
+	private String status;
+	
+	// 审核人 （不需要）
+	private User auditor;
+
+	//申请物品价格（不需要）
+	private Double totalPrice;
+	
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

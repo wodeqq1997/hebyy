@@ -8,12 +8,14 @@ import java.util.Map;
 
 import org.apache.commons.lang.xwork.StringUtils;
 import org.hibernate.criterion.MatchMode;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.systop.common.modules.security.user.model.User;
+import com.systop.common.modules.security.user.service.UserManager;
 import com.systop.core.Constants;
 import com.systop.core.util.DateUtil;
 import com.systop.core.util.PageUtil;
@@ -45,6 +47,10 @@ public class GoodsApplyAction extends
 
 	// 查询条件所需参数
 	private Object[] args;
+	
+	//用户的业务类
+	@Autowired
+	UserManager userManager;
 
 	/**
 	 * 查看所有办公用品使用登记记录
@@ -142,7 +148,11 @@ public class GoodsApplyAction extends
 
 	@Override
 	public String save() {
-		getModel().setProposer(getLoginUser());
+	    
+	    String drawid = getRequest().getParameter("jsrId");//拿到领用人id
+	    User user=userManager.get(Integer.parseInt(drawid));
+	    getModel().setProposer(user);
+	    
 		return super.save();
 	}
 
