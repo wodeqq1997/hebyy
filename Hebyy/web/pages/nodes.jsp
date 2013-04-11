@@ -113,9 +113,7 @@ var nodes = [
         {name:"办公用品", icon:"${ctx}/images/icons/office-tackle.png", children:[
             {name:"办公用品管理", url:"${ctx}/goods/index.do", target:"main", icon:"${ctx}/images/icons/office-tackle.png"},
             {name:"物品供应商管理", url:"${ctx}/goods/supplier/index.do", target:"main", icon:"${ctx}/images/icons/office-tackle.png"},
-            {name:"办公用品领取", url:"${ctx}/goods/instock/indexDraw.do", target:"main", icon:"${ctx}/images/icons/office-tackle.png"},
-            {name:"办公用品申请", url:"${ctx}/goods/apply/myIndex.do", target:"main", icon:"${ctx}/images/icons/office-tackle.png"},
-            {name:"个人办公用品登记", url:"${ctx}/goods/apply/index.do", target:"main", icon:"${ctx}/images/icons/office-tackle.png"}
+            {name:"办公用品领取", url:"${ctx}/goods/instock/indexDraw.do", target:"main", icon:"${ctx}/images/icons/office-tackle.png"}
         ]},
         {name:"固定资产", icon:"${ctx}/images/icons/a_list.gif", children:[
             {name:"设备物资管理", url:"${ctx}/asset/index.do", target:"main", icon:"${ctx}/images/icons/a_list.gif"},
