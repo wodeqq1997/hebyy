@@ -25,7 +25,9 @@
 			<result name="index">/pages/scos/goods/instock/index.jsp</result> 
 			<result name="input">/pages/scos/goods/instock/edit.jsp</result> 
 			<result name="success" type="redirect">index.do</result>
-			<result name="view">/pages/scos/goods/instock/view.jsp</result>				
+			<result name="view">/pages/scos/goods/instock/view.jsp</result>	
+			<result name="indexDraw">/pages/scos/goods/draw/index.jsp</result>
+			<result name="inputDraw">/pages/scos/goods/draw/input.jsp</result> 	 	
 		</action>
 	</package>
 	<package name="scos.goods.apply" extends="default"  namespace="/goods/apply">
@@ -35,7 +37,8 @@
 			<result name="index">/pages/scos/goods/apply/index.jsp</result> 
 			<result name="myIndex">/pages/scos/goods/apply/myIndex.jsp</result> 
 			<result name="input">/pages/scos/goods/apply/edit.jsp</result> 
-			<result name="view">/pages/scos/goods/apply/view.jsp</result>				
+			<result name="view">/pages/scos/goods/apply/view.jsp</result>
+						
 		</action>
 	</package>
 	

@@ -16,55 +16,56 @@ import com.systop.core.model.BaseModel;
 
 /**
  * 入库单,办公用品入库时需要同时更新物品表的库存
+ * 
  * @author Nice
  */
 @Entity
 @Table(name = "in_stock")
 @SuppressWarnings("serial")
 public class InStock extends BaseModel {
-	
-	//主键
+
+	// 主键
 	private Integer id;
-	
-	//供应商
+
+	// 供应商
 	private String provider;
-	
+
 	// 供应商 对象引用
 	private GoodsSupplier goodsSupplier;
-	
-	//入库单编号
+
+	// 入库单编号
 	private String stockNo;
-	
-	//单价
+
+	// 单价
 	private Double price;
-	
-	//入库数量
+
+	// 入库数量
 	private Integer inCounts;
 
-	//现有数量
+	// 现有数量
 	private Integer nowCounts;
-	
-	//金额
+
+	// 金额
 	private Double amount;
-	
-	//入库日期
+
+	// 入库日期
 	private Date inDate;
-	
-	//创建单子时间
+
+	// 创建单子时间
 	private Date createTime;
-	
-	//经手人
+
+	// 经手人
 	private String buyer;
-	
-	//物品
+
+	// 物品
 	private Goods goods;
 
 	// 备注
 	private String notes;
-	
-	//保质期（选填）
+
+	// 保质期（选填）
 	private Date shelflife;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)
@@ -164,7 +165,7 @@ public class InStock extends BaseModel {
 	public void setGoods(Goods goods) {
 		this.goods = goods;
 	}
-	
+
 	@Column(name = "notes")
 	public String getNotes() {
 		return notes;
@@ -174,7 +175,7 @@ public class InStock extends BaseModel {
 		this.notes = notes;
 	}
 
-	@Column(name="shelflife")
+	@Column(name = "shelflife")
 	public Date getShelflife() {
 		return shelflife;
 	}
@@ -183,7 +184,6 @@ public class InStock extends BaseModel {
 		this.shelflife = shelflife;
 	}
 
-	
 	@ManyToOne(cascade = {}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "goods_supplier_id")
 	public GoodsSupplier getGoodsSupplier() {
@@ -193,7 +193,5 @@ public class InStock extends BaseModel {
 	public void setGoodsSupplier(GoodsSupplier goodsSupplier) {
 		this.goodsSupplier = goodsSupplier;
 	}
-	
-	
 
 }
