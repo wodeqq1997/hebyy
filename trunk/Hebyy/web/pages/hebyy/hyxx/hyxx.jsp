@@ -13,12 +13,9 @@
 <body>
 
 	<div id="r_main">
-		<div class="x-header" style="border-bottom: 1px solid #99bbe8;" >
-			<span
-				class="r_nav_item">会议信息记录查询</span>
+		<div class="x-panel-header">
+				<div style="float: left;">会议管理</div>
 		</div>
-
-		
 		<div class="x-toolbar">
 	<table width="100%"  cellpadding="0" cellspacing="0" style="margin-left: 0px;margin-top: 0px">
 	  <tr>
@@ -96,7 +93,8 @@
 						onmouseout="this.className='trOut';">
 						<td align="center"><input type="checkbox" name="selectedItems" id="selectedItems" value="${item.id}" class="checkbox"/></td>
 	                    <td align="center">${st.index + 1}</td>
-						<td align="center">${item.hyMc}</td>
+						<td align="center"><a href="toView.do?model.id=${item.id}" title="查看详情">
+						<font color="blue">${item.hyMc}</font></a></td>
 						<td align="center">${item.wjh}</td>
 						<td align="center">${item.pageNum}</td>
 						<td align="center">${item.hytype}</td>
@@ -105,8 +103,6 @@
 						<fmt:formatDate value="${item.hyTime}" pattern="yyyy-MM-dd"/>
 						</td>
 						<td align="center">${item.hyContent}</td>
-
-
 						<td align="center" valign="middle"><a
 							href="toEdit.do?model.id=${item.id}&zx=1" title="修改会议信息记录"> <img
 								src="${ctx}/images/icons/edit.png">
