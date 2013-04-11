@@ -1,5 +1,6 @@
 package com.systop.scos.goods.webapp;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -22,6 +23,7 @@ import com.systop.core.util.PageUtil;
 import com.systop.core.webapp.struts2.action.DefaultCrudAction;
 import com.systop.scos.goods.GoodsConstants;
 import com.systop.scos.goods.model.GoodsApply;
+import com.systop.scos.goods.model.InStock;
 import com.systop.scos.goods.service.GoodsApplyManager;
 
 /**
@@ -152,9 +154,25 @@ public class GoodsApplyAction extends
 	    String drawid = getRequest().getParameter("jsrId");//拿到领用人id
 	    User user=userManager.get(Integer.parseInt(drawid));
 	    getModel().setProposer(user);
-	    
-		return super.save();
+	    super.save();
+	    getManager().updateCountByPass(getModel());
+		return "toIndexDraw";
 	}
+	
+   /**
+    *跳转到首页 
+    */
+	public String indexDraw() {
+		page = PageUtil.getPage(getPageNo(), getPageSize());
+		StringBuffer sql = new StringBuffer("from InStock i where 1=1");
+		sql.append(" order by i.inDate desc");
+		page = getManager().pageQuery(page, sql.toString());
+		restorePageData(page);
+
+		items = page.getData();
+		return "indexDraw";
+	}
+
 
 	@Override
 	public String edit() {
@@ -164,44 +182,7 @@ public class GoodsApplyAction extends
 		return super.edit();
 	}
 
-	/**
-	 * 审核通过
-	 * wangyaping修改
-	 * @return
-	 */
-	@Transactional
-	public String passCarApply() {
-		if (getModel() != null) {
-			getModel().setStatus(GoodsConstants.GOODS_APPLY_PASS); // 通过
-			getModel().setAuditor(getLoginUser()); // 审核人
-			getManager().updateCountByPass(getModel());
-			/**wangyaping saveSysMsg方法中args参数不可以传null，会报错*/
-//			messageManager.saveSysMsg("物品申请反馈通知消息！", "物品：【"
-//					+ getModel().getGoods().getName() + "】申请使用审核通过！", null,
-//					getModel().getProposer()); 
-			
-			
-		} else {
-			logger.debug("该物品登记记录不存在。");
-		}
-		return "indexSuccess";
-	}
-
-	/**
-	 * 审核未通过
-	 * 
-	 * @return
-	 */
-	public String noPassCarApply() {
-		if (getModel() != null) {
-			getModel().setStatus(GoodsConstants.GOODS_APPLY_NOT_PASS);
-			getManager().update(getModel());
-		} else {
-			logger.debug("该物品登记记录不存在。");
-		}
-		return "indexSuccess";
-	}
-
+	
 	/**
 	 * 办公用品申请记录状态Map
 	 */

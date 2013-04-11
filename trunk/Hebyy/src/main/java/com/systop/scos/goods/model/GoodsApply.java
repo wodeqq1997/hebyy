@@ -48,11 +48,7 @@ public class GoodsApply extends BaseModel {
 	// 领用单编号（不需要）
 	private String applyNo;
 
-	// 审批状态 0：未审核 1：通过 2：未通过（不需要）
-	private String status;
 	
-	// 审核人 （不需要）
-	private User auditor;
 
 	//申请物品价格（不需要）
 	private Double totalPrice;
@@ -107,15 +103,7 @@ public class GoodsApply extends BaseModel {
 		this.proposer = proposer;
 	}
 
-	@ManyToOne(cascade = {}, fetch = FetchType.LAZY)
-	@JoinColumn(name = "auditor_id")
-	public User getAuditor() {
-		return auditor;
-	}
-
-	public void setAuditor(User auditor) {
-		this.auditor = auditor;
-	}
+	
 
 	@Column(name = "notes", length = 500)
 	public String getNotes() {
@@ -126,14 +114,7 @@ public class GoodsApply extends BaseModel {
 		this.notes = notes;
 	}
 
-	@Column(name = "status", length = 1)
-	public String getStatus() {
-		return status;
-	}
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
 
 	@Column(name="price")
 	public Double getTotalPrice() {
