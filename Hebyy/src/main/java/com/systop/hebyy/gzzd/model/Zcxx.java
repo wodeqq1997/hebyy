@@ -13,7 +13,7 @@ import org.hibernate.annotations.GenericGenerator;
 import com.systop.core.model.BaseModel;
 
 /**
- * 规章制度
+ * 分类
  * 
  * @author wangyaping
  * 
@@ -25,11 +25,16 @@ public class Zcxx extends BaseModel {
 
 	private Integer id;
 
-	// 章程目录序号
+	// 类别编号
 	private String zcxh;
 
-	// 章程名称
+	// 类别名称
 	private String zcMc;
+	
+	//分类备注
+	private String remark;
+	
+	
 
 	// 规章制度集合
 	private List<Gzzd> gzzdList;
@@ -69,4 +74,13 @@ public class Zcxx extends BaseModel {
 	public void setGzzdList(List<Gzzd> gzzdList) {
 		this.gzzdList = gzzdList;
 	}
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	
 }

@@ -1,5 +1,6 @@
 package com.systop.hebyy.gzzd.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -28,15 +29,23 @@ public class Gzzd extends BaseModel {
 
 	// 制定人(未使用)
 	private String zdr;
+	
+	//文件号
+	private String wjh;
 
-	// 规章制度内容
+	// 文件内容
 	private String zdContent;
 
-	// 章程目录
+	// 类别
 	private Zcxx zcxx;
 
-	// 章程名称（便于查询）
+	// 类别名称（便于查询）
 	private String zcml;
+	
+	//上传文件
+	private String fileAttachIds;
+
+	
 
 	@Id
 	@GeneratedValue(generator = "hibseq")
@@ -82,6 +91,22 @@ public class Gzzd extends BaseModel {
 
 	public void setZcml(String zcml) {
 		this.zcml = zcml;
+	}
+	public String getWjh() {
+		return wjh;
+	}
+
+	public void setWjh(String wjh) {
+		this.wjh = wjh;
+	}
+	
+	@Column(name = "file_attach_ids")
+	public String getFileAttachIds() {
+		return fileAttachIds;
+	}
+
+	public void setFileAttachIds(String fileAttachIds) {
+		this.fileAttachIds = fileAttachIds;
 	}
 
 }

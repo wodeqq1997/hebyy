@@ -93,17 +93,23 @@ public class ZcxxAction extends DefaultCrudAction<Zcxx, ZcxxManager> {
 		for (String id1 : id) {
 			int id2 = Integer.parseInt(id1);
 			List<Gzzd> jds = gzzdManager.querykc(id2);
-			for (Gzzd jd : jds) {
-				gzzdManager.remove(jd);
-			}
+			if(jds.size()!=0 ){
+			addActionMessage("该类已经使用，不能删除！");
+			}else{
+    		//for (Gzzd jd : jds) {
+				//gzzdManager.remove(jd);
+				//}
 			Zcxx zcxx = getManager().getZcxxByKdid(id2);
 			getManager().remove(zcxx);// 删除的方法
+			addActionMessage("删除成功！");
 		}
 
-		addActionMessage("删除成功！");
+		
+		}
 		return "zc_success";
 	}
-
+	
+	
 	/**
 	 * 保存的方法
 	 * 

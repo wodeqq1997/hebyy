@@ -100,16 +100,16 @@ public class GzzdAction extends DefaultCrudAction<Gzzd, GzzdManager> {
 		String zcName = getModel().getZcml(); //章程名称
 
 		// 获取输入的条件
-		String zdContent = getModel().getZdContent();
+		String zdContent = getModel().getWjh();
 
 		StringBuffer hql = new StringBuffer(
 
 		"from Gzzd p where 1=1 ");
 		List<Object> args = new ArrayList<Object>();
        
-		//按照规章制度内容模糊查询
+		//按照文件号模糊查询
 		if (StringUtils.isNotBlank(zdContent)) {
-			hql.append(" and p.zdContent like ? ");
+			hql.append(" and p.wjh like ? ");
 			args.add(MatchMode.ANYWHERE.toMatchString(zdContent));
 		}
 		//按照章程名称模糊查询
