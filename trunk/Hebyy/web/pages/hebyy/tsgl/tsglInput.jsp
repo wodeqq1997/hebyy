@@ -18,16 +18,15 @@
 <title>图书信息编辑页面</title>
 </head>
 <body>
-<div class="x-header" style="border-bottom: 1px solid #99bbe8;">
-当前位置： <span class="r_nav_item">图书管理</span> <span class="r_nav_item">图书信息编辑页面</span>
+<div class="x-panel-header">
+<div style="float: left;">图书信息编辑页面</div>
 </div>
-
 <div id="content"><s:form id="save" method="post" validate="true">
 	<fieldset><legend>基本信息</legend>
 	<table border="0" align="center" style="line-height: 30px; width: 750">
 
 		<tr>
-			<td width="150" align="right"> 图书名称:</td>
+			<td width="150" align="right"> 图书名称：</td>
 			<td width="300">
 			<s:textfield name="model.tsMc"   style="width: 260px;"  cssClass="required"  maxlength="255"/>
 						<font color="red">*</font>
@@ -46,7 +45,7 @@
 
 		</tr>
 		<tr>
-			<td align="right"> 图书作者:</td>
+			<td align="right"> 图书作者：</td>
 			<td>
 			<s:textfield name="model.author"   style="width: 260px;"  cssClass="required"  maxlength="255"/>
 						<font color="red">*</font>
@@ -54,7 +53,7 @@
 
 		</tr>
 		<tr>
-			<td align="right">图书类别:</td>
+			<td align="right">图书类别：</td>
 			<td><s:select name="model.lbmc" list='names'
 				cssStyle="width:256px;height:22px; " cssClass="typeCheck"  headerKey="" headerValue="请选择" />
 				<span id="typeDescn"></span>

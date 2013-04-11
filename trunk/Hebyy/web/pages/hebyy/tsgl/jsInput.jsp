@@ -33,11 +33,9 @@ textarea {
 <title>借书信息页面</title>
 </head>
 <body onload="CurentTime()">
-	<div class="x-header" style="border-bottom: 1px solid #99bbe8;" >
-		当前位置： <span class="r_nav_item">借书还书管理</span> <span
-			class="r_nav_item">借书信息页面</span>
+<div class="x-panel-header">
+	<div style="float: left;">借书信息页面</div>
 	</div>
-
 	<div id="content">
 		<s:form id="save" method="post" validate="true">
  <fieldset>

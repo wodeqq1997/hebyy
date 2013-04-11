@@ -6,71 +6,78 @@
 
 <head>
 <script type="text/javascript" src="${ctx}/scripts/my97/WdatePicker.js"></script>
-<script type="text/javascript">
-	var URL_CTX = '${ctx}';
-</script>
 <%@include file="/pages/common/meta.jsp"%>
 <%@include file="/common/validator.jsp"%>
-<style type="text/css">
-td {
-	padding: 4px 2px 2px 3px;
-}
-
-select {
-	border: 1px solid #CCC;
-}
-
-textarea {
-	padding: 5px;
-	width: 520px;
-	height: 70px;
-}
-
-.td1 {
-	text-align: right;
-}
-</style>
+<%@include file="/common/kindeditor.jsp"%>
+<%@include file="/common/uploadify.jsp"%>
+<script type="text/javascript"
+	src="${ctx}/pages/admin/fileattch/fileattch.js"></script>
+<link href="${ctx}/pages/admin/fileattch/fileattch.css" type='text/css'
+	rel='stylesheet'>
 <title>规章制度编辑页面</title>
 </head>
 <body>
-<div class="x-header" style="border-bottom: 1px solid #99bbe8;">
-当前位置： <span class="r_nav_item">规章制度条例</span> <span class="r_nav_item">规章制度编辑页面</span>
-</div>
-
-<div id="content"><s:form id="save" method="post"
+<div class="x-panel-header">
+			<div style="float: left;">规章制度条例</div>
+	    </div>
+<div id="content">
+	<br>
+	<table id="fineTable" width="750" align="center" style="margin-top: 20px;margin-bottom: 10px;">
+	<s:form id="save" method="post"
 	validate="true">
-
-	<table id="fineTable" width="780">
+	    <tr>
+			<th colspan="2">规章制度信息：</th>
+		</tr>
 		<tr>
-			<td class="td1"> 章程目录</td>
-			<td><s:select name="model.zcml" list='names'
-				cssStyle="width:650px;" headerKey="" headerValue="请选择" cssClass="typeCheck" />
+			<td align="right"  width="160">类别名称：</td>
+			<td ><s:select name="model.zcml" list='names'
+				cssStyle="width:360px;height=22;" headerKey="" headerValue="请选择" cssClass="typeCheck" />
 				<span id="typeDescn"></span>
 				<font color="red">*</font>
 			</td>
-   				
 		</tr>
 		<tr>
-			<td class="td1"> 规章制度内容</td>
-			<td><s:textarea id="hynr" name="model.zdContent"
-				cssStyle="width:650px;height: 185px;" cssClass="required"/>
+			<td align="right" >文 件 号：</td>
+			<td ><s:textfield  name="model.wjh"
+				cssStyle="width:360px;" cssClass="required"/>
+				<font color="red">*</font>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">文件内容：</td>
+			<td><s:textfield  name="model.zdContent"
+				cssStyle="width:360px" cssClass="required"/>
 				<font color="red">*</font>
 				 <s:hidden name="model.id" />
 			</td>
 		</tr>
-
+		<tr height="36">
+			<td align="right">文件上传：</td>
+			<td>
+		
+				<input type="file" id="systop_upload" />
+					<font style="color: #EB2A03">附件大小在30M以内!</font>
+			<div id="custom">
+			<div id="systop-file-queue"></div>
+			</div>
+			<div id="systop-uploaded-files"
+				style="width: 410px; border-bottom: 1px solid #C3C3C3;"><s:hidden
+				id="fileAttchIds" name="model.fileAttachIds" /></div>
+			<div id="systop_file_list"></div>
+			</td>
+		</tr>
 		<tr>
-			<td colspan="6" style="border: 0px;" align="center"><%@include
+			<td colspan="2" style="border: 0px;" align="center"><%@include
 				file="/pages/common/messages.jsp"%> <input
 				type="button" onclick="jkjsSave()" class="button" value=" 保 存 ">&nbsp;&nbsp;
 			&nbsp;&nbsp;&nbsp;<input type="button"
 				onclick="javascript:window.location.href='${ctx}/gzzd/queryxx.do';"
 				class="button" value=" 返 回 "></td>
-
 		</tr>
+		</s:form>
 	</table>
 
-</s:form></div>
+</div>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#save").validate();
@@ -90,6 +97,20 @@ textarea {
 	function jkjsSave() {
 		$('#save').attr("action", "${ctx}/gzzd/jkjsSave.do");
 		$('#save').submit();
+	}
+</script>
+<script type="text/javascript">
+	//渲染上传组件
+	renderUploader(true, fileType, fileDesc, 30240000);
+	viewFileAttchList('${model.fileAttachIds}', true);
+	function isChangeVisaBox() {
+		if ($('#isChangeVisaBox').attr("checked")) {
+			$('#isChangeVisa').val('1');
+			$('#isChangeVisaTr').show();
+		} else {
+			$('#isChangeVisa').val('');
+			$('#isChangeVisaTr').hide();
+		}
 	}
 </script>
 </body>

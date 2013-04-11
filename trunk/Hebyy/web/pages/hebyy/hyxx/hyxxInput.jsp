@@ -21,17 +21,13 @@
 	<fieldset><legend>基本信息</legend>
 	<table width="720" border="0" style="line-height: 30px;">
 		<tr>
-
 			<td align="right"  width="280">会议文件名称：</td>
 			<td width="440"> 
 				<s:textfield name="model.hyMc"   style="width: 260px;"  cssClass="required"  maxlength="255"/>
 						<font color="red">*</font>
 			<s:hidden name="model.id" /></td>
-
 		</tr>
-
 		<tr>
-
 			<td align="right">会议纪要类别：</td>
 			<td><s:select name="model.hytype" list='names' cssClass="typeCheck"
 				cssStyle="width:257px;" headerKey="" headerValue="请选择" />
@@ -40,7 +36,6 @@
 				</td>
 		</tr>
 		<tr>
-
 			<td align="right">文    件   号：</td>
 			<td>
 			<s:textfield name="model.wjh"   style="width: 260px;"  cssClass="required"  maxlength="255"/>
@@ -60,7 +55,6 @@
 			<td>
 			<s:textfield name="model.hycyr"   style="width: 260px;"    maxlength="255"/>
 			</td>
-
 		</tr>
 		<tr>
 			<td align="right"> 会 议 时 间：</td>
@@ -71,7 +65,6 @@
 				<span id="dateDescn"></span>
 				<font color="red">*</font>
 				</td>
-
 		</tr>
 		<tr>
 			<td align="right">会 议 备 注：</td>
@@ -103,12 +96,10 @@
 			&nbsp;&nbsp;&nbsp;<input type="button"
 				onclick="javascript:window.location.href='${ctx}/hybl/queryxx.do';"
 				class="button" value=" 返 回 "></td>
-
 		</tr>
 	</table>
 	</fieldset>
 </s:form>
-
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -151,13 +142,10 @@
 	});
 	
 	function jkjsSave() {
-
 		$('#save').attr("action", "${ctx}/hybl/jkjsSave.do");
 		$('#save').submit();
 	}
 </script>
-
-
 <script type="text/javascript">
 	//渲染上传组件
 	renderUploader(true, fileType, fileDesc, 30240000);
