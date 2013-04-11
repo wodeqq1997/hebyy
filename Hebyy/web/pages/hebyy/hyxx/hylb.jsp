@@ -13,15 +13,14 @@
 <body>
 
 	<div id="r_main">
-		<div class="x-header" style="border-bottom: 1px solid #99bbe8;" >
-			<span
-				class="r_nav_item">会议纪要类别管理</span>
-		</div>
+	<div class="x-panel-header">
+			<div style="float: left;">会议纪要类别管理</div>
+	</div>
 		<div id="r_tool">
-			<div>
+			<div style="float:right">
 				<s:form id="pageQueryForm" action="index.do" cssStyle="margin:auto;" method="post">&nbsp;
 					
-					&nbsp;&nbsp;
+					
 						<a href="edit.do" title="添加会议纪要类别"> 
 						<img src="${ctx}/images/icons/add.gif">&nbsp;新建</a>
 						&nbsp;&nbsp;
@@ -31,7 +30,7 @@
 						<a href="javascript:window.location.href='${ctx}/hybl/queryxx.do';" title="返回会议管理页面"> 
 						<img src="${ctx}/images/icons/go.gif">&nbsp;返回</a>
 					
-						
+						&nbsp;&nbsp;&nbsp;&nbsp;
 						  <s:hidden name="ec_p" id="ec_p"/>
 				</s:form>
 

@@ -13,9 +13,9 @@
 <body>
 
 <div id="r_main">
-<div class="x-header" style="border-bottom: 1px solid #99bbe8;"><span
-	class="r_nav_item">会议信息历史记录查询</span></div>
-
+<div class="x-panel-header">
+<div style="float: left;">会议信息历史记录查询</div>
+</div>
 
 <div class="x-toolbar">
 <table width="100%" style="margin: 4px 0px;" cellpadding="0"
@@ -77,7 +77,7 @@
 			onmouseout="this.className='trOut';">
 
 			<td align="center">${st.index + 1}</td>
-			<td align="center">${item.hyMc}</td>
+			<td align="center"><a href="toView.do?model.id=${item.id}" title="查看详情"> <font color="blue">${item.hyMc}</font></a></td>
 			<td align="center">${item.wjh}</td>
 			<td align="center">${item.pageNum}</td>
 			<td align="center">${item.hytype}</td>

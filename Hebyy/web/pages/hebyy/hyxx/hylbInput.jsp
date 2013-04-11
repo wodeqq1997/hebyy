@@ -29,25 +29,20 @@ textarea {
 <title>会议类别编辑页面</title>
 </head>
 <body>
-	<div class="x-header" style="border-bottom: 1px solid #99bbe8;" >
-		当前位置： <span class="r_nav_item">会议类别信息记录</span> <span
-			class="r_nav_item">会议类别编辑页面</span>
-	</div>
+	<div class="x-header">会议类别编辑页面</div>
 		<s:form id="save" method="post" validate="true" action="jkjsSave.do">
  <fieldset>
 			    <legend>基本信息</legend>
 				<table border="0" align="center" style="line-height: 30px;width:100%">
 				<tr>
-
-					<td align="right">会议类别名称:</td>
+					<td align="right">会议类别名称：</td>
 					<td width="575">
 					<s:textfield name="model.hyLbMc"   style="width: 280px;"  cssClass="required"  maxlength="255"/>
 						<font color="red">*</font>
 						 <s:hidden name="model.id" /></td>
-						
 				</tr>
 				<tr>
-					<td align="right">会议类别备注:</td>
+					<td align="right">会议类别备注：</td>
 					<td>
 					<s:textarea name="model.remark"   cssStyle="margin:3px 0px; width: 450px; height: 100px; overflow: auto; border: 1px solid #C3c3c3;"/>
 					</td>
@@ -59,7 +54,6 @@ textarea {
 						&nbsp;&nbsp;&nbsp;<input type="button"
 						onclick="javascript:window.location.href='${ctx}/hylb/index.do';"
 						class="button" value=" 返 回 "></td>
-
 				</tr>
 			</table>
  </fieldset>

@@ -3,14 +3,8 @@
 <%@include file="/pages/common/taglibs.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
 <script type="text/javascript" src="${ctx}/scripts/my97/WdatePicker.js"></script>
-<script type="text/javascript">
-	var URL_CTX = '${ctx}';
-</script>
-
-
 <%@include file="/pages/common/meta.jsp"%>
 <%@include file="/common/validator.jsp"%>
 <%@include file="/common/kindeditor.jsp"%>
@@ -19,41 +13,17 @@
 	src="${ctx}/pages/admin/fileattch/fileattch.js"></script>
 <link href="${ctx}/pages/admin/fileattch/fileattch.css" type='text/css'
 	rel='stylesheet'>
-
-<style type="text/css">
-td {
-	padding: 4px 2px 2px 3px;
-}
-
-select {
-	border: 1px solid #CCC;
-}
-
-textarea {
-	padding: 5px;
-	width: 520px;
-	height: 70px;
-}
-
-.td1 {
-	text-align: right;
-}
-</style>
 <title>会议编辑页面</title>
 </head>
 <body>
-<div class="x-header" style="border-bottom: 1px solid #99bbe8;">
-当前位置： <span class="r_nav_item">会议信息记录</span> <span class="r_nav_item">会议编辑页面</span>
-</div>
-
-
+<div class="x-header">会议编辑页面</div>
 <s:form id="save" method="post" validate="true">
 	<fieldset><legend>基本信息</legend>
-	<table border="0" align="center" style="line-height: 30px; width: 100%">
+	<table width="720" border="0" style="line-height: 30px;">
 		<tr>
 
-			<td width="125" align="right">会议文件名称:</td>
-			<td width="575">
+			<td align="right"  width="280">会议文件名称：</td>
+			<td width="440"> 
 				<s:textfield name="model.hyMc"   style="width: 260px;"  cssClass="required"  maxlength="255"/>
 						<font color="red">*</font>
 			<s:hidden name="model.id" /></td>
@@ -62,43 +32,38 @@ textarea {
 
 		<tr>
 
-			<td width="125" align="right">会议纪要类别:</td>
-			<td width="575"><s:select name="model.hytype" list='names' cssClass="typeCheck"
-				cssStyle="width:260px;" headerKey="" headerValue="请选择" />
+			<td align="right">会议纪要类别：</td>
+			<td><s:select name="model.hytype" list='names' cssClass="typeCheck"
+				cssStyle="width:257px;" headerKey="" headerValue="请选择" />
 				<span id="typeDescn"></span>
 				<font color="red">*</font>
 				</td>
 		</tr>
 		<tr>
 
-			<td width="125" align="right">文件号:</td>
-			<td width="575">
+			<td align="right">文    件   号：</td>
+			<td>
 			<s:textfield name="model.wjh"   style="width: 260px;"  cssClass="required"  maxlength="255"/>
 						<font color="red">*</font>
-			
 			</td>
-
 		</tr>
 		<tr>
 
-			<td width="125" align="right">文件页/份数:</td>
-			<td width="575">
+			<td align="right">文件页/份数：</td>
+			<td>
 			<s:textfield name="model.pageNum"   style="width: 260px;"  cssClass="required number"  maxlength="255"/>
 						<font color="red">*</font>
 			</td>
-
 		</tr>
-
 		<tr>
-			<td align="right">参 与 人:</td>
+			<td align="right">会议参与人：</td>
 			<td>
 			<s:textfield name="model.hycyr"   style="width: 260px;"    maxlength="255"/>
-						
 			</td>
 
 		</tr>
 		<tr>
-			<td align="right"> 会议时间:</td>
+			<td align="right"> 会 议 时 间：</td>
 			<td><input id="hytime" type="text" name="model.hyTime"
 				style="width: 260px;" readonly="readonly"
 				value='<s:date name="model.hyTime" format="yyyy-MM-dd"/>'
@@ -109,7 +74,7 @@ textarea {
 
 		</tr>
 		<tr>
-			<td align="right">备注:</td>
+			<td align="right">会 议 备 注：</td>
 			<td><s:textarea id="content" name="model.hyContent"
 				cssStyle="width:260px;height: 45px;" /></td>
 		</tr>
@@ -126,7 +91,7 @@ textarea {
 			<div id="systop-file-queue"></div>
 			</div>
 			<div id="systop-uploaded-files"
-				style="width: 650px; border-bottom: 1px solid #C3C3C3;"><s:hidden
+				style="width: 400px; border-bottom: 1px solid #C3C3C3;"><s:hidden
 				id="fileAttchIds" name="model.fileAttachIds" /></div>
 			<div id="systop_file_list"></div>
 			</td>
