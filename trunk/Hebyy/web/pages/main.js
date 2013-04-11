@@ -217,7 +217,7 @@ function loadUsefulLink(divId){
 			}else{
 				for(var i = 0; i < data.length; i++){
 					htmlStr += "<div style='width:" + width + "' class='item'>";
-					htmlStr += "<a href='" + URL_PREFIX + "/gzzd/queryxx3.do?id="+data[i].id+"'>" +data[i].zcxh +data[i].zcMc+"</a>";
+					htmlStr += "<a href='" + URL_PREFIX + "/gzzd/queryxx3.do?id="+data[i].id+"'>"+data[i].zcMc+"</a>";
 					htmlStr += "</div>";
 				}
 			}
