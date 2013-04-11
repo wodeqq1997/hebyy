@@ -21,7 +21,6 @@
 	</div>
 	<div align="center" style="width: 100%">
 		<form action="${ctx}/goods/apply/save.do" id="save" method="post">
-			<s:hidden name="model.id" />
 			<table width="500" border="0" align="center" style="line-height: 20px; margin-top: 20px; margin-bottom: 20px;" id="fineTable">
 				<tr>
 					<th colspan="2">办公用品领用登记单</th>

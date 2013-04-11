@@ -34,7 +34,11 @@
 				onfocus="WdatePicker({skin:'blueFresh',dateFmt:'yyyy-MM-dd'})"
 				class="Wdate" readonly="readonly" />
 			<input type="submit" value="查询" class="button" />
-			<td width="30%" align="right"></td>
+			<td width="30%" align="right">
+			<a href="${ctx}/goods/apply/index.do"
+			title="查看领用历史"> <img src="${ctx}/images/icons/down.gif">&nbsp;查看领用记录</a>
+		&nbsp;&nbsp;
+			</td>
 		</s:form>
 	</tr>
 </table>
