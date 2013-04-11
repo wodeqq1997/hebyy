@@ -38,8 +38,7 @@ public class GoodsApplyManager extends BaseGenericsManager<GoodsApply> {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void save(GoodsApply entity) {
 		if (entity.getId() == null) {
-			// 设置办公用品审核状态：未审核状态
-			entity.setStatus(GoodsConstants.GOODS_APPLY_NOT_EXAMINE);
+			
 			entity.setApplyDate(new Date());
 			List<InStock> list = inStockManager.queryInStock(entity.getGoods()
 					.getId());
@@ -63,7 +62,7 @@ public class GoodsApplyManager extends BaseGenericsManager<GoodsApply> {
 	}
 
 	/**
-	 * 根据申请状态，修改原库存数量(通过申请，库存数量=原库存数量-申请数量)
+	 * 修改原库存数量(库存数量=原库存数量-申请数量)
 	 */
 	@Transactional
 	public void updateCountByPass(GoodsApply entity) {
