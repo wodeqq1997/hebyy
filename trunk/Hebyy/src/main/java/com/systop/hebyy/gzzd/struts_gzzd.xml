@@ -7,7 +7,7 @@
 		<action name="*" class="gzzdAction" method="{1}">
 			<result name="index">/pages/hebyy/gzzd/gzzd.jsp</result>
 			<result name="index1">/pages/hebyy/gzzd/cxgzzd.jsp</result>
-			
+			<result name="view">/pages/hebyy/gzzd/view.jsp</result>
 			
 			<result name="input1">/pages/hebyy/gzzd/gzzdInput.jsp</result>
 			<result name="success" type="redirect">queryxx.do</result>
