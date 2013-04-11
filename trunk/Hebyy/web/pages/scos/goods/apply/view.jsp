@@ -4,14 +4,14 @@
 <html>
 <head>
 	<%@include file="/common/meta.jsp"%>
-	<title>办公用品登记信息</title>
+	<title>办公用品领用登记信息</title>
 </head>
 <body>
 	<div class="x-panel">
-		<div class="x-panel-header">办公用品登记信息</div>
+		<div class="x-panel-header">办公用品领用登记信息</div>
 		<div class="x-panel-body">
 			<fieldset>
-				<legend>办公用品登记信息</legend>
+				<legend>办公用品领用信息</legend>
 				<table width="850" border="0" align="center"
 					style="line-height: 30px;">
 					<tr>
@@ -27,11 +27,11 @@
 						<td>${model.useCount}</td>
 					</tr>
 					<tr>
-						<td align="right">申请日期：</td>
+						<td align="right">领用日期：</td>
 						<td><s:date name="model.applyDate" format="yyyy-MM-dd"/></td>
 					</tr>
 					<tr>
-						<td align="right">申&nbsp;&nbsp;请&nbsp;&nbsp;人：</td>
+						<td align="right">领&nbsp;&nbsp;用&nbsp;&nbsp;人：</td>
 						<td>${model.proposer.name}</td>
 					</tr>
 					<tr>

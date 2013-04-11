@@ -38,7 +38,12 @@
 				value='<s:date name="endDate" format="yyyy-MM-dd"/>'
 				onfocus="WdatePicker({minDate:'#F{$dp.$D(\'startDate\')}',skin:'blueFresh',dateFmt:'yyyy-MM-dd'})"
 				class="Wdate" readonly="readonly" /><input type="submit" value="查询"
-				class="button" /> <s:hidden name="ec_p" id="ec_p" /></td>
+				class="button" />
+				&nbsp;&nbsp;&nbsp;<input type="button"
+						onclick="javascript:window.location.href='${ctx}/goods/instock/indexDraw.do';"
+						class="button" value="返回"></td>
+				
+				 <s:hidden name="ec_p" id="ec_p" /></td>
 		</s:form>
 	</tr>
 </table>
@@ -57,61 +62,33 @@
 
 	<tr>
 		<th>序号</th>
-		<th>登记单编号</th>
 		<th>物品</th>
 		<th>使用数量</th>
-		<th>申请物品总价格</th>
-		<th>库存数量</th>
-		<th>申购日期</th>
-		<th>申请人</th>
-		<th>状态</th>
+		<th>领用物品总价格</th>
+		
+		<th>领用日期</th>
+		<th>领用人</th>
 		<th>操作</th>
 	</tr>
 	<s:iterator value="#attr.items" var="item" status="st">
 		<tr onmousemove="this.className='trOver';"
 			onmouseout="this.className='trOut';">
 			<td align="center">${st.index + 1}</td>
-			<td align="center"><a
-				href="${ctx}/goods/apply/view.do?model.id=${item.id}"
-				title="${item.applyNo}" target="_blank"><font color="blue">${item.applyNo}</font></a></td>
+		
 			<td align="center"><a
 				href="${ctx}/goods/view.do?model.id=${item.goods.id}"
 				title="${item.goods.name}" target="_blank"><font color="blue">${item.goods.name}</font></a></td>
 			<td>${item.useCount}</td>
 			<td>${item.totalPrice}</td>
-			<td>${item.goods.stockCounts }</td>
+			
 			<td>${item.applyDate}</td>
 			<td>${item.proposer.name}</td>
-			<td><s:if test='#attr.item.status == 0'>
-				<font color="red">未审核</font>
-			</s:if> <s:if test="#attr.item.status == 1">
-			审核通过
-			</s:if> <s:if test="#attr.item.status == 2">
-			审核未通过
-			</s:if></td>
-			<td align="center"><s:if test="#attr.item.status == 0">
-				<a href="passCarApply.do?model.id=${item.id}" title="查看">批准</a> |  
-				<a href="noPassCarApply.do?model.id=${item.id}" title="查看">不批准</a>
-			</s:if> <s:else>
-				<a href="#" title="查看"><font color="#D4D0C8">批准</font></a> | 
-				<a href="#" title="查看"><font color="#D4D0C8">不批准</font></a>
-			</s:else></td>
-		</tr>
-	</s:iterator>
-	<s:if test="#attr.items.size()!=0">
-		<tr style="background-color: #ffe3ee">
-			<td colspan="2" align="center" id="No1">合计(全部)</td>
-			<td
-				style="font-weight: bold; word-wrap: break-word; word-break: break-all; text-align: right">${totalUseCount}</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-	</s:if>
+			<td align="center"><a
+				href="${ctx}/goods/apply/view.do?model.id=${item.id}"
+				title="${item.applyNo}" target="_blank"><font color="blue">查看明细</font></a></td>
+			</tr>
+			</s:iterator>
+			
 	<tr>
 		<td colspan="10" style="border: 0px; padding-top: 10px;" align="right"><%@include
 			file="/pages/common/page.jsp"%></td>
