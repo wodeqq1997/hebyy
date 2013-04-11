@@ -7,22 +7,19 @@
 <%@include file="/pages/common/meta.jsp"%>
 <%@include file="/common/validator.jsp"%>
 
-<title>章程目录</title>
+<title>类别信息</title>
 <script type="text/javascript" src="${ctx}/scripts/my97/WdatePicker.js"></script>
 </head>
 <body>
 
 	<div id="r_main">
-		<div class="x-header" style="border-bottom: 1px solid #99bbe8;" >
-			<span
-				class="r_nav_item">章程目录管理</span>
-		</div>
+		<div class="x-panel-header">
+			<div style="float: left;">类别信息管理</div>
+	    </div>
 		<div id="r_tool">
-			<div>
+			<div align="right">
 				<s:form id="pageQueryForm" action="queryxx.do" cssStyle="margin:auto;" method="post">&nbsp;
-					
-					&nbsp;&nbsp;
-						<a href="edit.do" title="添加章程目录"> 
+						<a href="edit.do" title="添加类别"> 
 						<img src="${ctx}/images/icons/add.gif">&nbsp;新建</a>
 						&nbsp;&nbsp;
 						<a href="javascript:changeUser('pageQueryForm','确认要删除信息吗?');" title="删除章程目录"
@@ -30,7 +27,7 @@
 								src="${ctx}/images/icons/delete.gif">删除</a> 
 						<a href="javascript:window.location.href='${ctx}/gzzd/queryxx.do';" title="返回规章制度管理页面"> 
 						<img src="${ctx}/images/icons/go.gif">&nbsp;返回</a>
-					
+						&nbsp;&nbsp;&nbsp;&nbsp;
 						
 						  <s:hidden name="ec_p" id="ec_p"/>
 				</s:form>
@@ -51,8 +48,8 @@
 				
 				<tr>
 				    <th>选择</th>
-                    <th>章程编号</th>
-					<th>章程目录</th>
+                    <th>类别名称</th>
+					<th>类别备注</th>
 	 			
 
 					<th width="60">操作</th>
@@ -62,13 +59,13 @@
 						onmouseout="this.className='trOut';">
 						<td align="center"><input type="checkbox" name="selectedItems" id="selectedItems" value="${item.id}" class="checkbox"/></td>
 	                   
-	                    <td align="center">${item.zcxh}</td>
-						<td align="left">${item.zcMc}</td>
+	                    <td align="center">${item.zcMc}</td>
+						<td align="left">${item.remark}</td>
 					
 
 
 						<td align="center" valign="middle"><a
-							href="edit.do?model.id=${item.id}" title="修改章程目录"> <img
+							href="edit.do?model.id=${item.id}" title="修改类别名称"> <img
 								src="${ctx}/images/icons/edit.png">
 						</a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 					</tr>
@@ -83,8 +80,6 @@
 		</div>
 	</div>
 <script type="text/javascript">
-	
-
 		function changeUser(formid, msg) {
 			var checked = false;
 			$('input').each(function(i, item) {
@@ -96,7 +91,6 @@
 				alert('请至少选择一条要删除信息');
 				return;
 			}
-
 			if (confirm(msg)) {
 				var s = null;
 				$('input').each(function(i, item) {//循环每一个表单里的input元素
@@ -121,6 +115,5 @@
 			$('#pageQueryForm').submit();
 		}
 	</script>
-
 </body>
 </html>

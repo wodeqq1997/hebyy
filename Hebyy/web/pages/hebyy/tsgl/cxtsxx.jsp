@@ -13,9 +13,9 @@
 <body>
 
 <div id="r_main">
-<div class="x-header" style="border-bottom: 1px solid #99bbe8;">
-<span class="r_nav_item">图书查询</span></div>
-
+<div class="x-panel-header">
+<div style="float: left;">图书查询</div>
+</div>
 <div class="x-toolbar">
 <table width="100%" style="margin: 4px 0px;" cellpadding="0"
 	cellspacing="0">
@@ -41,7 +41,6 @@
 						  <s:hidden name="ec_p" id="ec_p" />
 		</s:form></td>
 	</tr>
-
 </table>
 </div>
 <div class="x-panel-body">
@@ -55,7 +54,6 @@
 </table>
 </div>
 <table id="fineTable" width="800">
-
 	<tr>
 		<th>序号</th>
 		<th width="110">书名</th>
@@ -67,27 +65,31 @@
 		<th width="160">图书备注</th>
 		<th width="30">操作</th>
 
-
 	</tr>
 	<s:iterator value="items" var="item" status="st">
 		<tr onmousemove="this.className='trOver';"
 			onmouseout="this.className='trOut';">
 			<td align="center">${st.index + 1}</td>
-			<td width="110" align="center">${item.tsMc}</td>
+			<td width="110" align="center"><a
+				href="view.do?model.id=${item.id}" title="查看详情"><font
+				color="blue">${item.tsMc}</font></a></td>
 			<td width="80" align="center">${item.author}</td>
 			<td width="100" align="center">${item.lbxx.lbMc}
 			<td width="80" align="center">${item.totalNum}</td>
-			<td width="70" align="center">${item.syNum}</td>
-
+			<td width="70" align="center">
+			<s:if test="#attr.item.syNum == 0">
+			<font color="red">${item.syNum}</font>
+			</s:if>
+			<s:if test="#attr.item.syNum != 0">
+			${item.syNum}
+			</s:if>
+			</td>
 			<td width="80" align="center"><fmt:formatDate
 				value="${item.rkTime}" pattern="yyyy-MM-dd" /></td>
 			<td width="180">${item.descn}</td>
-
 			<td width="30" align="center"><a
 				href="view.do?model.id=${item.id}" title="查看详情"><img
 				src="${ctx}/images/icons/zoom.gif"></a>&nbsp;</td>
-
-
 		</tr>
 	</s:iterator>
 	<tr>
@@ -97,7 +99,6 @@
 </table>
 </div>
 </div>
-
 <script type="text/javascript">
 	function jkjsSave() {
 		$('#pageQueryForm').attr("action", "${ctx}/tsgl/toAll2.do");

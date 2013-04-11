@@ -13,24 +13,15 @@
 <body>
 
 	<div id="r_main">
-		<div class="x-header" style="border-bottom: 1px solid #99bbe8;" >
-			<span
-				class="r_nav_item">规章制度条例查询</span>
-		</div>
-
-		
-		
-		
-		
-		<div class="x-toolbar">
+		<div class="x-panel-header">
+			<div style="float: left;">规章制度条例查询</div>
+	    </div>
+	<div class="x-toolbar">
 	<table width="100%" style="margin: 4px 0px;" cellpadding="0" cellspacing="0">
 	  <tr>
-	    <td width="70%">
+	    <td width="70%" align="right">
 	     	<s:form id="pageQueryForm" action="queryxx.do" cssStyle="margin:auto;" method="post">&nbsp;
 					&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;
-					
-				  
-						
 						  <s:hidden name="ec_p" id="ec_p"/>
 						<input type="button" style="width:70px; height:18px;"
 						onclick="javascript:window.location.href='${ctx}/pages/main.jsp';"
@@ -50,18 +41,17 @@
 					</td>
 				</tr>
 				<tr>
-                    <th  width="60">章程号</th>
-                    <th  width="100">章程名称</th>
-					<th  width="500">规章制度内容</th>
+                 		<th width="150">类别名称</th>
+						<th width="120">文件号</th>
+						<th width="300">文件名</th>
 				</tr>
 				<s:iterator value="items"  var="item" status="st">
 					<tr onmousemove="this.className='trOver';"
 						onmouseout="this.className='trOut';">		                  
-	                    <td  width="60" align="center">${item.zcxx.zcxh}</td>
-	                    <td width="100" align="center">${item.zcxx.zcMc}</td>
-						<td  width="500" align="left">${item.zdContent}
-						<input type="hidden" name="item.zcxx.zcMc" value="${item.zcxx.zcMc}"/>
-						</td>
+	                   <td width="150" align="center">${item.zcxx.zcMc}</td>
+					   <td width="120" align="center"><a href="view.do?model.id=${item.id}" title="查看详情"> <font color="blue">${item.wjh}</font></a></td>
+					   <td width="300" align="left">${item.zdContent} <input
+						type="hidden" name="item.zcxx.zcMc" value="${item.zcxx.zcMc}" /></td>
 					</tr>
 				</s:iterator>
 				<tr>

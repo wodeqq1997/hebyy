@@ -6,9 +6,6 @@
 
 <head>
 <script type="text/javascript" src="${ctx}/scripts/my97/WdatePicker.js"></script>
-<script type="text/javascript">
-	var URL_CTX = '${ctx}';
-</script>
 <%@include file="/pages/common/meta.jsp"%>
 <%@include file="/common/validator.jsp"%>
 <style type="text/css">
@@ -30,57 +27,45 @@ textarea {
 	text-align: right;
 }
 </style>
-<title>章程目录编辑页面</title>
+<title>类别编辑页面</title>
 </head>
 <body>
-<div class="x-header" style="border-bottom: 1px solid #99bbe8;">
-当前位置： <span class="r_nav_item">章程目录</span> <span class="r_nav_item">章程目录编辑页面</span>
+<div class="x-panel-header">
+<div style="float: left;">类别编辑页面</div>
 </div>
-
-<div id="content"><s:form id="save" method="post"
-	validate="true">
-
-	<table id="fineTable" width="780">
+<div id="content">
+	<table id="fineTable" width="750"  align="center" style="margin-top: 20px;margin-bottom: 10px;">
+	<s:form id="save" method="post" validate="true">
 		<tr>
-			<td class="td1"><span class="warn">*</span> 章程目录序号</td>
+			<th colspan="2">类别信息</th>
+		</tr>
+		<tr>
+			<td class="td1">类别名称：</td>
+			<td><s:hidden name="model.id" /> 
+				<s:textfield name="model.zcMc"
+				style="width:360px; height:22px;" cssClass="required"
+				maxlength="255" /> <font color="red">*</font>
+		</tr>
+		<tr>
+			<td class="td1">类别备注：</td>
 			<td>
-				<s:hidden name="model.id" />
-			 	<s:if test='#attr.model.id == 0 || #attr.model.id == null'>
-			 	第&nbsp; <s:textfield
-				name="model.zcxh" cssClass="required number"
-				style="width:20px; height:22px;" /> &nbsp;章&nbsp;
-				</s:if>
-				<s:if test='#attr.model.id != 0 &&#attr.model.id != null'>
-					<s:textfield name="model.zcxh"
-				style="width:260px; height:22px;" cssClass="required"
-				maxlength="255" /> 
-					
-					</s:if>
-				
-				 <font color="red">*</font>
+			<s:textarea id="content" name="model.remark"
+				cssStyle="width:360px;height: 45px;" />
 			</td>
-
 		</tr>
+		
 		<tr>
-			<td class="td1"><span class="warn">*</span> 章程目录名称</td>
-			<td><s:textfield name="model.zcMc"
-				style="width:650px; height:22px;" cssClass="required"
-				maxlength="255" /> <font color="red">*</font></td>
-
-		</tr>
-
-		<tr>
-			<td colspan="6" style="border: 0px;" align="center"><%@include
+			<td colspan="2" style="border: 0px;" align="center"><%@include
 				file="/pages/common/messages.jsp"%> <input
 				type="button" onclick="jkjsSave()" class="button" value=" 保 存 ">&nbsp;&nbsp;
 			&nbsp;&nbsp;&nbsp;<input type="button"
 				onclick="javascript:window.location.href='${ctx}/zcxx/queryxx.do';"
 				class="button" value=" 返 回 "></td>
-
 		</tr>
+		
+		</s:form>
 	</table>
-
-</s:form></div>
+</div>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#save").validate();

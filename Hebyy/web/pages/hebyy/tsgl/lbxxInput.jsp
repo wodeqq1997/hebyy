@@ -28,17 +28,18 @@ textarea {
 <title>图书类别编辑页面</title>
 </head>
 <body>
-	<div class="x-header" style="border-bottom: 1px solid #99bbe8;" >
-		当前位置： <span class="r_nav_item">图书类别</span> <span
-			class="r_nav_item">图书类别编辑页面</span>
-	</div>
-
+<div class="x-panel-header">
+<div style="float: left;">图书类别编辑页面</div>
+</div>
 	<div id="content">
 		<s:form id="save" method="post" validate="true">
 
-			<table id="fineTable" width="780">
+			<table id="fineTable" width="750"  align="center" style="margin-top: 20px;margin-bottom: 10px;">
 				<tr>
-					<td class="td1"> 图书类别名称</td>
+					<th colspan="2">图书类别信息</th>
+				</tr>
+				<tr>
+					<td class="td1"> 图书类别名称：</td>
 					<td><s:hidden name="model.id" />
 					<s:textfield name="model.lbMc"   style="width:380px;height:22px;"  cssClass="required"  maxlength="255"/>
 						<font color="red">*</font>
@@ -46,7 +47,7 @@ textarea {
 
 				</tr>
 				<tr>
-					<td class="td1" > 图书类别备注</td>  
+					<td class="td1" > 图书类别备注：</td>  
 					<td>
 					<s:textfield name="model.descn"   style="width:380px;height:22px;"   maxlength="255"/>
 					
@@ -55,7 +56,7 @@ textarea {
 				</tr>
 
 				<tr>
-					<td colspan="6" style="border: 0px;" align="center"><%@include
+					<td colspan="2" style="border: 0px;" align="center"><%@include
 							file="/pages/common/messages.jsp"%> <input
 						type="button" onclick="jkjsSave()" class="button" value=" 保 存 ">&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;<input type="button"

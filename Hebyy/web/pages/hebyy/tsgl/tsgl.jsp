@@ -13,9 +13,9 @@
 <body>
 
 <div id="r_main">
-<div class="x-header" style="border-bottom: 1px solid #99bbe8;">
-<span class="r_nav_item">图书管理查询</span></div>
-
+<div class="x-panel-header">
+<div style="float: left;">图书管理查询</div>
+</div>
 <div class="x-toolbar">
 <table width="100%" style="margin: 4px 0px;" cellpadding="0"
 	cellspacing="0">
@@ -91,7 +91,14 @@
 			<td width="75" align="center">${item.author}</td>
 			<td width="85" align="center">${item.lbxx.lbMc}
 			<td width="65" align="center">${item.totalNum}</td>
-			<td width="70" align="center">${item.syNum}</td>
+			<td width="70" align="center">
+			<s:if test="#attr.item.syNum == 0">
+			<font color="red">${item.syNum}</font>
+			</s:if>
+			<s:if test="#attr.item.syNum != 0">
+			${item.syNum}
+			</s:if>
+			</td>
 			<td width="80" align="center"><fmt:formatDate
 				value="${item.rkTime}" pattern="yyyy-MM-dd" /></td>
 			<td width="150" align="center">${item.descn} <input

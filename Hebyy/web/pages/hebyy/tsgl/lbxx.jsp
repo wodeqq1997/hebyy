@@ -13,8 +13,9 @@
 <body>
 
 <div id="r_main">
-<div class="x-header" style="border-bottom: 1px solid #99bbe8;">
-<span class="r_nav_item">图书类别管理</span></div>
+<div class="x-panel-header">
+<div style="float: left;">"图书类别管理</div>
+</div>
 <div id="r_tool">
 <div><s:form id="pageQueryForm" action="queryxx.do"
 	cssStyle="margin:auto;" method="post">&nbsp;

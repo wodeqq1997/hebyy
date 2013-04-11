@@ -13,9 +13,9 @@
 <body>
 
 <div id="r_main">
-<div class="x-header" style="border-bottom: 1px solid #99bbe8;">
-<span class="r_nav_item">借书还书记录查询</span></div>
-
+<div class="x-panel-header">
+<div style="float: left;">借书还书记录查询</div>
+</div>
 <div class="x-toolbar">
 <table width="100%" style="margin: 4px 0px;" cellpadding="0"
 	cellspacing="0">
@@ -93,15 +93,9 @@
 
 			<td align="center" valign="middle"><s:if
 				test='#attr.item.hsr == null'>
-				<input type="button"
-					onclick="javascript:window.location.href='toHs.do?item.id=${item.id}&&item.bookId=${item.bookId}';"
-					class="button" value=" 归还">
-
+              <a href="toHs.do?item.id=${item.id}&&item.bookId=${item.bookId}" title="归还">归还</a>
 			</s:if> <s:if test='#attr.item.hsr != null'>
-				<input type="button"
-					onclick="javascript:window.location.href='toHs.do?item.id=${item.id}&&item.bookId=${item.bookId}';"
-					class="button" value=" 归还" disabled>
-
+			  <a href="javascript:;" title="归还"><font color="#D4D0C8">归还</font></a>
 			</s:if></td>
 		</tr>
 	</s:iterator>

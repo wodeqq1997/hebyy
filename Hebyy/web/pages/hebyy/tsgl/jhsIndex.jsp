@@ -13,9 +13,9 @@
 <body>
 
 <div id="r_main">
-<div class="x-header" style="border-bottom: 1px solid #99bbe8;"><span
-	class="r_nav_item">借书还书信息查询</span></div>
-
+<div class="x-panel-header">
+<div style="float: left;">借书还书信息查询</div>
+</div>
 <div class="x-toolbar">
 <table width="100%" style="margin: 4px 0px;" cellpadding="0"
 	cellspacing="0">
@@ -76,11 +76,20 @@
 			onmouseout="this.className='trOut';">
 
 			<td align="center">${st.index + 1}</td>
-			<td width="110" align="center">${item.tsMc}</td>
+			<td width="110" align="center"><a
+				href="view.do?model.id=${item.id}" title="查看详情"><font
+				color="blue">${item.tsMc}</font></a></td>
 			<td width="75" align="center">${item.author}</td>
 			<td width="95" align="center">${item.lbxx.lbMc}
 			<td width="60" align="center">${item.totalNum}</td>
-			<td width="65" align="center">${item.syNum}</td>
+			<td width="65" align="center">
+			<s:if test="#attr.item.syNum == 0">
+			<font color="red">${item.syNum}</font>
+			</s:if>
+			<s:if test="#attr.item.syNum != 0">
+			${item.syNum}
+			</s:if>
+			</td>
 			<td width="78" align="center"><fmt:formatDate
 				value="${item.rkTime}" pattern="yyyy-MM-dd" /></td>
 			<td>${item.descn} <input type="hidden" name="item.lbxx.lbMc"
@@ -90,13 +99,9 @@
 
 			<td align="center" valign="middle"><s:if
 				test='#attr.item.syNum != 0'>
-				<input type="button" width="12"
-					onclick="javascript:window.location.href='toJs.do?model.id=${item.id}&&zx=1';"
-					class="button" value=" 借阅 ">
+				<a href="toJs.do?model.id=${item.id}&&zx=1" title="借阅">借阅</a>
 			</s:if> <s:if test='#attr.item.syNum == 0'>
-				<input type="button" width="12"
-					onclick="javascript:window.location.href='toJs.do?model.id=${item.id}&&zx=1';"
-					class="button" value=" 借阅 " disabled="disabled">
+			<a href="javascript:;" title="借阅"><font color="#D4D0C8">借阅</font></a>
 			</s:if></td>
 		</tr>
 	</s:iterator>
