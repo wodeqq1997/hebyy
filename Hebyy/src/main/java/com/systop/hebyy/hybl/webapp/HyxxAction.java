@@ -107,11 +107,11 @@ public class HyxxAction extends DefaultCrudAction<Hyxx, HyxxManager> {
 		page = getManager().pageQuery(page, hql.toString(), args.toArray());
 		items = page.getData();
 		for (Hyxx hyxx : items) {
-			
+
 			String id = hyxx.getTypeId();
-			if(StringUtils.isNotBlank(id)){
-			HyLb hyLb = hyLbManager.getHyLbByid(Integer.parseInt(id));
-			hyxx.setHytype(hyLb.getHyLbMc());
+			if (StringUtils.isNotBlank(id)) {
+				HyLb hyLb = hyLbManager.getHyLbByid(Integer.parseInt(id));
+				hyxx.setHytype(hyLb.getHyLbMc());
 			}
 
 		}
@@ -137,8 +137,7 @@ public class HyxxAction extends DefaultCrudAction<Hyxx, HyxxManager> {
 			names.add(name);
 		}
 		getRequest().setAttribute("names", names); // request传值
-		
-		
+
 		// 获取输入的条件
 		String hymc = getModel().getHyMc();
 		String hyType = getModel().getHytype(); // 会议类别
@@ -180,9 +179,9 @@ public class HyxxAction extends DefaultCrudAction<Hyxx, HyxxManager> {
 		items = page.getData();
 		for (Hyxx hyxx : items) {
 			String id = hyxx.getTypeId();
-			if(StringUtils.isNotBlank(id)){
-			HyLb hyLb = hyLbManager.getHyLbByid(Integer.parseInt(id));
-			hyxx.setHytype(hyLb.getHyLbMc());
+			if (StringUtils.isNotBlank(id)) {
+				HyLb hyLb = hyLbManager.getHyLbByid(Integer.parseInt(id));
+				hyxx.setHytype(hyLb.getHyLbMc());
 			}
 
 		}
@@ -267,6 +266,17 @@ public class HyxxAction extends DefaultCrudAction<Hyxx, HyxxManager> {
 		}
 		getRequest().setAttribute("names", names); // request传值
 		return "input";
+	}
+
+	/**
+	 * 跳转到查看详细页面
+	 */
+	@Transactional
+	public String toView() {
+		String typeid = getModel().getTypeId();
+		HyLb hyLb = hyLbManager.getHyLbByid(Integer.parseInt(typeid));// 拿到目录的名称
+		getModel().setHytype(hyLb.getHyLbMc());
+		return "view";
 	}
 
 }
