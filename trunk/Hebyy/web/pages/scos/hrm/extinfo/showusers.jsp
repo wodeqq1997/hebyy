@@ -9,6 +9,12 @@
 <script type="text/javascript" src="${ctx}/pages/archive/open_archive.js"></script>
 <LINK href="${ctx}/styles/zjTable.css" type='text/css' rel='stylesheet'>
 <title>员工信息详情</title>
+<script type="text/javascript">
+function importSupplier(){
+	window.location.href = "${ctx}/employee/importIndex.do";
+}
+
+</script>
 </head>
 <body>
 <div class="x-panel">
@@ -29,9 +35,12 @@
 			<td style="text-align: right; padding-right: 1em;" width="5%">
 			<a href="${ctx}/security/user/editNew.do?from=hr">
 			<img src="${ctx}/images/icons/add.gif">新建员工信息</a></td>
+			<td><input type="button" class="button" onclick="importSupplier()"
+									value="导入供应商" /></td>
 		</tr>
 	</table>
 </s:form>
+
 </div>
 <div class="x-panel-body" style="width: 1210px; ">
 <table width="100%" align="left" id="fineTable">
