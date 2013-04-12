@@ -116,10 +116,12 @@ var nodes = [
             {name:"办公用品领取", url:"${ctx}/goods/instock/indexDraw.do", target:"main", icon:"${ctx}/images/icons/office-tackle.png"}
         ]},
         {name:"固定资产", icon:"${ctx}/images/icons/a_list.gif", children:[
-            {name:"设备物资管理", url:"${ctx}/asset/index.do", target:"main", icon:"${ctx}/images/icons/a_list.gif"},
-            {name:"设备物资维修记录", url:"${ctx}/asset/repair/index.do", target:"main", icon:"${ctx}/images/icons/a_list.gif"},
-            {name:"设备物资检测记录", icon:"${ctx}/images/icons/a_list.gif", target:"main", url:"${ctx}/asset/check/index.do"},
-            {name:"设备进出场记录", url:"${ctx}/asset/storage/index.do", target:"main", icon:"${ctx}/images/icons/a_list.gif"}
+			{name:"固定资产类型管理", url:"${ctx}/asset/type/index.do", target:"main", icon:"${ctx}/images/icons/a_list.gif"},
+            {name:"固定资产管理", url:"${ctx}/asset/index.do", target:"main", icon:"${ctx}/images/icons/a_list.gif"},
+            {name:"固定资产管理", url:"${ctx}/asset/index.do", target:"main", icon:"${ctx}/images/icons/a_list.gif"},
+            {name:"固定资产维修记录", url:"${ctx}/asset/repair/index.do", target:"main", icon:"${ctx}/images/icons/a_list.gif"},
+            {name:"固定资产检测记录", icon:"${ctx}/images/icons/a_list.gif", target:"main", url:"${ctx}/asset/check/index.do"},
+            {name:"固定资产管理", url:"${ctx}/asset/storage/index.do", target:"main", icon:"${ctx}/images/icons/a_list.gif"}
         ]}
         ,{name:"考勤管理", url:"${ctx}/attendance/index.do", target:"main", icon:"${ctx}/images/icons/attendance.gif"}
         ,{name:"车辆", icon:"${ctx}/images/icons/car.png", children:[
