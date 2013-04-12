@@ -165,7 +165,7 @@
 	});
 	
 	function jkjsSave() {
-		$('#save').attr("action", "${ctx}/tsgl/jkjsSave.do");
+		$('#save').attr("action", "${ctx}/tsgl/save.do");
 		$('#save').submit();
 	}
 
