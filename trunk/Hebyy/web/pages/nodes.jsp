@@ -101,8 +101,8 @@ var nodes = [
        ,
        {name:"",isHidden:true},
     {name:"综合行政", icon:"${ctx}/images/bmsz.gif", children:[                                                   
-        {name:"会议管理", url:"${ctx}/hybl/queryxx.do", target:"main", icon:"${ctx}/images/icons/erp_min.gif"},
-        {name:"会议历史查询", url:"${ctx}/hybl/queryxx1.do", target:"main", icon:"${ctx}/images/icons/erp_min.gif"},
+        {name:"会议管理", url:"${ctx}/meeting/queryxx.do", target:"main", icon:"${ctx}/images/icons/erp_min.gif"},
+        {name:"会议历史查询", url:"${ctx}/meeting/queryxx1.do", target:"main", icon:"${ctx}/images/icons/erp_min.gif"},
         {name:"规章制度管理", url:"${ctx}/gzzd/queryxx.do", target:"main", icon:"${ctx}/images/icons/visit_p.gif"},
         {name:"图书管理", icon:"${ctx}/images/forum/bbs.gif", children:[
         {name:"图书维护", url:"${ctx}/tsgl/queryxx.do", target:"main", icon:"${ctx}/images/forum/bbs.gif"},
