@@ -159,7 +159,7 @@ var nodes = [
                {name:"部门考勤上报", url:"${ctx}/reportedAtte/index.do", target:"main", icon:"${ctx}/images/icons/attendance.gif"}
            ]},
            {name:"员工", icon:"${ctx}/images/hrm/training.gif", children:[
-           {name:"员工信息", url:"${ctx}/enterpriseext/showUsers.do", target:"main", icon:"${ctx}/images/hrm/training.gif"},
+           {name:"员工信息", url:"${ctx}/employee/showUsers.do", target:"main", icon:"${ctx}/images/hrm/training.gif"},
            {name:"员工合同", url:"${ctx}/empcontract/showUsers.do", target:"main", icon:"${ctx}/images/hrm/training.gif"}
            //{name:"简历管理", url:"${ctx}/resume/index.do", target:"main", icon:"${ctx}/images/icons/curriculum_vitae.png"}
              
