@@ -254,7 +254,8 @@ public class TsglAction extends DefaultCrudAction<Tsxx, TsglManager> {
 	 * 
 	 * @return
 	 */
-	public String delete() {
+	@Override
+	public String remove() {
 		String ids = getRequest().getParameter("ids");
 		String[] id = ids.split(",");
 
@@ -274,8 +275,8 @@ public class TsglAction extends DefaultCrudAction<Tsxx, TsglManager> {
 	 * 
 	 * @return
 	 */
-
-	public String jkjsSave() {
+	@Override
+	public String save() {
 		// 获取输入的条件
 		String name = getModel().getLbmc();
 		Lbxx lbxx = lbxxManager.getZcxxByKdname(name);

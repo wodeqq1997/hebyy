@@ -68,7 +68,8 @@ public class ZcxxAction extends DefaultCrudAction<Zcxx, ZcxxManager> {
 	 * 
 	 * @return
 	 */
-	public String delete() {
+	@Override
+	public String remove() {
 
 		String ids = getRequest().getParameter("ids");
 		String[] id = ids.split(",");
@@ -77,7 +78,7 @@ public class ZcxxAction extends DefaultCrudAction<Zcxx, ZcxxManager> {
 			int id2 = Integer.parseInt(id1);
 			List<Gzzd> jds = gzzdManager.querykc(id2);
 			if (jds.size() != 0) {
-				addActionMessage("该类已经使用，不能删除！");
+				addActionMessage("该类别已经使用，不能删除！");
 			} else {
 				// for (Gzzd jd : jds) {
 				// gzzdManager.remove(jd);

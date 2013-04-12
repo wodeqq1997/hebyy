@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	
+	
+	
+	<package name="meetingType" extends="json"  namespace="/meetingType">
+		
+		<action name="*" class="meetingTypeAction" method="{1}">
+	
+			<result name="index">/pages/hebyy/meeting/type/index.jsp</result>
+			<result name="input">/pages/hebyy/meeting/type/edit.jsp</result>
+			<result name="success" type="redirect">index.do</result>
+		
+		</action>
+	</package>
+	
+	
+	
+	
+</struts>
