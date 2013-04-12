@@ -17,6 +17,9 @@
 			<result name="ajaxReadAllMsgs" type="json">
 		   		<param name="root">result</param>
 			</result>
+			<result name="ajaxReadReceiveMsgs" type="json">
+				<param name="root">indexMsgs</param>
+			</result>
 		</action>
 	</package>
 </struts>
