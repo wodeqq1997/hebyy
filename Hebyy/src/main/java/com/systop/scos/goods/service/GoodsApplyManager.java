@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.systop.core.ApplicationException;
 import com.systop.core.service.BaseGenericsManager;
-import com.systop.scos.goods.GoodsConstants;
 import com.systop.scos.goods.model.Goods;
 import com.systop.scos.goods.model.GoodsApply;
 import com.systop.scos.goods.model.InStock;
