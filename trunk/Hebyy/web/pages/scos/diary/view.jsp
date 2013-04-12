@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
 <%@include file="/common/taglibs.jsp"%>
 <html>
 <head>
@@ -55,34 +54,40 @@
             border-bottom: 1px dotted #99BBE8; margin: 0px 5px;
         }
     </style>
-<title>文档信息</title>
+<title>日志信息</title>
 </head>
 <body>
 	<div class="x-panel">
 		<div class="x-panel-body">
 				<table width="850" border="0" align="center" style="line-height: 30px;">
 					<tr>
-						<td align="center" style="font-size: 20px; font-weight: bold; color: red;">${model.title}</td>
+						<td align="center" colspan = "2" style="font-size: 20px; font-weight: bold; color: red;">${model.title}</td>
+					</tr>
 					<tr>
-						<td align="center" style="border-bottom: 1px solid #a9bfd3;">
+						<td align="center" colspan = "2" style="border-bottom: 2px solid #a9bfd3;">
 							上传者：${model.user.name}&nbsp;&nbsp;&nbsp;&nbsp;
 							上传时间：<s:date name="model.createTime" format="yyyy-MM-dd HH:mm" />
 						</td>
 					</tr>
 					<tr>
-						<td>
-							<div style="padding: 10px;">
-								${model.content}
-							</div>
-                            <c:if test="${not empty model.fileAttachIds}">
-                            <div style="border-top: 1px solid #ccc">附件列表：</div>
-							<div id="systop_file_list"></div>
-                            </c:if>
-						</td>
+						<td align="left" valign="top"  style="border-bottom: 1px solid #a9bfd3;">办理中工作事务：
+						${model.doing }</td>
+					</tr>
+					<tr>
+						<td align="left" valign="top" style="border-bottom: 1px solid #a9bfd3;">已完成工作事务：
+						${model.complate }</td>
+					</tr>
+					<tr>
+						<td align="left" valign="top"  style="border-bottom: 1px solid #a9bfd3;">待办理工作事务：
+						${model.todo }</td>
+					</tr>
+					<tr>
+						<td align="left" valign="top" style="border-bottom: 1px solid #a9bfd3;">备注：
+						<span style="margin-left: 53px">${model.content }</span></td>
 					</tr>
 				</table>
 		</div>
-
+<center>
         <div style="margin: 0 auto;width: 850px;margin-top: 15px;">
         <div class="row title" style="font-size: 12px;"> 相关评论 </div>
         <div>
@@ -125,11 +130,7 @@
             </form>
         </div>
         </div>
+	</center>
 	</div>
-    <s:if test="model.id != null">
-        <script type="text/javascript">
-            viewFileAttchList('${model.fileAttachIds}', false);
-        </script>
-    </s:if>
 </body>
 </html>
