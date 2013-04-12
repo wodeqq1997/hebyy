@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.systop.common.modules.security.user.model.User;
 import com.systop.core.dao.support.Page;
 import com.systop.core.service.BaseGenericsManager;
 import com.systop.hebyy.hrm.contract.model.EmpContract;
+import com.systop.hebyy.hrm.employee.model.Employee;
 
 /**
  * 
@@ -27,9 +27,9 @@ public class EmpContractManager  extends BaseGenericsManager<EmpContract> {
 	 * @param userId
 	 */
 	@Transactional
-	public void save(EmpContract empContract,Integer userId) {
-		if (userId != null) {
-			empContract.setUser(getDao().get(User.class, userId));
+	public void save(EmpContract empContract,Integer employeeId) {
+		if (employeeId != null) {
+			empContract.setEmployee(getDao().get(Employee.class, employeeId));
 		}
 		save(empContract);
 	}
@@ -44,12 +44,12 @@ public class EmpContractManager  extends BaseGenericsManager<EmpContract> {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<EmpContract> getUserContractByUid(Page page,int userId){
-		page = getDao().pagedQuery(page, "from EmpContract e where e.user.id = ? ", userId);
+		page = getDao().pagedQuery(page, "from EmpContract e where e.employee.id = ? ", userId);
 		return page.getData();
 	}
 
     public EmpContract currentContract(Integer id){
-        EmpContract contract = findObject("from EmpContract e where e.user.id=? order by e.startTime desc", id);
+        EmpContract contract = findObject("from EmpContract e where e.employee.id=? order by e.startTime desc", id);
         return contract;
     }
 }

@@ -5,7 +5,7 @@
 <struts>
 <package name="scos.empcontract" extends="json"  namespace="/empcontract">
 		<action name="*" class="empContractAction" method="{1}">
-			<result name="success" type="redirect">userContractView.do?model.user.id=${model.user.id}</result>
+			<result name="success" type="redirect">userContractView.do?model.employee.id=${model.employee.id}</result>
 			<result name="input">/pages/scos/hrm/contract/edit.jsp</result> 
 			<result name="showusers" >/pages/scos/hrm/contract/showusers.jsp</result> 
 			<result name="usercontractview">/pages/scos/hrm/contract/view.jsp</result>
