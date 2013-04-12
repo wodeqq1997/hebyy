@@ -47,7 +47,7 @@ function remove(id) {
 		<th>标题</th>
 		<th>创建日期</th>
 		<th>最后修改时间</th>
-		<th>内容</th>
+		<th>备注</th>
 		<th>操作</th>
 	</tr>
 	<s:iterator value="#attr.items" var="item" status="st">
