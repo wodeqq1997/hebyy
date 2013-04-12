@@ -11,7 +11,7 @@ import com.systop.hebyy.tsgl.model.Jhsxx;
 
 /**
  * 借还书信息业务类
- * @author wangyaping
+ * @author WangYaping
  *
  */
 

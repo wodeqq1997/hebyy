@@ -21,7 +21,7 @@ import com.systop.hebyy.gzzd.service.ZcxxManager;
 /**
  * 章程目录
  * 
- * @author wangyaping
+ * @author WangYaping
  * 
  */
 @Controller
@@ -32,51 +32,17 @@ public class GzzdAction extends DefaultCrudAction<Gzzd, GzzdManager> {
 	// 首页显示规章条数
 	private Integer viewCount;
 
-	public Integer getViewCount() {
-		return viewCount;
-	}
-
-	public void setViewCount(Integer viewCount) {
-		this.viewCount = viewCount;
-	}
-
+	// 规章制度集合
 	private List<Gzzd> gzzds = new ArrayList<Gzzd>();
 
-	public List<Gzzd> getGzzds() {
-		return gzzds;
-	}
-
-	public void setGzzds(List<Gzzd> gzzds) {
-		this.gzzds = gzzds;
-	}
-
-	private List<Gzzd> items;
-
-	public List<Gzzd> getItems() {
-		return items;
-	}
-
+	// 类别名称
 	private List<String> names = new ArrayList<String>();
 
-	public List<String> getNames() {
-		return names;
-	}
-
+	// 类别名称
 	private List<Zcxx> zcxxList;
 
-	public List<Zcxx> getZcxxList() {
-		return zcxxList;
-	}
-	
+	// 类别名称
 	private String zcmc;
-
-	public String getZcmc() {
-		return zcmc;
-	}
-
-	public void setZcmc(String zcmc) {
-		this.zcmc = zcmc;
-	}
 
 	@Autowired
 	ZcxxManager zcxxManager;
@@ -97,7 +63,7 @@ public class GzzdAction extends DefaultCrudAction<Gzzd, GzzdManager> {
 			names.add(name);
 		}
 		getRequest().setAttribute("names", names); // request传值
-		String zcName = getModel().getZcml(); //章程名称
+		String zcName = getModel().getZcml(); // 章程名称
 
 		// 获取输入的条件
 		String zdContent = getModel().getWjh();
@@ -106,13 +72,13 @@ public class GzzdAction extends DefaultCrudAction<Gzzd, GzzdManager> {
 
 		"from Gzzd p where 1=1 ");
 		List<Object> args = new ArrayList<Object>();
-       
-		//按照文件号模糊查询
+
+		// 按照文件号模糊查询
 		if (StringUtils.isNotBlank(zdContent)) {
 			hql.append(" and p.wjh like ? ");
 			args.add(MatchMode.ANYWHERE.toMatchString(zdContent));
 		}
-		//按照章程名称模糊查询
+		// 按照章程名称模糊查询
 		if (StringUtils.isNotBlank(zcName)) {
 			Zcxx zcxx = zcxxManager.getZcxxByKdname(zcName);
 			hql.append("  and p.zcxx.id = ? ");
@@ -127,8 +93,6 @@ public class GzzdAction extends DefaultCrudAction<Gzzd, GzzdManager> {
 
 	}
 
-	
-
 	/**
 	 * 条件查询(用于桌面查询)
 	 * 
@@ -139,13 +103,12 @@ public class GzzdAction extends DefaultCrudAction<Gzzd, GzzdManager> {
 	public String queryxx3() {
 
 		String id = getRequest().getParameter("id");
-		StringBuffer hql = new StringBuffer(
-		"from Gzzd p where 1=1 ");
+		StringBuffer hql = new StringBuffer("from Gzzd p where 1=1 ");
 		List<Object> args = new ArrayList<Object>();
 		hql.append("  and p.zcxx.id = ?  ");
 		args.add(Integer.parseInt(id));
 		hql.append(" order by p.id ");
-		
+
 		page = PageUtil.getPage(getPageNo(), getPageSize());
 		page = getManager().pageQuery(page, hql.toString(), args.toArray());
 		items = page.getData();
@@ -240,6 +203,38 @@ public class GzzdAction extends DefaultCrudAction<Gzzd, GzzdManager> {
 			System.out.println(gzzds.toArray().toString());
 		}
 		return "indexGzzds";
+	}
+
+	public Integer getViewCount() {
+		return viewCount;
+	}
+
+	public void setViewCount(Integer viewCount) {
+		this.viewCount = viewCount;
+	}
+
+	public List<Gzzd> getGzzds() {
+		return gzzds;
+	}
+
+	public void setGzzds(List<Gzzd> gzzds) {
+		this.gzzds = gzzds;
+	}
+
+	public List<String> getNames() {
+		return names;
+	}
+
+	public List<Zcxx> getZcxxList() {
+		return zcxxList;
+	}
+
+	public String getZcmc() {
+		return zcmc;
+	}
+
+	public void setZcmc(String zcmc) {
+		this.zcmc = zcmc;
 	}
 
 }

@@ -19,7 +19,7 @@ import com.systop.core.model.BaseModel;
 /**
  * 图书信息
  * 
- * @author wangyaping
+ * @author WangYaping
  * 
  */
 @SuppressWarnings("serial")

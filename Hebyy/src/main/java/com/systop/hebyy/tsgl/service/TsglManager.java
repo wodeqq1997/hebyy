@@ -21,7 +21,7 @@ import com.systop.hebyy.tsgl.model.Tsxx;
 
 /**
  * 图书维护业务类
- * @author wangyaping
+ * @author WangYaping
  *
  */
 

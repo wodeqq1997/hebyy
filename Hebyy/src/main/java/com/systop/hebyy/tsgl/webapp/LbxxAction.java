@@ -18,7 +18,7 @@ import com.systop.hebyy.tsgl.service.TsglManager;
 /**
  * 图书类别业务类
  * 
- * @author wangyaping
+ * @author WangYaping
  * 
  */
 

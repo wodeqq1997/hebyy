@@ -17,7 +17,7 @@ import com.systop.core.model.BaseModel;
 /**
  * 章程目录信息
  * 
- * @author wangyaping
+ * @author WangYaping
  * 
  */
 @SuppressWarnings("serial")

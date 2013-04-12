@@ -11,7 +11,7 @@ import com.systop.hebyy.hybl.model.HyLb;
 import com.systop.hebyy.hybl.model.Hyxx;
 /**
  * 会议类别
- * @author wangyaping
+ * @author WangYaping
  *
  */
 @Service

@@ -14,7 +14,7 @@ import com.systop.core.model.BaseModel;
 /**
  * 借还书信息
  * 
- * @author wangyaping
+ * @author WangYaping
  * 
  */
 @SuppressWarnings("serial")

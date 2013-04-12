@@ -10,7 +10,7 @@ import com.systop.hebyy.gzzd.model.Zcxx;
 /**
  * 章程目录业务类
  * 
- * @author wangyaping
+ * @author WangYaping
  * 
  */
 @Service

@@ -13,7 +13,7 @@ import com.systop.hebyy.tsgl.model.Lbxx;
 
 /**
  * 图书类别业务类
- * @author wangyaping
+ * @author WangYaping
  *
  */
 
