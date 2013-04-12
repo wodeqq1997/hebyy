@@ -36,7 +36,7 @@ function importSupplier(){
 			<a href="${ctx}/employee/editNew.do?from=hr">
 			<img src="${ctx}/images/icons/add.gif">新建员工信息</a></td>
 			<td><input type="button" class="button" onclick="importSupplier()"
-									value="导入员信息" /></td>
+									value="导入员工信息" /></td>
 		</tr>
 	</table>
 </s:form>
