@@ -85,7 +85,7 @@ public class AssetAction extends DefaultCrudAction<Asset, AssetManager> {
 
    /**
     * 跳转到申购页面
-    * wangyaping
+    * WangYaping
     */
 	@Override
 	public String edit() {

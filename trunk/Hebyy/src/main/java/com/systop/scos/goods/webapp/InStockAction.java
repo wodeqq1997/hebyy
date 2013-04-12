@@ -22,7 +22,7 @@ import com.systop.scos.goods.service.InStockManager;
 
 /**
  * 
- * @author XuRan，wangyaping
+ * @author XuRan，WangYaping
  * 
  */
 @SuppressWarnings({ "serial", "unchecked" })
