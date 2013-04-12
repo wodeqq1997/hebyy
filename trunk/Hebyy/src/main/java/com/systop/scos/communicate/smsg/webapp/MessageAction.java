@@ -11,13 +11,11 @@ import junit.framework.Assert;
 
 import org.apache.commons.lang.StringUtils;
 import org.hibernate.criterion.MatchMode;
-//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.systop.common.modules.security.user.model.User;
-//import com.systop.common.modules.security.user.service.UserManager;
 import com.systop.core.Constants;
 import com.systop.core.util.DateUtil;
 import com.systop.core.util.PageUtil;
@@ -37,6 +35,9 @@ public class MessageAction extends JsonCrudAction<Message, MessageManager> {
 	/** 接受人 名 */
 	private String receiverNames;
 	
+	// 首页显示接收未读短消息
+	private List<Map<String, Object>> indexMsgs;
+	
 	private Date startDate;
 
 	private Date endDate;
@@ -53,6 +54,8 @@ public class MessageAction extends JsonCrudAction<Message, MessageManager> {
 	//异步请求返回值
 	private Map<String, Object> result;
 
+	// 首页显示条数
+	private Integer viewCount;
 	// 用户管理类
 	//@Autowired
 	//private UserManager userManager;
@@ -83,8 +86,11 @@ public class MessageAction extends JsonCrudAction<Message, MessageManager> {
 				msg.setReceiver(receiver);
 				msg.setCreateTime(new Date());
 				msg.setContent(getModel().getContent());
-				//本来就是一步多余的操作，但为为了系统消息提示增加的一个字段，我也郁闷
-				msg.setTitle(getModel().getContent());
+				if(StringUtils.isNotBlank(getModel().getTitle())){
+					msg.setTitle(getModel().getTitle());
+				}else {
+					msg.setTitle("无主题");
+				}
 				msg.setIsRead(Constants.NO);
 				msg.setMsgType(MsgConstants.IS_PERSONAL);// 个人消息
 				msg.setReceiverDel(MsgConstants.NOMAL);// 未移除
@@ -288,6 +294,36 @@ public class MessageAction extends JsonCrudAction<Message, MessageManager> {
 	}
 	
 	/**
+	 * 异步获取收件短信列表
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public String ajaxReadReceiveMsgs(){
+		String hql = "from Message m where m.receiver.id = ? and m.isRead = ?  order by m.createTime ";
+		List<Object> args = new ArrayList<Object>();
+		
+		args.add(getLoginUser().getId());
+		args.add(MsgConstants.NOMAL);
+		page = PageUtil.getPage(1, viewCount);
+		page = getManager().pageQuery(page, hql, args.toArray());
+		indexMsgs = toMapList(page.getData());
+		return "ajaxReadReceiveMsgs";
+	}
+	private List<Map<String, Object>> toMapList(List<Message> items) {
+		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+		for (Message m : items) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("id", m.getId());
+			map.put("subject", m.getTitle());
+			map.put("sendTime",
+					DateUtil.getDateToString(m.getCreateTime(), "MM.dd HH:mm"));
+			map.put("sender", m.getSender().getName());
+			map.put("isRead", m.getIsRead());
+			list.add(map);
+		}
+		return list;
+	}
+	/**
 	 * 异步查询未读信息
 	 * 
 	 * @return
@@ -339,6 +375,22 @@ public class MessageAction extends JsonCrudAction<Message, MessageManager> {
 	
 	public Map<String, Object> getResult() {
 		return result;
+	}
+
+	public List<Map<String, Object>> getIndexMsgs() {
+		return indexMsgs;
+	}
+
+	public void setIndexMsgs(List<Map<String, Object>> indexMsgs) {
+		this.indexMsgs = indexMsgs;
+	}
+
+	public Integer getViewCount() {
+		return viewCount;
+	}
+
+	public void setViewCount(Integer viewCount) {
+		this.viewCount = viewCount;
 	}
 
 }
