@@ -58,7 +58,7 @@
 		<action name="*" class="userSelectAction" method="{1}">
 			<result name="index">/pages/admin/security/user/selector/index.jsp</result>
 			<result name="showSkypeUser">/pages/admin/security/user/skype/showSkypeUser.jsp</result>
-			
+			<result name="selectUser">/pages/scos/asset/selectCs.jsp</result>
 			<result name="checkuser" type="json">
 				<param name="root">optionMsg</param>
 			</result>

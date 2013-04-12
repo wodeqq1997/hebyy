@@ -47,7 +47,7 @@ public class UserSelectAction extends JsonCrudAction<User, UserManager> {
 	private DeptManager deptManager;
 
 	private String authoritys;
-	
+
 	/**
 	 * 选择用户列表
 	 * 
@@ -64,13 +64,12 @@ public class UserSelectAction extends JsonCrudAction<User, UserManager> {
 			hql.append(" and u.dept.id = ?");
 			args.add(deptId);
 		}
-		
-		if(StringUtils.isNotBlank(authoritys)){
+
+		if (StringUtils.isNotBlank(authoritys)) {
 			hql.append(" and u.position.authority = ?");
 			args.add(authoritys);
 		}
-		
-		
+
 		hql.append(" order by u.orderId");
 		page = PageUtil.getPage(getPageNo(), getPageSize());
 		page = getManager().pageQuery(page, hql.toString(), args.toArray());
@@ -86,7 +85,7 @@ public class UserSelectAction extends JsonCrudAction<User, UserManager> {
 	public String showSkypeUser() {
 		// 存放查询参数
 		List<Object> args = new ArrayList<Object>();
-        //issue 740
+		// issue 740
 		StringBuffer hql = new StringBuffer(
 				"from User u where u.isSys = ? and u.status = ?");
 		args.add(Constants.NO);
@@ -95,8 +94,8 @@ public class UserSelectAction extends JsonCrudAction<User, UserManager> {
 			hql.append(" and u.dept.id = ?");
 			args.add(deptId);
 		}
-		
-		if (StringUtils.isNotBlank(getModel().getName())){
+
+		if (StringUtils.isNotBlank(getModel().getName())) {
 			hql.append(" and u.name like ?");
 			args.add(MatchMode.ANYWHERE.toMatchString(getModel().getName()));
 		}
@@ -159,6 +158,40 @@ public class UserSelectAction extends JsonCrudAction<User, UserManager> {
 			}
 		}
 		return map;
+	}
+
+	/**
+	 * 选择本部门的审核人 wangyaping
+	 * 
+	 * @return
+	 */
+	public String selUser() {
+		// 存放查询参数
+		List<Object> args = new ArrayList<Object>();
+		StringBuffer hql = new StringBuffer(
+				"from User u where u.isSys = ? and u.status = ?");
+		args.add(Constants.NO);
+		args.add(UserConstants.USER_STATUS_USABLE);
+		String dapet = getRequest().getParameter("deptId");
+		int dapetid = 0;
+		if (StringUtils.isNotBlank(dapet)) {
+			dapetid = Integer.parseInt(dapet);
+		}
+		if (dapetid != 0) {// 根据部门ID查询
+			hql.append(" and u.dept.id = ?");
+			args.add(dapetid);
+		}
+
+		if (StringUtils.isNotBlank(authoritys)) {
+			hql.append(" and u.position.authority = ?");
+			args.add(authoritys);
+		}
+
+		hql.append(" order by u.orderId");
+		page = PageUtil.getPage(getPageNo(), getPageSize());
+		page = getManager().pageQuery(page, hql.toString(), args.toArray());
+		restorePageData(page);
+		return "selectUser";
 	}
 
 	// session中获得已选择用户
