@@ -69,15 +69,22 @@
 				  	minHeight="460"
 				  	toolbarContent="navigation|pagejump|pagesize|refresh|extend|status">
 					<ec:row>
-						<ec:column width="40" property="_s" title="选择" sortable="false" style="text-align:center">
+						<ec:column width="40" property="_s" title="序号" value="${GLOBALROWCOUNT}" style="text-align:center">
 							<input type="checkbox" name="selectedItems" id="selectedItems" value="${item.id}" class="checkbox" />
 						</ec:column>
-						<ec:column width="100" property="loginId" title="用户名" />
 						<ec:column width="80" property="name" title="姓名" />
 						<ec:column width="40" property="sex" title="性别"
 							style="text-align:center">
 							<s:if test='#attr.item.sex == "M"'>男</s:if>
 							<s:else>女</s:else>
+						</ec:column>
+						<ec:column width="70" property="_sfzx" title="是否在线">
+							<s:if test="#attr.item.online">
+								<span class="online">在线</span>
+							</s:if>
+							<s:else>
+								<span class="offline">离线</span>
+							</s:else>
 						</ec:column>
 						<ec:column width="90" property="dept.name" title="部门"/>
 						<ec:column width="90" property="position.name" title="职务"/>
@@ -88,7 +95,6 @@
 			</td>
     	</tr>	
     </table>
-	
 	</div>
 </div>
 <script type="text/javascript" src="${ctx}/pages/admin/security/user/user.js">
