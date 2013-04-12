@@ -23,31 +23,29 @@
 		<tr>
 			<td align="right"  width="280">会议文件名称：</td>
 			<td width="440"> 
-				<s:textfield name="model.hyMc"   style="width: 260px;"  cssClass="required"  maxlength="255"/>
+				<s:textfield name="model.hyMc"  style="width: 260px;"  cssClass="required"  maxlength="255"/>
 						<font color="red">*</font>
 			<s:hidden name="model.id" /></td>
 		</tr>
 		<tr>
 			<td align="right">会议纪要类别：</td>
-			<td><s:select name="model.hytype" list='names' cssClass="typeCheck"
-				cssStyle="width:257px;" headerKey="" headerValue="请选择" />
+			<td><s:select name="model.meetingType.id" list='typeMap' cssClass="typeCheck" cssStyle="width:100px;" headerKey="" headerValue="请选择" />
 				<span id="typeDescn"></span>
 				<font color="red">*</font>
-				</td>
+			</td>
 		</tr>
 		<tr>
 			<td align="right">文    件   号：</td>
 			<td>
-			<s:textfield name="model.wjh"   style="width: 260px;"  cssClass="required"  maxlength="255"/>
-						<font color="red">*</font>
+				<s:textfield name="model.wjh"   style="width: 260px;"  cssClass="required"  maxlength="255"/>
+				<font color="red">*</font>
 			</td>
 		</tr>
 		<tr>
-
 			<td align="right">文件页/份数：</td>
 			<td>
-			<s:textfield name="model.pageNum"   style="width: 260px;"  cssClass="required number"  maxlength="255"/>
-						<font color="red">*</font>
+				<s:textfield name="model.pageNum"   style="width: 260px;"  cssClass="required number"  maxlength="255"/>
+				<font color="red">*</font>
 			</td>
 		</tr>
 		<tr>
@@ -58,18 +56,14 @@
 		</tr>
 		<tr>
 			<td align="right"> 会 议 时 间：</td>
-			<td><input id="hytime" type="text" name="model.hyTime"
-				style="width: 260px;" readonly="readonly"
-				value='<s:date name="model.hyTime" format="yyyy-MM-dd"/>'
-				onClick="WdatePicker({skin:'blueFresh'})" class="Wdate" />
+			<td><input id="hytime" type="text" name="model.hyTime" style="width: 260px;" readonly="readonly" value='<s:date name="model.hyTime" format="yyyy-MM-dd"/>' onClick="WdatePicker({skin:'blueFresh'})" class="Wdate" />
 				<span id="dateDescn"></span>
 				<font color="red">*</font>
 				</td>
 		</tr>
 		<tr>
 			<td align="right">会 议 备 注：</td>
-			<td><s:textarea id="content" name="model.hyContent"
-				cssStyle="width:260px;height: 45px;" /></td>
+			<td><s:textarea id="content" name="model.hyContent"	cssStyle="width:260px;height: 45px;" /></td>
 		</tr>
 		<tr>
 			<td align="right">上传会议记录：</td>
@@ -83,19 +77,15 @@
 			<div id="custom">
 			<div id="systop-file-queue"></div>
 			</div>
-			<div id="systop-uploaded-files"
-				style="width: 400px; border-bottom: 1px solid #C3C3C3;"><s:hidden
-				id="fileAttchIds" name="model.fileAttachIds" /></div>
+			<div id="systop-uploaded-files" style="width: 400px; border-bottom: 1px solid #C3C3C3;">
+			<s:hidden id="fileAttchIds" name="model.fileAttachIds" /></div>
 			<div id="systop_file_list"></div>
 			</td>
 		</tr>
 		<tr>
-			<td colspan="6" style="border: 0px;" align="center"><%@include
-				file="/pages/common/messages.jsp"%> <input
-				type="button" onclick="jkjsSave()" class="button" value=" 保 存 ">&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;<input type="button"
-				onclick="javascript:window.location.href='${ctx}/hybl/queryxx.do';"
-				class="button" value=" 返 回 "></td>
+			<td colspan="6" style="border: 0px;" align="center"><%@include file="/pages/common/messages.jsp"%>
+			<input type="button" onclick="jkjsSave()" class="button" value=" 保 存 ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" onclick="javascript:window.location.href='${ctx}/meeting/queryxx.do';" class="button" value=" 返 回 "></td>
 		</tr>
 	</table>
 	</fieldset>
@@ -142,7 +132,7 @@
 	});
 	
 	function jkjsSave() {
-		$('#save').attr("action", "${ctx}/hybl/jkjsSave.do");
+		$('#save').attr("action", "${ctx}/meeting/save.do");
 		$('#save').submit();
 	}
 </script>

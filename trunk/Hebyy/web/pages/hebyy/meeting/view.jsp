@@ -11,18 +11,14 @@
 <title>会议查看页面</title>
 </head>
 <body>
-
 <s:form id="save" method="post" validate="true">	
 <div class="x-panel">
 		<div class="x-panel-header" style="border-bottom: 1px solid #99bbe8;">会议查看页面</div>
 		<div class="x-panel-body">
 				<table width="700" border="0" align="center" style="line-height: 20px; margin-top: 20px; margin-bottom: 20px;" id="fineTable">
 					<tr>
-						<th colspan="4">
-							会议查看
-						</th>
+						<th colspan="4">会议查看</th>
 					</tr>	
-		
 		<tr>
 			<td align="right"  width="180">会议文件名称：</td>
 			<td> ${model.hyMc }
@@ -34,7 +30,7 @@
 			<td align="right">会议文件号：</td>
 			<td>${model.wjh }</td>
 			<td align="right">文件页/份数：</td>
-			<td>${model.pageNum }	</td>
+			<td>${model.pageNum }</td>
 		</tr>
 		<tr>
 			<td align="right">会议参与人：</td>
@@ -48,22 +44,18 @@
 		</tr>
 		<tr>
 			<td align="right">上传会议文件：</td>
-			<td colspan="3">
-			<div id="systop_file_list"></div>
-			</td>
+			<td colspan="3"><div id="systop_file_list"></div></td>
 		</tr>
 		<tr>
 			<td colspan="4" style="border: 0px;" align="center"><br> 
 			<input type="button" value="返回" onclick="history.go(-1)" class="button" />
 			</td>
-
 		</tr>
 	</table>
 		</div>
 		</div>
-
 </s:form>
-<script type="text/javascript">
+	<script type="text/javascript">
 		viewFileAttchList("${model.fileAttachIds}", false);
 	</script>
 </body>

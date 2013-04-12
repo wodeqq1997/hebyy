@@ -95,7 +95,7 @@
 	});
 
 	function jkjsSave() {
-		$('#save').attr("action", "${ctx}/gzzd/jkjsSave.do");
+		$('#save').attr("action", "${ctx}/gzzd/save.do");
 		$('#save').submit();
 	}
 </script>

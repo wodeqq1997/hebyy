@@ -105,7 +105,7 @@
 				});
 				
 				// alert(s);
-				window.location.href = "delete.do?ids=" + s;
+				window.location.href = "remove.do?ids=" + s;
 			}
 		}
 	</script>
