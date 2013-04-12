@@ -31,7 +31,7 @@ function remove(id){
 </s:form>
 <div class="x-panel-header">
 	<div style="float: left;">员工合同信息</div>	<div style="float: right">
-				<a href="${ctx}/empcontract/edit.do?model.user.id=${model.user.id}">
+				<a href="${ctx}/empcontract/edit.do?model.employee.id=${model.employee.id}">
 				<img src="${ctx}/images/icons/add_2.gif">&nbsp;添加员工合同</a>
 				</div>
 </div>
@@ -52,12 +52,12 @@ function remove(id){
 		<tr onmousemove="this.className='trOver';"
 			onmouseout="this.className='trOut';">
 			<td align="center" width="40">${(page.pageNo - 1) * 20 + st.index + 1}</td>
-			<td width="100" ellipsis="true">${item.user.name}</td>
-      		<td width="100"ellipsis="true">${item.user.dept.name}</td>
-			<td width="40" ellipsis="true">${item.user.position.name}</td>
+			<td width="100" >${item.employee.name}</td>
+      		<td width="100">${item.employee.dept.name}</td>
+			<td width="40" >${item.employee.position.name}</td>
 			<td width="120" align="center"><fmt:formatDate value="${item.startTime}" pattern="yyyy-MM-dd"/></td>
 			<td width="120" align="center"><fmt:formatDate value="${item.endTime}" pattern="yyyy-MM-dd"/></td>
-			<td width="100" style="text-align:center" sortable="false">
+			<td width="100" style="text-align:center;sortable:false">
 			<a href="${ctx }/empcontract/edit.do?model.id=${item.id}" title="修改合同信息">编辑</a> |
 			<a href="#" onclick="remove('${item.id}')" title="删除合同信息">删除</a>
 			</td>
