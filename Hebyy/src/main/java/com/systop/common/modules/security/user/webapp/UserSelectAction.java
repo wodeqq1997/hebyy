@@ -161,7 +161,7 @@ public class UserSelectAction extends JsonCrudAction<User, UserManager> {
 	}
 
 	/**
-	 * 选择本部门的审核人 wangyaping
+	 * 选择本部门的审核人 WangYaping
 	 * 
 	 * @return
 	 */
