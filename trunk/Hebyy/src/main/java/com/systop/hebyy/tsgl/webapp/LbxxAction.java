@@ -72,7 +72,8 @@ public class LbxxAction extends DefaultCrudAction<Lbxx, LbxxManager> {
 	 * 
 	 * @return
 	 */
-	public String delete() {
+	@Override
+	public String remove() {
 
 		String ids = getRequest().getParameter("ids");
 		String[] id = ids.split(",");

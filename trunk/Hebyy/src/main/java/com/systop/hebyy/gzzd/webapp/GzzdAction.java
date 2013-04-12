@@ -130,7 +130,8 @@ public class GzzdAction extends DefaultCrudAction<Gzzd, GzzdManager> {
 	 * 
 	 * @return
 	 */
-	public String delete() {
+	@Override
+	public String remove() {
 		String ids = getRequest().getParameter("ids");
 		String[] id = ids.split(",");
 		for (String id1 : id) {
@@ -149,8 +150,8 @@ public class GzzdAction extends DefaultCrudAction<Gzzd, GzzdManager> {
 	 * 
 	 * @return
 	 */
-
-	public String jkjsSave() {
+	@Override
+	public String save() {
 		// 获取输入的条件
 		String name = getModel().getZcml();
 		Zcxx zcxx = zcxxManager.getZcxxByKdname(name);
