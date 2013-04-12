@@ -21,7 +21,7 @@ import com.systop.scos.document.service.DocTypeManager;
 import com.systop.scos.document.service.DocumentManager;
 
 /**
- * 文档信息Action,负责处理与之相关的各种请求 wangyaping修改（添加分享功能）
+ * 文档信息Action,负责处理与之相关的各种请求 WangYaping修改（添加分享功能）
  * 
  * @author Nice
  */
@@ -64,7 +64,7 @@ public class DocumentAction extends
 	}
 
 	/**
-	 * 构建查询条件 wangyaping修改
+	 * 构建查询条件 WangYaping修改
 	 * 
 	 * @param loginUser
 	 *            根据登录用户查询，可以为null,如果为null则忽略该参数
@@ -137,7 +137,7 @@ public class DocumentAction extends
 	}
 
 	/**
-	 * @author wangyaping 用于将个人文档分享到公共文档中
+	 * @author WangYaping 用于将个人文档分享到公共文档中
 	 */
 	public String share() {
 		if (getModel().getId() != null && StringUtils.isNotBlank(docTypeId)) {
@@ -156,7 +156,7 @@ public class DocumentAction extends
 	}
 
 	/**
-	 * @author wangyaping 跳转到“文档分享页面”
+	 * @author WangYaping 跳转到“文档分享页面”
 	 */
 	public String toShare() {
 		return "share"; // 跳回个人文档页面
