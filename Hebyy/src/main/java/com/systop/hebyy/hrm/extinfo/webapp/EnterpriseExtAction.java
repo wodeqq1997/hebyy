@@ -27,7 +27,7 @@ import com.systop.hebyy.hrm.extinfo.service.EnterpriseExtManager;
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class EnterpriseExtAction  extends DefaultCrudAction<EnterpriseExt, EnterpriseExtManager>{
 
-	
+
 	/**
 	 * 用户列表
 	 * */
@@ -97,4 +97,8 @@ public class EnterpriseExtAction  extends DefaultCrudAction<EnterpriseExt, Enter
 		restorePageData(page);
 		return INDEX;
 	}
+	
+	
+
+
 }

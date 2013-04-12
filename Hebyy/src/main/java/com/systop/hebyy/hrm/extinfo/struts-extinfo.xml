@@ -10,6 +10,9 @@
 			<result name="index">/pages/scos/hrm/extinfo/index.jsp</result> 
 			<result name="view">/pages/scos/hrm/extinfo/view.jsp</result>
 			<result name="showusers">/pages/scos/hrm/extinfo/showusers.jsp</result> 
+		    <result name="importsupplier">/pages/scos/hrm/extinfo/importEmployee.jsp</result>
+			
+		    
 		</action>
 	</package>
 </struts>
