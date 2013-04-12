@@ -11,14 +11,12 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import com.systop.common.modules.security.user.model.User;
-import com.systop.common.modules.security.user.service.UserManager;
-import com.systop.core.Constants;
-import com.systop.core.dao.support.Page;
 import com.systop.core.util.PageUtil;
 import com.systop.core.webapp.struts2.action.DefaultCrudAction;
 import com.systop.hebyy.hrm.contract.model.EmpContract;
 import com.systop.hebyy.hrm.contract.service.EmpContractManager;
+import com.systop.hebyy.hrm.employee.model.Employee;
+import com.systop.hebyy.hrm.employee.service.EmployeeManager;
 
 /**
  * 员工合同管理Action
@@ -31,7 +29,7 @@ import com.systop.hebyy.hrm.contract.service.EmpContractManager;
 public class EmpContractAction extends DefaultCrudAction<EmpContract, EmpContractManager>{
 	
 	@Autowired
-	private UserManager userManager;
+	private EmployeeManager employeeManager;
 	
 	//开始日期
 	private Date startDate;
@@ -45,9 +43,9 @@ public class EmpContractAction extends DefaultCrudAction<EmpContract, EmpContrac
 	 * */
 	@Override
 	public String edit(){
-		User u = getManager().getDao().get(User.class, getModel().getUser().getId());
-		if(u != null){
-			getModel().setUser(u);
+		Employee e = getManager().getDao().get(Employee.class, getModel().getEmployee().getId());
+		if(e != null){
+			getModel().setEmployee(e);
 		}
 		return INPUT;
 	} 
@@ -58,12 +56,12 @@ public class EmpContractAction extends DefaultCrudAction<EmpContract, EmpContrac
 	@Override
 	public String save() {
 		if(getModel() != null){
-			getManager().save(getModel(), getModel().getUser().getId());
-			getModel().getUser().setLastContractBegin(getModel().getStartTime());
-			getModel().getUser().setLastContractEnd(getModel().getEndTime());
+			getManager().save(getModel(), getModel().getEmployee().getId());
+			getModel().getEmployee().setLastContractBegin(getModel().getStartTime());
+			getModel().getEmployee().setLastContractEnd(getModel().getEndTime());
 			getModel().setStartTime(startDate);
 			getModel().setEndTime(endDate);
-			userManager.update(getModel().getUser());
+			employeeManager.update(getModel().getEmployee());
 		}
 		return SUCCESS;
 	}
@@ -74,32 +72,31 @@ public class EmpContractAction extends DefaultCrudAction<EmpContract, EmpContrac
 	@SuppressWarnings("unchecked")
 	public String showUsers(){
 		List<Object> args = new ArrayList<Object>();
-		StringBuffer hql = new StringBuffer("from User u where  u.isSys = ?");
-		args.add(Constants.NO);
-		if (getModel() != null && getModel().getUser() !=null && StringUtils.isNotBlank(getModel().getUser().getName())) {// 根据名称查询
-			hql.append(" and u.name like ?");
-			args.add(MatchMode.ANYWHERE.toMatchString(getModel().getUser().getName()));
+		StringBuffer hql = new StringBuffer("from Employee e where 1=1 ");
+		if (getModel() != null && getModel().getEmployee() !=null && StringUtils.isNotBlank(getModel().getEmployee().getName())) {// 根据名称查询
+			hql.append(" and e.name like ?");
+			args.add(MatchMode.ANYWHERE.toMatchString(getModel().getEmployee().getName()));
 		}
-		if (getModel() != null && getModel().getUser() !=null &&  getModel().getUser().getDept() !=null && StringUtils.isNotBlank(getModel().getUser().getDept().getName())) {// 根据部门名称
-			hql.append(" and u.dept.name like ?");
-			args.add(MatchMode.ANYWHERE.toMatchString(getModel().getUser().getDept().getName()));
+		if (getModel() != null && getModel().getEmployee() !=null &&  getModel().getEmployee().getDept() !=null && StringUtils.isNotBlank(getModel().getEmployee().getDept().getName())) {// 根据部门名称
+			hql.append(" and e.dept.name like ?");
+			args.add(MatchMode.ANYWHERE.toMatchString(getModel().getEmployee().getDept().getName()));
 		}
-		hql.append(" order by u.id desc");
+		hql.append(" order by e.id desc");
 		page = PageUtil.getPage(getPageNo(), getPageSize());
 		page = getManager().pageQuery(page, hql.toString(), args.toArray());
 		restorePageData(page);
-        List<User> list = page.getData();
-        for (User u : list) {
-            EmpContract contract = getManager().currentContract(u.getId());
+        List<Employee> list = page.getData();
+        for (Employee e : list) {
+            EmpContract contract = getManager().currentContract(e.getId());
             if(contract==null){
                 //在员工信息里面输入的清除掉
-                u.setLastContractBegin(null);
-                u.setLastContractEnd(null);
+                e.setLastContractBegin(null);
+                e.setLastContractEnd(null);
             }
             else{
                 //以合同信息的为准
-                u.setLastContractBegin(contract.getStartTime());
-                u.setLastContractEnd(contract.getEndTime());
+                e.setLastContractBegin(contract.getStartTime());
+                e.setLastContractEnd(contract.getEndTime());
             }
         }
         return "showusers";
@@ -107,9 +104,9 @@ public class EmpContractAction extends DefaultCrudAction<EmpContract, EmpContrac
 	
 	//员工合同信息列表
 	public String userContractView(){
-		if(getModel()!= null && getModel().getUser() != null && getModel().getUser().getId() != null){
+		if(getModel()!= null && getModel().getEmployee() != null && getModel().getEmployee().getId() != null){
 			page = PageUtil.getPage(getPageNo(), getPageSize());
-			getManager().getUserContractByUid(page, getModel().getUser().getId());
+			getManager().getUserContractByUid(page, getModel().getEmployee().getId());
 			restorePageData(page);
 		}
 		return "usercontractview";

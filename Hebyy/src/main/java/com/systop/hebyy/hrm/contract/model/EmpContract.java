@@ -10,12 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.systop.common.modules.dept.model.Dept;
-import com.systop.common.modules.security.user.model.User;
 import com.systop.core.model.BaseModel;
+import com.systop.hebyy.hrm.employee.model.Employee;
 
 /**
  * 员工合同
@@ -36,7 +35,7 @@ public class EmpContract extends BaseModel{
 	private Date endTime;
 	
 	//员工
-	private User user;
+	private Employee employee;
 	
 	//部门
 	private Dept dept;
@@ -71,16 +70,15 @@ public class EmpContract extends BaseModel{
 		this.endTime = endTime;
 	}
 
-	@OneToOne(cascade = {}, fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id")
-	public User getUser() {
-		return user;
+	@ManyToOne(cascade = {}, fetch = FetchType.LAZY)
+	@JoinColumn(name = "employee_id")
+	public Employee getEmployee() {
+		return employee;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
-
 
 	public String getRemark() {
 		return remark;
@@ -99,4 +97,6 @@ public class EmpContract extends BaseModel{
 	public void setDept(Dept dept) {
 		this.dept = dept;
 	}
+
+	
 }
