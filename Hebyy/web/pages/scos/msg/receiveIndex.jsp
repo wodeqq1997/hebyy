@@ -63,8 +63,7 @@
 				id="selectedItems" value="${item.id}" class="checkbox" /></td>
 			<td width="60px"align="center"><s:if test="#attr.item.sender != null">
 	${item.sender.name}
-</s:if> <s:elseif
-				test="#attr.item.msgType == @com.systop.scos.communicate.smsg.MsgConstants@IS_SYS">
+</s:if> <s:elseif test="#attr.item.msgType == @com.systop.scos.communicate.smsg.MsgConstants@IS_SYS">
 	系统消息
 </s:elseif></td>
 			<td ><a href="javascript:view(${item.id });"><font color="blue">${item.title}</font></a></td>

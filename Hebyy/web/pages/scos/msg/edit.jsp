@@ -52,6 +52,12 @@
 			name="receiverIds" id="receiverIds" /></td>
 	</tr>
 	<tr>
+		<td align="right" valign="top">简要标题：</td>
+		<td style="padding-top: 5px;"><textarea name="model.title"
+			id="content"  style="width: 600px; height: 200px;"></textarea>
+		</td>
+	</tr>
+	<tr>
 		<td align="right" valign="top">内 容：</td>
 		<td style="padding-top: 5px;"><textarea name="model.content"
 			id="content" class="required" style="width: 600px; height: 200px;"></textarea>
