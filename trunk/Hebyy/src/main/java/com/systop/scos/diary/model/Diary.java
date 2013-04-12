@@ -37,8 +37,17 @@ public class Diary extends BaseModel {
 	// 标题
 	private String title;
 
-	// 内容
+	// 备注
 	private String content;
+	
+	//待办
+	private String todo;
+	
+	//在做
+	private String doing;
+	
+	//完成
+	private String complate;
 
 	// 作者
 	private User user;
@@ -49,7 +58,6 @@ public class Diary extends BaseModel {
 	// 最后修改时间
 	private Date updateTime;
 
-    private String fileAttachIds;
 
     private List<DiaryComment> diaryComments = new ArrayList<DiaryComment>(0);
     @Id
@@ -109,16 +117,6 @@ public class Diary extends BaseModel {
 		this.updateTime = updateTime;
 	}
 
-
-    @Column(name="file_attach_ids")
-    public String getFileAttachIds() {
-        return fileAttachIds;
-    }
-
-    public void setFileAttachIds(String fileAttchIds) {
-        this.fileAttachIds = fileAttchIds;
-    }
-
     @OneToMany(cascade = {CascadeType.REMOVE}, fetch = FetchType.LAZY, mappedBy = "diary")
     @OrderBy("createTime asc")
     public List<DiaryComment> getDiaryComments() {
@@ -128,4 +126,33 @@ public class Diary extends BaseModel {
     public void setDiaryComments(List<DiaryComment> diaryComments) {
         this.diaryComments = diaryComments;
     }
+
+    @Column(name = "todo")
+	public String getTodo() {
+		return todo;
+	}
+
+	public void setTodo(String todo) {
+		this.todo = todo;
+	}
+
+	@Column(name = "doing")
+	public String getDoing() {
+		return doing;
+	}
+
+	public void setDoing(String doing) {
+		this.doing = doing;
+	}
+
+	@Column(name = "complate")
+	public String getComplate() {
+		return complate;
+	}
+
+	public void setComplate(String complate) {
+		this.complate = complate;
+	}
+    
+    
 }
