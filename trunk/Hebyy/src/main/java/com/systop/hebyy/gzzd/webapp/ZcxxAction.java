@@ -23,25 +23,9 @@ public class ZcxxAction extends DefaultCrudAction<Zcxx, ZcxxManager> {
 	// 首页显示规章条数
 	private Integer viewCount;
 
-	public Integer getViewCount() {
-		return viewCount;
-	}
-
-	public void setViewCount(Integer viewCount) {
-		this.viewCount = viewCount;
-	}
-
-	private List<Zcxx> zcxxs = new ArrayList<Zcxx>();
-
-	public List<Zcxx> getZcxxs() {
-		return zcxxs;
-	}
+	private List<Zcxx> zcxxs;
 
 	private List<Zcxx> zcList;
-
-	public List<Zcxx> getZcList() {
-		return zcList;
-	}
 
 	@Autowired
 	GzzdManager gzzdManager;
@@ -63,7 +47,6 @@ public class ZcxxAction extends DefaultCrudAction<Zcxx, ZcxxManager> {
 		List<Object> args = new ArrayList<Object>();
 
 		hql.append(" order by p.id ");
-		// System.out.print(getPageNo());
 		page = PageUtil.getPage(getPageNo(), getPageSize());
 		page = getManager().pageQuery(page, hql.toString(), args.toArray());
 		zcList = page.getData();
@@ -93,23 +76,21 @@ public class ZcxxAction extends DefaultCrudAction<Zcxx, ZcxxManager> {
 		for (String id1 : id) {
 			int id2 = Integer.parseInt(id1);
 			List<Gzzd> jds = gzzdManager.querykc(id2);
-			if(jds.size()!=0 ){
-			addActionMessage("该类已经使用，不能删除！");
-			}else{
-    		//for (Gzzd jd : jds) {
-				//gzzdManager.remove(jd);
-				//}
-			Zcxx zcxx = getManager().getZcxxByKdid(id2);
-			getManager().remove(zcxx);// 删除的方法
-			addActionMessage("删除成功！");
-		}
+			if (jds.size() != 0) {
+				addActionMessage("该类已经使用，不能删除！");
+			} else {
+				// for (Gzzd jd : jds) {
+				// gzzdManager.remove(jd);
+				// }
+				Zcxx zcxx = getManager().getZcxxByKdid(id2);
+				getManager().remove(zcxx);// 删除的方法
+				addActionMessage("删除成功！");
+			}
 
-		
 		}
 		return "zc_success";
 	}
-	
-	
+
 	/**
 	 * 保存的方法
 	 * 
@@ -136,10 +117,26 @@ public class ZcxxAction extends DefaultCrudAction<Zcxx, ZcxxManager> {
 	 * @return
 	 */
 	public String indexZcxxs() {
-		
+
 		if (viewCount != null) {
 			zcxxs = getManager().queryAlljkjss();
 		}
 		return "indexZcxxs";
+	}
+
+	public List<Zcxx> getZcxxs() {
+		return zcxxs;
+	}
+
+	public Integer getViewCount() {
+		return viewCount;
+	}
+
+	public void setViewCount(Integer viewCount) {
+		this.viewCount = viewCount;
+	}
+
+	public List<Zcxx> getZcList() {
+		return zcList;
 	}
 }

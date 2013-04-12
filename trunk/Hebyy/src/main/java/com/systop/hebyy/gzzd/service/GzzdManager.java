@@ -14,7 +14,7 @@ import com.systop.hebyy.gzzd.model.Zcxx;
 /**
  * 规章制度业务类
  * 
- * @author wangyaping
+ * @author WangYaping
  * 
  */
 @Service

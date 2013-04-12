@@ -24,7 +24,7 @@ import com.systop.hebyy.hybl.service.HyxxManager;
 /**
  * 会议信息
  * 
- * @author wangyaping
+ * @author WangYaping
  * 
  */
 @SuppressWarnings("serial")

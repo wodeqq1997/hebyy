@@ -29,7 +29,7 @@ import com.systop.hebyy.tsgl.service.TsglManager;
 
 /**
  * 图书维护
- * @author wangyaping
+ * @author WangYaping
  *
  */
 

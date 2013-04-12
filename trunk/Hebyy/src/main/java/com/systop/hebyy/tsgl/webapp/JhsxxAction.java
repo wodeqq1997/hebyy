@@ -22,7 +22,7 @@ import com.systop.hebyy.tsgl.service.TsglManager;
 /**
  * 图书借阅业务
  * 
- * @author wangyaping
+ * @author WangYaping
  * 
  */
 

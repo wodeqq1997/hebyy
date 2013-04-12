@@ -12,7 +12,7 @@ import com.systop.hebyy.hybl.model.Hyxx;
 /**
  * 会议信息业务页面
  * 
- * @author wangyaping
+ * @author WangYaping
  * 
  */
 @Service
