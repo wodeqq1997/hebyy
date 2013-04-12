@@ -39,7 +39,7 @@ public class AddressBookAction extends
 		}
 		
 		if(StringUtils.isNotBlank(phone)){
-			hql.append(" and (a.number like ? or a.homeNumber like ? or a.officeNumber liek ? )");
+			hql.append(" and (a.number like ? or a.homeNumber like ? or a.officeNumber like ? )");
 			args.add(MatchMode.ANYWHERE.toMatchString(phone));
 			args.add(MatchMode.ANYWHERE.toMatchString(phone));
 			args.add(MatchMode.ANYWHERE.toMatchString(phone));
