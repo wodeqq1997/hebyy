@@ -38,9 +38,7 @@
 				id="assetTypeId" headerValue="全部" cssStyle="width:110px;" /> <input
 				type="submit" value="查询" class="button" /></td>
 			<td align="right"><a href="${ctx}/asset/edit.do"><img
-				src="${ctx}/images/icons/add_2.gif">&nbsp;添加物资</a> <a
-				href="${ctx}/asset/type/index.do"><img
-				src="${ctx}/images/icons/add.gif">物资类型</a> <img
+				src="${ctx}/images/icons/add_2.gif">&nbsp;购置申请</a> <img
 				src="${ctx}/images/icons/folder.gif" class="icon"> <a
 				href="${ctx}/asset/instock/index.do">入库单管理</a></td>
 		</tr>
@@ -59,14 +57,14 @@
 
 	<tr>
 		<th>序号</th>
-		<th>名称</th>
+		<th>物资名称</th>
 		<th>编号</th>
 		<th>规格</th>
 		<th>物资类别</th>
-		<th>物资状态</th>
-		<th>购买日期</th>
-		<th>保管人</th>
-		<th>物资值</th>
+		<th>申请购买日期</th>
+		<th>申购人</th>
+		<th>单位</th>
+		<th>数量</th>
 		<th>操作</th>
 	</tr>
 	<s:iterator value="#attr.items" var="item" status="st">
@@ -77,10 +75,10 @@
 			<td align="center">${item.assetNo}</td>
 			<td>${item.stardard }</td>
 			<td>${item.assetType.name}</td>
-			<td>${item.status }</td>
 			<td align="center"><fmt:formatDate value="${item.buyDate }" /></td>
-			<td>${item.custodian }</td>
-			<td>${item.assetValue }</td>
+			<td align="center">${item.proposer.name }</td>
+			<td align="center">${item.unit }</td>
+			<td align="center">${item.stockCounts }</td>
 			<td align="center"><a href="view.do?model.id=${item.id}"
 				title="查看详情"><img src="${ctx}/images/icons/zoom.gif"></a>&nbsp;
 			<a href="edit.do?model.id=${item.id}" title="编辑"><img
