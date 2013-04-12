@@ -2,12 +2,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
 <html>
 <head>
 <%@include file="/pages/common/taglibs.jsp"%>
 <%@include file="/pages/common/meta.jsp"%>
 <%@include file="/common/validator.jsp"%>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
 <title>员工合同管理</title>
 <script type="text/javascript" src="${ctx}/scripts/my97/WdatePicker.js"></script>
 <script type="text/javascript" src="${ctx}/pages/archive/open_archive.js"></script>
@@ -50,17 +50,17 @@
 		<tr onmousemove="this.className='trOver';"
 			onmouseout="this.className='trOut';">
 			<td align="center" width="40">${(page.pageNo - 1) * 20 + st.index + 1}</td>
-			<td width="100" ellipsis="true">${item.name}</td>
-      		<td width="100"ellipsis="true">${item.dept.name}</td>
-			<td width="40" ellipsis="true">${item.degree}</td>
+			<td width="100" style="ellipsis:true">${item.name}</td>
+      		<td width="100" style="ellipsis:true">${item.dept.name}</td>
+			<td width="40"  style="ellipsis:true">${item.degree}</td>
 			<td width="120" align="center"><fmt:formatDate value="${item.joinTime}" pattern="yyyy-MM-dd"/></td>
 			<td width="120" align="center"><fmt:formatDate value="${item.lastContractBegin}" pattern="yyyy-MM-dd"/></td>
 			<td width="120" align="center"><fmt:formatDate value="${item.lastContractEnd}" pattern="yyyy-MM-dd"/></td>
 			<td width="55" style="text-align:center">
 			${item.contractStatus eq 1?"正常":item.contractStatus eq 0?"<span style='color:red'>过期</span>":"—"}
 			</td>
-			<td width="100" style="text-align:center" sortable="false">
-			<a href="${ctx }/empcontract/userContractView.do?model.user.id=${item.id}" title="查看员工合同">查看员工合同</a>
+			<td width="100" style="text-align:center;sortable:false">
+			<a href="${ctx }/empcontract/userContractView.do?model.employee.id=${item.id}" title="查看员工合同">查看员工合同</a>
 			</td>
 		</tr>
 	</s:iterator>
