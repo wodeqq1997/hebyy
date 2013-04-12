@@ -30,7 +30,7 @@
 <div><%@ include file="/common/messages.jsp"%></div>
 <s:form action="save" id="save" validate="true" method="post">
 <s:hidden name="model.id" id="id"/>
-<s:hidden name="model.user.id" id="uId"/>
+<s:hidden name="model.employee.id" id="uId"/>
 	<table width="800" align="center"style="margin: 10px; border-bottom: 1px solid #99BBE8;">
 		<tr>
 			<td colspan="2" class="title"><span>员工合同信息</span>&nbsp;</td>
@@ -41,13 +41,34 @@
 			<table width="800" border="0" style="line-height: 25px;" >
 				<tr>
 					<td align="right">员工姓名：</td>
-					<td align="left" colspan="3"> ${model.user.name}</td>
+					<td align="left" colspan="3"> ${model.employee.name}</td>
 				</tr>
 				<tr>
 					<td align="right">员工部门：</td>
-					<td align="left" colspan="3"> ${model.user.dept.name}</td>
+					<td align="left" colspan="3"> ${model.employee.dept.name}</td>
+				</tr>
+				
+				<tr>
+					<td align="right">起始时间：</td>
+					<td>
+					<c:if test="${!empty model.startTime}">
+					   <input id="startTime" name="model.startTime"  style="height:25px;width:200px;" value='<fmt:formatDate value="${model.startTime}" pattern="yyyy-MM-dd"/>' onfocus="WdatePicker({skin:'blueFresh',dateFmt:'yyyy-MM-dd'})" class="Wdate" readonly="readonly" />
+				    </c:if>
+				<c:if test="${empty model.startTime}">
+					<input id="startTime" name="model.startTime"  style="height:25px;width:200px;" onfocus="WdatePicker({skin:'blueFresh',dateFmt:'yyyy-MM-dd'})" class="Wdate" readonly="readonly" />
+				</c:if>
 				</tr>
 				<tr>
+					<td align="right">截止时间：</td>
+					<td>
+					<c:if test="${!empty model.endTime}">
+					   <input id="endTime" name="model.endTime"  style="height:25px;width:200px;" value='<fmt:formatDate value="${model.endTime}" pattern="yyyy-MM-dd"/>' onfocus="WdatePicker({skin:'blueFresh',dateFmt:'yyyy-MM-dd'})" class="Wdate" readonly="readonly" />
+				    </c:if>
+				<c:if test="${empty model.endTime}">
+					<input id="endTime" name="model.endTime"  style="height:25px;width:200px;" onfocus="WdatePicker({skin:'blueFresh',dateFmt:'yyyy-MM-dd'})" class="Wdate" readonly="readonly" />
+				</c:if>
+				</tr>
+				<!--<tr>
 					<td align="right">起始时间：</td>
 					<td>
 					<input id="startDate" name="startDate"  value='<fmt:formatDate value="${startDate}" pattern="yyyy-MM-dd"/>' onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'endDate\')}',skin:'blueFresh',dateFmt:'yyyy-MM-dd'})" class="Wdate" readonly="readonly"/></td>
@@ -57,7 +78,7 @@
 					<td>
 					<input id="endDate" name="endDate"  value='<fmt:formatDate value="${endDate}" pattern="yyyy-MM-dd"/>' onfocus="WdatePicker({minDate:'#F{$dp.$D(\'startDate\')}',skin:'blueFresh',dateFmt:'yyyy-MM-dd'})" class="Wdate" readonly="readonly" /></td>
 				</tr>
-				<tr>
+				--><tr>
 					<td align="right" valign="top">合同备注：</td>
 					<td><s:textarea name="model.remark" cssStyle="width:500px" rows="4" /></td>
 				</tr>
