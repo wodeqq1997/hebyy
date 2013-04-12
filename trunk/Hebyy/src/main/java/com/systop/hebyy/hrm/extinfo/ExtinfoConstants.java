@@ -3,6 +3,10 @@ package com.systop.hebyy.hrm.extinfo;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.ResourceBundle;
+
+import com.systop.core.Constants;
+import com.systop.core.util.ResourceBundleUtil;
 
 /**
  * 企业档案常量类
@@ -41,6 +45,17 @@ public final class ExtinfoConstants {
 	 * 保险：住房公积金
 	 */
 	public static final String EXTINFO_INSURANCE_HOUSING_FUND = "h";
+	
+	/**
+	 *  资源绑定对象
+	 */
+	public static final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(Constants.BUNDLE_KEY);
+	/**
+	 * 上传文件的路径
+	 */
+	public static final String UPLOAD_ROOT = ResourceBundleUtil.getString(
+			RESOURCE_BUNDLE, "hxtzbb.database.uploadroot", "/uploadFiles/database/restore");
+	
 	
 	/**
 	 * 企业档案保险状态常量Map
