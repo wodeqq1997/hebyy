@@ -81,9 +81,9 @@
 
             <div class="blockm left-div">
                 <div class="block-title">
-                    <a href="${ctx}/forum/board/index.do" target="_blank">内部讨论区</a>
+                    <a href="${ctx}/msg/receiveIndex.do">短消息</a>
                 </div>
-                <div class="block-body" id="topics"></div>
+                <div class="block-body" id="msg"></div>
             </div>
 
             <div class="blockm right-div">
@@ -93,11 +93,17 @@
                 <div class="block-body list" id="gzzd"></div>
             </div>
 
-            <div class="blockm" style="clear: both;">
+            <div class="blockm left-div" style="clear: both;">
                 <div class="block-title">
                     <a href="${ctx}/article/index.do?isArticlePhotos=1">图片新闻</a>
                 </div>
                 <div class="block-body" id="articlePhotos"></div>
+            </div>
+             <div class="blockm right-div">
+                <div class="block-title">
+                    <a href="${ctx}/forum/board/index.do" target="_blank">内部讨论区</a>
+                </div>
+                <div class="block-body" id="topics"></div>
             </div>
 		</div>
         </div>
@@ -120,6 +126,8 @@
 		loadUsefulLink("gzzd");
 		//加载图片新闻
 		loadArticlePhotos("articlePhotos");
+		//加载短消息
+		loadMsg("msg");
 	</script>
 </body>
 </html>

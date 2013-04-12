@@ -7,7 +7,7 @@
  * .内部邮件：/email/indexEmails.do
  * .最新项目：/project/indexProjects.do
  * .内部讨论：/forum/topic/indexTopics.do
- * .常用网站：/usefulLink/indexLinks.do
+ * .短消息：/msg/msg.do
  */
 
 /**
@@ -254,6 +254,41 @@ function loadArticlePhotos(divId){
 					htmlStr += "</a>";
 				}
 				//htmlStr += "</marquee>";
+			}
+			divContent.html(htmlStr);
+		},
+		error: function(){
+			//nothing...
+		}
+	});
+}
+
+
+
+
+/**
+ * 加载短消息
+ * @param divId
+ */
+function loadMsg(divId){
+	var divContent = $('#'+ divId);
+	var width = divContent.width() - 20;
+	var htmlStr = "";
+	$.ajax({
+		url: URL_PREFIX + '/msg/ajaxReadReceiveMsgs.do',
+		type: 'post',
+		dataType: 'json',
+		data:{'viewCount':5},
+		success: function(data, textStatus){
+			if (data == null || data.length == 0){
+				htmlStr = "<div style='margin:5px;'>暂时没有未读短消息...</div>";	    		
+			}else{
+				for(var i = 0; i < data.length; i++){
+					var readStr = (data[i].isRead == 1) ? "<span style='color:green'>【已读】</span>" : "<span style='color:red'>【未读】</span>";
+					htmlStr += "<div style='width:" + width + "' class='item'>";
+					htmlStr += "<a href='" + URL_PREFIX + "/mail/view.do?mailId="+data[i].id+"' title='" + data[i].subject + "' target='_blank'>" + readStr + "<span style='color: blue;'>【" + data[i].sendTime + "】</span>" +data[i].subject +"</a>";
+					htmlStr += "</div>";
+				}
 			}
 			divContent.html(htmlStr);
 		},
