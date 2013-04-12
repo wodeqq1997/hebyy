@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.systop.common.modules.dept.model.Dept;
+import com.systop.common.modules.security.user.model.User;
 import com.systop.core.model.BaseModel;
 
 /**
@@ -67,8 +68,20 @@ public class Asset extends BaseModel {
 	//部门
 	private Dept dept;
 	
-	// 库存量
+	// 申请购置数量
 	private Integer stockCounts;
+	
+	//购置单位
+	private String unit;
+	
+	//申购人
+	private User proposer;
+	
+	//部门审核人
+	private User depter;
+	
+	
+	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -206,4 +219,33 @@ public class Asset extends BaseModel {
 	public void setStockCounts(Integer stockCounts) {
 		this.stockCounts = stockCounts;
 	}
+	
+	public String getUnit() {
+		return unit;
+	}
+
+	public void setUnit(String unit) {
+		this.unit = unit;
+	}
+	
+	@ManyToOne(cascade = {}, fetch = FetchType.LAZY)
+	@JoinColumn(name = "proposer_id")
+	public User getProposer() {
+		return proposer;
+	}
+
+	public void setProposer(User proposer) {
+		this.proposer = proposer;
+	}
+    
+	@ManyToOne(cascade = {}, fetch = FetchType.LAZY)
+	@JoinColumn(name = "depter_id")
+	public User getDepter() {
+		return depter;
+	}
+
+	public void setDepter(User depter) {
+		this.depter = depter;
+	}
+
 }
