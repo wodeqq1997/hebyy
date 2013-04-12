@@ -33,7 +33,7 @@
 <body>
 <div class="x-panel">
   <div class="x-toolbar" style="min-width: 916px;width: 100%">
-    <table style="line-height: 25px;">
+    <table style="line-height: 25px;" width="99%">
       <tr>
         <td> 
           <form id="queryForm" action="show.do" method="post">
@@ -42,6 +42,7 @@
           &nbsp;<s:submit value="查询" cssClass="button" />
           </form>
         </td>
+        <td align="right"><a href="${ ctx}/addressBook/index.do"><img src="${ctx}/images/proj/flow_chart.png">个人通讯录</a></td>
       </tr>
     </table>
     </div>   
