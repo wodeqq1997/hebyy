@@ -55,7 +55,7 @@
 	<s:iterator value="items" var="item" status="st">
 		<tr onmousemove="this.className='trOver';"	onmouseout="this.className='trOut';">
 			<td align="center">${st.index + 1}</td>
-			<td align="center"><a href="toView.do?model.id=${item.id}" title="查看详情"> <font color="blue">${item.hyMc}</font></a></td>
+			<td align="center"><a href="view.do?model.id=${item.id}" title="查看详情"> <font color="blue">${item.hyMc}</font></a></td>
 			<td align="center">${item.wjh}</td>
 			<td align="center">${item.pageNum}</td>
 			<td align="center">${item.meetingType.hyLbMc}</td>

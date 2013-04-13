@@ -24,7 +24,7 @@
 			<td> ${model.hyMc }
 			<s:hidden name="model.id" /></td>
 			<td align="right">会议纪要类别：</td>
-			<td>${model.hytype }</td>
+			<td>${model.meetingType.hyLbMc }</td>
 		</tr>
 		<tr>
 			<td align="right">会议文件号：</td>
