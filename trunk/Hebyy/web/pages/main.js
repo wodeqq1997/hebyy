@@ -207,7 +207,7 @@ function loadUsefulLink(divId){
 	var width = divContent.width() - 20;
 	var htmlStr = "";
 	$.ajax({
-		url: URL_PREFIX + '/zcxx/indexZcxxs.do',
+		url: URL_PREFIX + '/ruleType/indexRuleTypes.do',
 		type: 'post',
 		dataType: 'json',
 		data:{'viewCount':10},
@@ -217,7 +217,7 @@ function loadUsefulLink(divId){
 			}else{
 				for(var i = 0; i < data.length; i++){
 					htmlStr += "<div style='width:" + width + "' class='item'>";
-					htmlStr += "<a href='" + URL_PREFIX + "/gzzd/queryxx3.do?id="+data[i].id+"'>"+data[i].zcMc+"</a>";
+					htmlStr += "<a href='" + URL_PREFIX + "/rule/queryxx3.do?id="+data[i].id+"'>"+data[i].zcMc+"</a>";
 					htmlStr += "</div>";
 				}
 			}
