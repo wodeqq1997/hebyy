@@ -18,7 +18,6 @@ import com.systop.core.util.DateUtil;
 import com.systop.core.util.PageUtil;
 import com.systop.core.webapp.struts2.action.DefaultCrudAction;
 import com.systop.hebyy.meeting.model.Meeting;
-import com.systop.hebyy.meeting.model.MeetingType;
 import com.systop.hebyy.meeting.service.MeetingManager;
 import com.systop.hebyy.meeting.service.MeetingTypeManager;
 
