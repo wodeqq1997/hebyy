@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	
+	
+	
+	<package name="ruleType" extends="json"  namespace="/ruleType">
+		
+		<action name="*" class="ruleTypeAction" method="{1}">
+	
+			<result name="zc_index">/pages/hebyy/rule/type/index.jsp</result>
+			<result name="input">/pages/hebyy/rule/type/edit.jsp</result>
+			
+			
+			<result name="zc_success" type="redirect">queryxx.do</result>
+			<result type="json" name="indexRuleTypes">
+		       
+		        <param name="root">ruleTypes</param>
+				
+		    </result>
+		
+		</action>
+	</package>
+	
+	
+	
+	
+</struts>

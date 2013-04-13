@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="rule" extends="json" namespace="/rule">
+		<action name="*" class="ruleAction" method="{1}">
+			<result name="index">/pages/hebyy/rule/index.jsp</result>
+			<result name="index1">/pages/hebyy/rule/cxIndex.jsp</result>
+			<result name="view">/pages/hebyy/rule/view.jsp</result>
+			
+			<result name="input">/pages/hebyy/rule/edit.jsp</result>
+			<result name="success" type="redirect">queryxx.do</result>
+<result type="json" name="indexGzzds">
+		        <param name="ignoreHierarchy">false</param>
+		        <param name="root">rules</param>
+				<param name="includeProperties">
+					\[\d+\]\.ruleType\.zcMc,
+				   \[\d+\]\.ruleType\.zcxh
+				</param>
+		    </result>
+		</action>
+	</package>
+
+
+
+
+</struts>
