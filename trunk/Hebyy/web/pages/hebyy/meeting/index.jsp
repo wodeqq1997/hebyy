@@ -28,8 +28,6 @@
 				     <input type="submit" value="查询" class="button"/>
 	    			 <input type="button" onclick="jkjsSave()"  class="button" 	style="width: 60px;"	value="查询全部" >
 	   </s:form> </td>
-	   </tr>
-	   <tr>
 	    <td align="right">
 	   <a href="toEdit.do?zx=0" title="添加会议信息记录"> 
 					<img src="${ctx}/images/icons/add.gif">&nbsp;新建</a>&nbsp;&nbsp;<a href="javascript:changeUser('pageQueryForm','确认要删除信息吗?');" title="删除会议信息记录">
