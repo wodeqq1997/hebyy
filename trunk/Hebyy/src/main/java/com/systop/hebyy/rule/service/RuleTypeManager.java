@@ -7,7 +7,6 @@ import org.apache.commons.collections.map.LinkedMap;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.systop.core.service.BaseGenericsManager;
-import com.systop.hebyy.meeting.model.MeetingType;
 import com.systop.hebyy.rule.model.RuleType;
 
 /**
