@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.systop.core.service.BaseGenericsManager;
-import com.systop.hebyy.gzzd.model.Gzzd;
-import com.systop.hebyy.gzzd.model.Zcxx;
 import com.systop.hebyy.meeting.model.Meeting;
 import com.systop.hebyy.meeting.model.MeetingType;
 
