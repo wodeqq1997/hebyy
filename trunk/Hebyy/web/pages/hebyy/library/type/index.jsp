@@ -16,7 +16,7 @@
 <div style="float: left;">"图书类别管理</div>
 </div>
 <div id="r_tool">
-	<div>
+	<div align="right">
 <s:form id="pageQueryForm" action="queryxx.do" cssStyle="margin:auto;" method="post">&nbsp; &nbsp;&nbsp;
 		<a href="edit.do" title="添加图书类别"> <img src="${ctx}/images/icons/add.gif">&nbsp;新建</a> &nbsp;&nbsp;
 		<a href="javascript:changeUser('pageQueryForm','确认要删除信息吗?');" title="删除图书类别"> <img src="${ctx}/images/icons/delete.gif">删除</a>
