@@ -23,12 +23,10 @@
 					类别名称：<s:select name="model.ruleType.id" list='typeMap' cssStyle="width:280px;" headerKey="" headerValue="请选择" />	&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;
 					文件号：<s:textfield name="model.wjh" maxLength="12" cssStyle="width:100px; height:16px;" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					
-			 <input type="submit" class="button" value=" 查询" style="width: 50px; height: 18px;">&nbsp;  &nbsp;
-			 <input type="button" onclick="jkjsSave()" class="button" value=" 查询全部" style="width: 70px; height: 18px;">
-			 <s:hidden name="ec_p" id="ec_p" />
+					 <input type="submit" class="button" value=" 查询" style="width: 50px; height: 18px;">&nbsp;  &nbsp;
+					 <input type="button" onclick="jkjsSave()" class="button" value=" 查询全部" style="width: 70px; height: 18px;">
+			 		<s:hidden name="ec_p" id="ec_p" />
 		</s:form></td>
-	</tr>
-	<tr>
 		<td width="80%" align="right"><a href="${ctx}/ruleType/queryxx.do" title="类别管理"> 
 		<img src="${ctx}/images/icons/add.gif">&nbsp;类别管理</a> &nbsp;&nbsp; 
 		<a href="edit.do?&&zx=0" title="添加规章制度条例"> <img src="${ctx}/images/icons/add.gif">&nbsp;新建</a> &nbsp;&nbsp;
