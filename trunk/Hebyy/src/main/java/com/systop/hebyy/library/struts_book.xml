@@ -11,14 +11,14 @@
 		
 		<action name="*" class="tsglAction" method="{1}">
 	
-			<result name="index">/pages/hebyy/book/index.jsp</result>
-			<result name="index1">/pages/hebyy/book/borrow/index.jsp</result>
-			<result name="index2">/pages/hebyy/book/cxIndex.jsp</result>
+			<result name="index">/pages/hebyy/library/index.jsp</result>
+			<result name="index1">/pages/hebyy/library/borrow/index.jsp</result>
+			<result name="index2">/pages/hebyy/library/cxIndex.jsp</result>
 			
-			<result name="view">/pages/hebyy/book/view.jsp</result>
-			<result name="input1">/pages/hebyy/book/edit.jsp</result>
-			<result name="js">/pages/hebyy/book/borrow/edit.jsp</result>
-			<result name="hs">/pages/hebyy/book/back/edit.jsp</result>
+			<result name="view">/pages/hebyy/library/view.jsp</result>
+			<result name="input1">/pages/hebyy/library/edit.jsp</result>
+			<result name="js">/pages/hebyy/library/borrow/edit.jsp</result>
+			<result name="hs">/pages/hebyy/library/back/edit.jsp</result>
 			
 			
 			<result name="success" type="redirect">queryxx.do</result>

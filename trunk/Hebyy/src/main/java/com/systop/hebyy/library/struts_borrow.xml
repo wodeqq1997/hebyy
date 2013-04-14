@@ -11,9 +11,9 @@
 		
 		<action name="*" class="jhsxxAction" method="{1}">
 	
-			<result name="jh_index">/pages/hebyy/book/back/index.jsp</result>
-			<result name="hsInput">/pages/hebyy/book/back/edit.jsp</result>
-			<result name="cxhsxx">/pages/hebyy/book/back/cxIndex.jsp</result>
+			<result name="jh_index">/pages/hebyy/library/back/index.jsp</result>
+			<result name="hsInput">/pages/hebyy/library/back/edit.jsp</result>
+			<result name="cxhsxx">/pages/hebyy/library/back/cxIndex.jsp</result>
 			
 			<result name="jh_success" type="redirect">queryxx.do</result>
 			<result name="jh_success1" type="redirect">queryxx1.do</result>
