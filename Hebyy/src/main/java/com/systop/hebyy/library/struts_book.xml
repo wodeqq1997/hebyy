@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	
+	
+	
+	<package name="tsgl" extends="json"  namespace="/tsgl">
+		
+		<action name="*" class="tsglAction" method="{1}">
+	
+			<result name="index">/pages/hebyy/book/index.jsp</result>
+			<result name="index1">/pages/hebyy/book/borrow/index.jsp</result>
+			<result name="index2">/pages/hebyy/book/cxIndex.jsp</result>
+			
+			<result name="view">/pages/hebyy/book/view.jsp</result>
+			<result name="input1">/pages/hebyy/book/edit.jsp</result>
+			<result name="js">/pages/hebyy/book/borrow/edit.jsp</result>
+			<result name="hs">/pages/hebyy/book/back/edit.jsp</result>
+			
+			
+			<result name="success" type="redirect">queryxx.do</result>
+            <result name="success1" type="redirect">queryxx1.do</result>
+            <result name="success2" type="redirect">queryxx2.do</result>
+            <result name="input4" type="redirect">toEdit.do</result>
+		</action>
+	</package>
+	
+	
+	
+	
+</struts>
