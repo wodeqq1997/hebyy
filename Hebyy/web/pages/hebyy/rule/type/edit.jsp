@@ -24,7 +24,7 @@
 		<tr>
 			<td class="td1">类别名称：</td>
 			<td><s:hidden name="model.id" /> 
-				<s:textfield name="model.zcMc" style="width:360px; height:22px;" cssClass="required" maxlength="255" /> <font color="red">*</font>
+				<s:textfield name="model.zcMc" cssStyle="width:360px; height:22px;" cssClass="required" maxlength="255" /> <font color="red">*</font>
 		</tr>
 		<tr>
 			<td class="td1">类别备注：</td>

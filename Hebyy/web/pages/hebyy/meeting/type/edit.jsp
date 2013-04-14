@@ -17,7 +17,7 @@
 				<table border="0" align="center" style="line-height: 30px;width:100%">
 					<tr>
 						<td align="right">会议类别名称：</td>
-						<td width="575"><s:textfield name="model.hyLbMc"   style="width: 280px;"  cssClass="required"  maxlength="255"/>
+						<td width="575"><s:textfield name="model.hyLbMc"   cssStyle="width: 280px;"  cssClass="required"  maxlength="255"/>
 						<font color="red">*</font>
 						 <s:hidden name="model.id" /></td>
 				</tr>

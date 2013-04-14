@@ -23,7 +23,7 @@
 		<tr>
 			<td align="right"  width="280">会议文件名称：</td>
 			<td width="440"> 
-				<s:textfield name="model.hyMc"  style="width: 260px;"  cssClass="required"  maxlength="255"/>
+				<s:textfield name="model.hyMc"  cssStyle="width: 260px;"  cssClass="required"  maxlength="255"/>
 						<font color="red">*</font>
 			<s:hidden name="model.id" /></td>
 		</tr>
@@ -37,21 +37,21 @@
 		<tr>
 			<td align="right">文    件   号：</td>
 			<td>
-				<s:textfield name="model.wjh"   style="width: 260px;"  cssClass="required"  maxlength="255"/>
+				<s:textfield name="model.wjh"   cssStyle="width: 260px;"  cssClass="required"  maxlength="255"/>
 				<font color="red">*</font>
 			</td>
 		</tr>
 		<tr>
 			<td align="right">文件页/份数：</td>
 			<td>
-				<s:textfield name="model.pageNum"   style="width: 260px;"  cssClass="required number"  maxlength="255"/>
+				<s:textfield name="model.pageNum"   cssStyle="width: 260px;"  cssClass="required number"  maxlength="255"/>
 				<font color="red">*</font>
 			</td>
 		</tr>
 		<tr>
 			<td align="right">会议参与人：</td>
 			<td>
-			<s:textfield name="model.hycyr"   style="width: 260px;"    maxlength="255"/>
+			<s:textfield name="model.hycyr"   cssStyle="width: 260px;"    maxlength="255"/>
 			</td>
 		</tr>
 		<tr>
