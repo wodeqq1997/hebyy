@@ -11,25 +11,6 @@
 <script type="text/javascript" src="${ctx}/pages/admin/fileattch/fileattch.js"></script>
 <script type="text/javascript" src="${ctx}/scripts/select.user.js"></script>
 
-<style type="text/css">
-td {
-	padding: 4px 2px 2px 3px;
-}
-
-select {
-	border: 1px solid #CCC;
-}
-
-textarea {
-	padding: 5px;
-	width: 520px;
-	height: 70px;
-}
-
-.td1 {
-	text-align: right;
-}
-</style>
 <title>借书信息页面</title>
 </head>
 <body onload="CurentTime()">
@@ -42,30 +23,24 @@ textarea {
  <legend>基本信息</legend>
 		<table border="0" align="center" style="line-height: 30px;width:100%">
 
-		<tr>
+				<tr>
 					<td align="right"> 图书名称：</td>
-					<td width="575"><input id="sm" name="model.tsMc" readonly="readonly"
-						value="${model.tsMc}" style="width:280px; "> </td>
-
+					<td width="575"><input id="sm" name="model.tsMc" readonly="readonly" value="${model.tsMc}" style="width:280px; "> </td>
 				</tr>
 				<tr>
 					<td align="right"> 图书作者：</td>
-					<td ><input id="zz" name="model.author" readonly="readonly"
-						value="${model.author}" style="width:280px;"> </td>
+					<td ><input id="zz" name="model.author" readonly="readonly" value="${model.author}" style="width:280px;"> </td>
 				</tr>
 				<tr>
 					<td align="right">借 书 人：</td>
-					<td ><input id="jsr" name="jsr" onclick="showAuditUser();" 
-						 style="width:280px;"  class="required" readonly="readonly" >
+					<td ><input id="jsr" name="jsr" onclick="showAuditUser();" style="width:280px;"  class="required" readonly="readonly" >
 				       <font color="red">*</font>
-						 <input type="hidden" id="jsrId" name="jsrId" />
-						 </td>
+						<input type="hidden" id="jsrId" name="jsrId" />
+					</td>
 				</tr>		
 				<tr>
 					<td align="right">借阅时间：</td>
-					<td ><input type="text" id="jytime"  name="jytime" style="width:280px; " readonly="readonly" 
-							value=""   onClick="WdatePicker({skin:'blueFresh'})" class="Wdate" / > </td>
-
+					<td ><input type="text" id="jytime"  name="jytime" style="width:280px; " readonly="readonly" value=""   onClick="WdatePicker({skin:'blueFresh'})" class="Wdate" / > </td>
 				</tr>
 				<tr>
 					<td align="right">备注信息：</td>
@@ -76,13 +51,9 @@ textarea {
 				</tr>
 
 				<tr>
-					<td colspan="6" style="border: 0px;" align="center"><%@include
-							file="/pages/common/messages.jsp"%> <input
-						type="button" onclick="jkjsSave()" class="button" value=" 保 存 ">&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;<input type="button"
-						onclick="javascript:window.location.href='${ctx}/tsgl/queryxx1.do';"
-						class="button" value=" 返 回 "></td>
-
+					<td colspan="6" style="border: 0px;" align="center"><%@include file="/pages/common/messages.jsp"%>
+					 <input type="button" onclick="jkjsSave()" class="button" value=" 保 存 ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					 <input type="button" onclick="javascript:window.location.href='${ctx}/tsgl/queryxx1.do';" class="button" value=" 返 回 "></td>
 				</tr>
 			</table>
 			 </fieldset>
