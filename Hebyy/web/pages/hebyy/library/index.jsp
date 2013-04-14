@@ -28,8 +28,6 @@
 				<s:hidden name="ec_p" id="ec_p" />
 		</s:form>
 		</td>
-	</tr>
-	<tr>
 		<td width="80%" align="right"><a href="${ctx}/lbxx/queryxx.do" title="图书类别管理"> <img src="${ctx}/images/icons/add.gif">&nbsp;图书类别管理</a>&nbsp;&nbsp; 
 		<a href="toEdit.do?&&zx=0" title="添加图书信息"> <img src="${ctx}/images/icons/add.gif">&nbsp;新建</a> &nbsp;&nbsp;
 		 <a href="javascript:changeUser('pageQueryForm','确认要删除信息吗?');" title="删除规章制度条例">

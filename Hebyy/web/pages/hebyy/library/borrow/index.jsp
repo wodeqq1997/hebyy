@@ -30,8 +30,7 @@
 						<s:hidden name="ec_p" id="ec_p" />
 		</s:form>
 		</td>
-	</tr>
-	<tr>
+	
 		<td width="80%" align="right"><a href="${ctx}/jhs/queryxx.do" title="归还图书"> <img src="${ctx}/images/icons/down.gif">&nbsp;归还图书</a>&nbsp;&nbsp;</td>
 	</tr>
 </table>
