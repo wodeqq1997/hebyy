@@ -27,12 +27,6 @@ import com.systop.hebyy.tsgl.service.TsglManager;
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class LbxxAction extends DefaultCrudAction<Lbxx, LbxxManager> {
 
-	private List<Lbxx> lbList;
-
-	public List<Lbxx> getLbList() {
-		return lbList;
-	}
-
 	@Autowired
 	TsglManager tsglManager;
 
@@ -44,16 +38,13 @@ public class LbxxAction extends DefaultCrudAction<Lbxx, LbxxManager> {
 	@SuppressWarnings("unchecked")
 	public String queryxx() {
 
-		// 获取输入的条件
-		// String name = getModel().getKdMc();
-		// kdList = getManager().queryKd(name, sex);// 通过条件赋值
 		StringBuffer hql = new StringBuffer("from Lbxx p where 1=1 ");
 		List<Object> args = new ArrayList<Object>();
 
-		hql.append(" order by p.id ");
+		hql.append("order by p.id ");
 		page = PageUtil.getPage(getPageNo(), getPageSize());
 		page = getManager().pageQuery(page, hql.toString(), args.toArray());
-		lbList = page.getData();
+		items = page.getData();
 		return "lb_index";// 跳转到第一个页面
 
 	}
@@ -110,7 +101,8 @@ public class LbxxAction extends DefaultCrudAction<Lbxx, LbxxManager> {
 			addActionMessage("更新成功！");
 		}
 		super.save();
-
 		return "lb_success";
 	}
+
+
 }

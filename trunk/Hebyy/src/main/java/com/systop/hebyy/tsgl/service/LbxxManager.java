@@ -2,12 +2,15 @@ package com.systop.hebyy.tsgl.service;
 
 
 import java.util.List;
+import java.util.Map;
 
 
+import org.apache.commons.collections.map.LinkedMap;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.systop.core.service.BaseGenericsManager;
+import com.systop.hebyy.rule.model.RuleType;
 import com.systop.hebyy.tsgl.model.Lbxx;
 
 
@@ -20,7 +23,7 @@ import com.systop.hebyy.tsgl.model.Lbxx;
 @Service
 public class LbxxManager extends BaseGenericsManager<Lbxx> {
 	
-	public List<Lbxx> queryAlljkjss() {
+	public List<Lbxx> queryAll() {
 		String sql = "from Lbxx j";
 		return query(sql);
 	}
@@ -54,7 +57,18 @@ public class LbxxManager extends BaseGenericsManager<Lbxx> {
     	return lbxx;
     	
     }
-
+	/**
+	 * 用于下拉列表类型的数据源
+	 */
+	@SuppressWarnings("unchecked")
+	public Map<Integer, String> getTypeMap(){
+		List<Lbxx> lbxxItems = this.queryAll();
+		Map<Integer, String> typeMap = new LinkedMap();
+		for (Lbxx mt : lbxxItems) {
+			typeMap.put(mt.getId(), mt.getLbMc());
+		}
+		return typeMap;
+	}
 
 
 

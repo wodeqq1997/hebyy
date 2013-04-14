@@ -11,8 +11,8 @@
 		
 		<action name="*" class="lbxxAction" method="{1}">
 	
-			<result name="lb_index">/pages/hebyy/tsgl/lbxx.jsp</result>
-			<result name="input">/pages/hebyy/tsgl/lbxxInput.jsp</result>
+			<result name="lb_index">/pages/hebyy/tsgl/type/index.jsp</result>
+			<result name="input">/pages/hebyy/tsgl/type/edit.jsp</result>
 			
 			
 			<result name="lb_success" type="redirect">queryxx.do</result>

@@ -30,9 +30,8 @@ public class Lbxx extends BaseModel {
 	
 	//备注
 	private String  descn;
-
 	
-	// 规章制度集合
+	// 图书集合
 	private List<Tsxx> tsxxList;
 
 	@Id
