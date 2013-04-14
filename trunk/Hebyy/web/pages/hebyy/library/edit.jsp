@@ -28,42 +28,33 @@
 		<tr>
 			<td width="150" align="right"> 图书名称：</td>
 			<td width="300">
-			<s:textfield name="model.tsMc"   style="width: 260px;"  cssClass="required"  maxlength="255"/>
-						<font color="red">*</font>
-				</td>
-			<td width="300" rowspan="6" align="center">
-			<div style="border: 1px solid #ccc; width: 250px; height: 270px;">
-			<s:if
-				test="model.id != null && model.bookPhoto != null && model.bookPhoto != ''">
-				<img id="photo" src="${ctx}${model.fileAttch.path}" width="250px"
-					height="270px" />
-			</s:if> <s:else>
-				<img id="photo" src="${ctx}/images/scos/defaultcarpic.gif"
-					width="250px" height="270px" />
-			</s:else></div>
+			<s:textfield name="model.tsMc" cssStyle="width: 260px;"  cssClass="required"  maxlength="255"/><font color="red">*</font>
 			</td>
-
+			<td width="300" rowspan="6" align="center"><div style="border: 1px solid #ccc; width: 250px; height: 270px;">
+			<s:if test="model.id != null && model.bookPhoto != null && model.bookPhoto != ''">
+				<img id="photo" src="${ctx}${model.fileAttch.path}" width="250px" height="270px" />
+			</s:if> 
+			<s:else>
+				<img id="photo" src="${ctx}/images/scos/defaultcarpic.gif" width="250px" height="270px" />
+			</s:else>
+			</div>
+			</td>
 		</tr>
 		<tr>
 			<td align="right"> 图书作者：</td>
 			<td>
-			<s:textfield name="model.author"   style="width: 260px;"  cssClass="required"  maxlength="255"/>
-						<font color="red">*</font>
-				</td>
-
+			<s:textfield name="model.author"   cssStyle="width: 260px;"  cssClass="required"  maxlength="255"/><font color="red">*</font></td>
 		</tr>
 		<tr>
 			<td align="right">图书类别：</td>
-			<td><s:select name="model.lbxx.id" list='typeMap'
-				cssStyle="width:256px;height:22px; " cssClass="typeCheck"  headerKey="" headerValue="请选择" />
+			<td><s:select name="model.lbxx.id" list='typeMap' cssStyle="width:256px;height:22px; " cssClass="typeCheck"  headerKey="" headerValue="请选择" />
 				<span id="typeDescn"></span>
 				<font color="red">*</font>
-				</td>
+			</td>
 		</tr>
 		<tr>
 			<td align="right">图书照片：</td>
-			<td><s:if
-				test="model.bookPhoto == null || model.bookPhoto == ''">
+			<td><s:if test="model.bookPhoto == null || model.bookPhoto == ''">
 				<div id="file_buttom">
 				<table>
 					<tr>
@@ -72,52 +63,35 @@
 					</tr>
 				</table>
 				</div>
-				<div id="systop-uploaded-files"><s:hidden id="fileAttchIds"
-					name="model.bookPhoto" onpropertychange="updateCarPhoto();" /></div>
+				<div id="systop-uploaded-files"><s:hidden id="fileAttchIds" name="model.bookPhoto" onpropertychange="updateCarPhoto();" /></div>
 				<div id="systop_file_list"></div>
 			</s:if> <s:else>
-				<a href="${ctx}/tsgl/removeBookPhoto.do?id=${model.id}"><font
-					color="red">删除照片</font></a>
+				<a href="${ctx}/tsgl/removeBookPhoto.do?id=${model.id}"><font color="red">删除照片</font></a>
 			</s:else></td>
 		</tr>
 
 		<tr>
 			<td align="right">入库数量：</td>
 			<td>
-			<s:textfield name="model.totalNum"   style="width: 260px;"  cssClass="required number"  maxlength="255"/>
-						<font color="red">*</font>
+			<s:textfield name="model.totalNum"  cssStyle="width: 260px;"  cssClass="required number"  maxlength="255"/>
+			<font color="red">*</font>
 		</tr>
 
 		<tr>
 			<td align="right"> 入库时间：</td>
-			<td><input type="text" id="rktime" name="model.rkTime"
-				style="width: 256px;" readonly="readonly"
-				value='<s:date name="model.rkTime" format="yyyy-MM-dd"/>'
-				onClick="WdatePicker({skin:'blueFresh'})" class="Wdate"/ >
+			<td><input type="text" id="rktime" name="model.rkTime" style="width: 256px;" readonly="readonly" value='<s:date name="model.rkTime" format="yyyy-MM-dd"/>' onClick="WdatePicker({skin:'blueFresh'})" class="Wdate"/ >
 				<span id="dateDescn"></span>
 				<font color="red">*</font>
 			</td>
-
 		</tr>
-
-
-
-
 		<tr>
 			<td align="right">图书描述：</td>
-			<td colspan="2"><s:textarea id="ms" name="model.descn"
-				cssStyle="width:580px;height: 80px;" /> <s:hidden name="model.id" />
-			</td>
+			<td colspan="2"><s:textarea id="ms" name="model.descn" cssStyle="width:580px;height: 80px;" /> <s:hidden name="model.id" /></td>
 		</tr>
-
 		<tr>
-			<td colspan="6" style="border: 0px;" align="center"><%@include
-				file="/pages/common/messages.jsp"%> <input
-				type="button" onclick="jkjsSave()" class="button" value=" 保 存 ">&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;<input type="button"
-				onclick="javascript:window.location.href='${ctx}/tsgl/queryxx.do';"
-				class="button" value=" 返 回 "></td>
-
+			<td colspan="6" style="border: 0px;" align="center"><%@include file="/pages/common/messages.jsp"%>
+			 <input type="button" onclick="jkjsSave()" class="button" value=" 保 存 ">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+			 <input type="button" onclick="javascript:window.location.href='${ctx}/tsgl/queryxx.do';" class="button" value=" 返 回 "></td>
 		</tr>
 	</table>
 	</fieldset>

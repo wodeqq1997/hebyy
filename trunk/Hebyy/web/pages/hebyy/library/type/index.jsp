@@ -6,9 +6,8 @@
 <%@include file="/pages/common/taglibs.jsp"%>
 <%@include file="/pages/common/meta.jsp"%>
 <%@include file="/common/validator.jsp"%>
-
-<title>图书类别</title>
 <script type="text/javascript" src="${ctx}/scripts/my97/WdatePicker.js"></script>
+<title>图书类别</title>
 </head>
 <body>
 
@@ -17,28 +16,20 @@
 <div style="float: left;">"图书类别管理</div>
 </div>
 <div id="r_tool">
-<div><s:form id="pageQueryForm" action="queryxx.do"
-	cssStyle="margin:auto;" method="post">&nbsp;
-					
-					&nbsp;&nbsp;
-						<a href="edit.do" title="添加图书类别"> <img
-		src="${ctx}/images/icons/add.gif">&nbsp;新建</a>
-						&nbsp;&nbsp;
-						<a href="javascript:changeUser('pageQueryForm','确认要删除信息吗?');"
-		title="删除图书类别"> <img src="${ctx}/images/icons/delete.gif">删除</a>
-	<a href="javascript:window.location.href='${ctx}/tsgl/queryxx.do';"
-		title="返回图书管理页面"> <img src="${ctx}/images/icons/go.gif">&nbsp;返回</a>
-
-
-	<s:hidden name="ec_p" id="ec_p" />
-</s:form></div>
+	<div>
+<s:form id="pageQueryForm" action="queryxx.do" cssStyle="margin:auto;" method="post">&nbsp; &nbsp;&nbsp;
+		<a href="edit.do" title="添加图书类别"> <img src="${ctx}/images/icons/add.gif">&nbsp;新建</a> &nbsp;&nbsp;
+		<a href="javascript:changeUser('pageQueryForm','确认要删除信息吗?');" title="删除图书类别"> <img src="${ctx}/images/icons/delete.gif">删除</a>
+		<a href="javascript:window.location.href='${ctx}/tsgl/queryxx.do';" title="返回图书管理页面"> <img src="${ctx}/images/icons/go.gif">&nbsp;返回</a>
+		<s:hidden name="ec_p" id="ec_p" />
+	</s:form>
+	</div>
 </div>
 <div style="margin: 10px;">
 <div align="right">
 <table>
 	<tr>
-		<td colspan="13" style="border: 0px; padding-top: 4px;" align="right"><%@include
-			file="/pages/common/messages.jsp"%></td>
+	 <td colspan="13" style="border: 0px; padding-top: 4px;" align="right"><%@include file="/pages/common/messages.jsp"%></td>
 	</tr>
 </table>
 </div>
@@ -53,22 +44,15 @@
 	<s:iterator value="items" var="item" status="st">
 		<tr onmousemove="this.className='trOver';"
 			onmouseout="this.className='trOut';">
-			<td align="center"><input type="checkbox" name="selectedItems"
-				id="selectedItems" value="${item.id}" class="checkbox" /></td>
-
+			<td align="center"><input type="checkbox" name="selectedItems" id="selectedItems" value="${item.id}" class="checkbox" /></td>
 			<td align="center">${item.lbMc}</td>
 			<td align="left">${item.descn}</td>
-
-
-
-			<td align="center" valign="middle"><a
-				href="edit.do?model.id=${item.id}" title="修改图书类别"> <img
-				src="${ctx}/images/icons/edit.png"> </a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td align="center" valign="middle"><a href="edit.do?model.id=${item.id}" title="修改图书类别">
+			 <img src="${ctx}/images/icons/edit.png"> </a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 		</tr>
 	</s:iterator>
 	<tr>
-		<td colspan="4" style="border: 0px; padding-top: 10px;" align="right"><%@include
-			file="/pages/common/page.jsp"%></td>
+		<td colspan="4" style="border: 0px; padding-top: 10px;" align="right"><%@include file="/pages/common/page.jsp"%></td>
 	</tr>
 </table>
 </div>
