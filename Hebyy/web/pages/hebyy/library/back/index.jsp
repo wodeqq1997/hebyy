@@ -27,12 +27,9 @@
 				          是否归还：<s:select name="model.isgh" list="{'已归还','未归还'}" headerKey="" headerValue="不限--" />
 					<input type="submit" class="button" value=" 查询" style="width: 50px; height: 18px;">&nbsp;&nbsp;
 				    <input type="button" onclick="jkjsSave()" class="button" value=" 查询全部" style="width: 70px; height: 18px;">
-					<a href="${ctx}/tsgl/queryxx1.do" title="返回"> <img src="${ctx}/images/icons/go.gif">&nbsp;返回</a>
 					<s:hidden name="ec_p" id="ec_p" />
 		</s:form></td>
-	</tr>
-	<tr>
-		<td width="80%" align="right"></td>
+		<td width="80%" align="right"><a href="${ctx}/tsgl/queryxx1.do" title="返回"> <img src="${ctx}/images/icons/go.gif">&nbsp;返回</a></td>
 	</tr>
 </table>
 </div>

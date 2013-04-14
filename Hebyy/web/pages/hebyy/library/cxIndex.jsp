@@ -26,9 +26,9 @@
 				作者：<s:textfield name="model.author" maxLength="12" cssStyle="width:100px; height:16px;" /> &nbsp;&nbsp;					
 					<input type="submit" class="button" value=" 查询" style="width: 50px; height: 18px;">&nbsp;
 				    <input type="button" onclick="jkjsSave()" class="button" value=" 查询全部" style="width: 70px; height: 18px;">
-					<a href="${ctx}/jhs/queryxx1.do" title="查询图书借阅情况"> <img src="${ctx}/images/icons/down.gif">&nbsp;查询图书借阅情况</a>&nbsp;&nbsp;
 					<s:hidden name="ec_p" id="ec_p" />
 		</s:form></td>
+		<td align="right">	<a href="${ctx}/jhs/queryxx1.do" title="查询图书借阅情况"> <img src="${ctx}/images/icons/down.gif">&nbsp;查询图书借阅情况</a>&nbsp;&nbsp;</td>
 	</tr>
 </table>
 </div>
