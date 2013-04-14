@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.systop.core.service.BaseGenericsManager;
-import com.systop.hebyy.rule.model.RuleType;
 import com.systop.hebyy.tsgl.model.Lbxx;
 
 
