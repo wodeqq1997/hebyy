@@ -33,10 +33,6 @@ public class JhsxxAction extends DefaultCrudAction<Jhsxx, JhsxxManager> {
 
 	private List<Jhsxx> jhList;
 
-	public List<Jhsxx> getJhList() {
-		return jhList;
-	}
-
 	@Autowired
 	TsglManager tsglManager;
 
@@ -50,9 +46,7 @@ public class JhsxxAction extends DefaultCrudAction<Jhsxx, JhsxxManager> {
 
 		// 获取输入的条件
 
-		StringBuffer hql = new StringBuffer(
-
-		"from Jhsxx p where 1=1  ");
+		StringBuffer hql = new StringBuffer("from Jhsxx p where 1=1  ");
 		List<Object> args = new ArrayList<Object>();
 		// 图书名称和借阅人进行查询
 
@@ -61,25 +55,24 @@ public class JhsxxAction extends DefaultCrudAction<Jhsxx, JhsxxManager> {
 		String isgh = getModel().getIsgh();// 是否归还
 
 		if (isgh != null && isgh.equals("已归还")) {
-			hql.append(" and p.hsr is not null ");
+			hql.append("and p.hsr is not null ");
 		} else if (isgh != null && isgh.equals("未归还")) {
-			hql.append(" and p.hsr is null ");
+			hql.append("and p.hsr is null ");
 		}
 
 		// 图书名称
 		if (StringUtils.isNotBlank(lbmc)) {
-			hql.append(" and p.bookMc like ? ");
+			hql.append("and p.bookMc like ? ");
 			args.add(MatchMode.ANYWHERE.toMatchString(lbmc));
 		}
 
 		// 借阅人
 		if (StringUtils.isNotBlank(jsr)) {
-			hql.append("  and p.jsr = ? ");
+			hql.append("and p.jsr = ? ");
 			args.add(jsr);
 		}
 
-		hql.append(" order by p.id  ");
-		// System.out.print(getPageNo());
+		hql.append("order by p.id  ");
 		page = PageUtil.getPage(getPageNo(), getPageSize());
 		page = getManager().pageQuery(page, hql.toString(), args.toArray());
 		jhList = page.getData();
@@ -96,10 +89,7 @@ public class JhsxxAction extends DefaultCrudAction<Jhsxx, JhsxxManager> {
 	public String queryxx1() {
 
 		// 获取输入的条件
-
-		StringBuffer hql = new StringBuffer(
-
-		"from Jhsxx p where 1=1  ");
+		StringBuffer hql = new StringBuffer("from Jhsxx p where 1=1  ");
 		List<Object> args = new ArrayList<Object>();
 		// 图书名称和借阅人进行查询
 
@@ -108,22 +98,22 @@ public class JhsxxAction extends DefaultCrudAction<Jhsxx, JhsxxManager> {
 		String isgh = getModel().getIsgh();// 是否归还
 
 		if (isgh != null && isgh.equals("已归还")) {
-			hql.append(" and p.hsr is not null ");
+			hql.append("and p.hsr is not null ");
 		} else if (isgh != null && isgh.equals("未归还")) {
-			hql.append(" and p.hsr is null ");
+			hql.append("and p.hsr is null ");
 		}
 
 		// 图书名称
 		if (StringUtils.isNotBlank(lbmc)) {
-			hql.append(" and p.bookMc like ? ");
+			hql.append("and p.bookMc like ? ");
 			args.add(MatchMode.ANYWHERE.toMatchString(lbmc));
 		}
 		// 借阅人
 		if (StringUtils.isNotBlank(jsr)) {
-			hql.append("  and p.jsr = ? ");
+			hql.append("and p.jsr = ? ");
 			args.add(jsr);
 		}
-		hql.append(" order by p.id  ");
+		hql.append("order by p.id  ");
 		page = PageUtil.getPage(getPageNo(), getPageSize());
 		page = getManager().pageQuery(page, hql.toString(), args.toArray());
 		jhList = page.getData();
@@ -157,14 +147,12 @@ public class JhsxxAction extends DefaultCrudAction<Jhsxx, JhsxxManager> {
 		String bookid = getRequest().getParameter("item.bookId");
 		int id = Integer.parseInt(getRequest().getParameter("item.id"));
 		setModel(getManager().get(id));
-
 		if (StringUtils.isNotBlank(bookid)) {
 			Tsxx ts = tsglManager.get(Integer.parseInt(bookid));
 			String zz = ts.getAuthor();
 			getRequest().setAttribute("zz", zz); // request传值
 			getRequest().setAttribute("bookid", Integer.parseInt(bookid)); // request传值
 		}
-		// getRequest().setAttribute("id",id);
 		return "hsInput";
 	}
 
@@ -183,6 +171,10 @@ public class JhsxxAction extends DefaultCrudAction<Jhsxx, JhsxxManager> {
 		}
 		super.save();// 保存还书记录
 		return "jh_success";// 跳转到借还书查询页面
+	}
+
+	public List<Jhsxx> getJhList() {
+		return jhList;
 	}
 
 }

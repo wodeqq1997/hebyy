@@ -6,8 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
 import org.hibernate.criterion.MatchMode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -38,23 +38,8 @@ import com.systop.hebyy.tsgl.service.TsglManager;
 @Scope(BeanDefinition.SCOPE_PROTOTYPE)
 public class TsglAction extends DefaultCrudAction<Tsxx, TsglManager> {
 
-	private List<Tsxx> items;
-
-	public List<Tsxx> getItems() {
-		return items;
-	}
-
-	private List<String> names = new ArrayList<String>();
-
-	public List<String> getNames() {
-		return names;
-	}
 
 	private List<Lbxx> lbxxList;
-
-	public List<Lbxx> getlbxxList() {
-		return lbxxList;
-	}
 
 	@Autowired
 	LbxxManager lbxxManager;
@@ -68,50 +53,8 @@ public class TsglAction extends DefaultCrudAction<Tsxx, TsglManager> {
 	 * @return
 	 * @throws ParseException
 	 */
-	@SuppressWarnings("unchecked")
 	public String queryxx() throws ParseException {
-		// 下拉列表数据源
-		lbxxList = lbxxManager.queryAlljkjss();
-		for (Lbxx kd : lbxxList) {
-			String name = kd.getLbMc();
-			names.add(name);
-		}
-		getRequest().setAttribute("names", names); // request传值
-
-		// 获取输入的条件
-		String lbmc = getModel().getLbmc();// 按类别名称查询
-		String tsMc = getModel().getTsMc();// 按图书名称查询
-		String author = getModel().getAuthor();// 按作者查询
-
-		StringBuffer hql = new StringBuffer(
-
-		"from Tsxx p where 1=1 ");
-		List<Object> args = new ArrayList<Object>();
-		// 图书名称
-		if (StringUtils.isNotBlank(tsMc)) {
-			hql.append(" and p.tsMc like ? ");
-			args.add(MatchMode.ANYWHERE.toMatchString(tsMc));
-		}
-		// 图书类别
-		if (StringUtils.isNotBlank(lbmc)) {
-			Lbxx lbxx = lbxxManager.getZcxxByKdname(lbmc);
-			hql.append("  and p.lbxx.id = ? ");
-			args.add(lbxx.getId());
-		}
-
-		// 作者
-		if (StringUtils.isNotBlank(author)) {
-
-			hql.append("  and p.author = ?  ");
-			args.add(author);
-		}
-
-		hql.append(" order by p.id ");
-
-		page = PageUtil.getPage(getPageNo(), getPageSize());
-		page = getManager().pageQuery(page, hql.toString(), args.toArray());
-		items = page.getData();
-
+		this.queryBook();
 		return "index";// 跳转到第一个页面
 
 	}
@@ -122,51 +65,9 @@ public class TsglAction extends DefaultCrudAction<Tsxx, TsglManager> {
 	 * @return
 	 * @throws ParseException
 	 */
-	@SuppressWarnings("unchecked")
 	public String queryxx1() throws ParseException {
-		// 下拉列表数据源
-		lbxxList = lbxxManager.queryAlljkjss();
 
-		for (Lbxx kd : lbxxList) {
-			String name = kd.getLbMc();
-			names.add(name);
-		}
-		getRequest().setAttribute("names", names); // request传值
-
-		// 获取输入的条件
-		String lbmc = getModel().getLbmc();// 按类别名称查询
-		String tsMc = getModel().getTsMc();// 按图书名称查询
-		String author = getModel().getAuthor();// 按作者查询
-
-		StringBuffer hql = new StringBuffer(
-
-		"from Tsxx p where 1=1 ");
-		List<Object> args = new ArrayList<Object>();
-		// 图书名称
-		if (tsMc != null && !tsMc.equals("")) {
-			hql.append(" and p.tsMc like ? ");
-			args.add(MatchMode.ANYWHERE.toMatchString(tsMc));
-		}
-		// 图书类别
-		if (lbmc != null && !lbmc.equals("")) {
-			Lbxx lbxx = lbxxManager.getZcxxByKdname(lbmc);
-			hql.append("  and p.lbxx.id = ? ");
-			args.add(lbxx.getId());
-		}
-
-		// 作者
-		if (author != null && !author.equals("")) {
-
-			hql.append("  and p.author = ?  ");
-			args.add(author);
-		}
-
-		hql.append(" order by p.id ");
-
-		page = PageUtil.getPage(getPageNo(), getPageSize());
-		page = getManager().pageQuery(page, hql.toString(), args.toArray());
-		items = page.getData();
-
+		this.queryBook();
 		return "index1";// 跳转到第一个页面
 
 	}
@@ -176,55 +77,44 @@ public class TsglAction extends DefaultCrudAction<Tsxx, TsglManager> {
 	 * @return
 	 * @throws ParseException
 	 */
-	@SuppressWarnings("unchecked")
+
 	public String queryxx2() throws ParseException {
-		// 下拉列表数据源
-		lbxxList = lbxxManager.queryAlljkjss();
-
-		for (Lbxx kd : lbxxList) {
-			String name = kd.getLbMc();
-			names.add(name);
-		}
-		getRequest().setAttribute("names", names); // request传值
-
-		// 获取输入的条件
-		String lbmc = getModel().getLbmc();// 按类别名称查询
-		String tsMc = getModel().getTsMc();// 按图书名称查询
-		String author = getModel().getAuthor();// 按作者查询
-
-		StringBuffer hql = new StringBuffer(
-
-		"from Tsxx p where 1=1 ");
-		List<Object> args = new ArrayList<Object>();
-		// 图书名称
-		if (tsMc != null && !tsMc.equals("")) {
-			hql.append(" and p.tsMc like ? ");
-			args.add(MatchMode.ANYWHERE.toMatchString(tsMc));
-		}
-		// 图书类别
-		if (lbmc != null && !lbmc.equals("")) {
-			Lbxx lbxx = lbxxManager.getZcxxByKdname(lbmc);
-			hql.append("  and p.lbxx.id = ? ");
-			args.add(lbxx.getId());
-		}
-
-		// 作者
-		if (author != null && !author.equals("")) {
-
-			hql.append("  and p.author = ?  ");
-			args.add(author);
-		}
-
-		hql.append(" order by p.id ");
-
-		page = PageUtil.getPage(getPageNo(), getPageSize());
-		page = getManager().pageQuery(page, hql.toString(), args.toArray());
-		items = page.getData();
-
+		
+		this.queryBook();
 		return "index2";// 跳转到第一个页面
 
 	}
+	/**
+	 * 条件查询
+	 */
+	@SuppressWarnings("unchecked")
+	private void queryBook(){
+		// 获取输入的条件
+		String tsMc = getModel().getTsMc();// 按图书名称查询
+		String author = getModel().getAuthor();// 按作者查询
 
+		StringBuffer hql = new StringBuffer("from Tsxx p where 1=1 ");
+		List<Object> args = new ArrayList<Object>();
+		// 图书名称
+		if (tsMc != null && !tsMc.equals("")) {
+			hql.append("and p.tsMc like ? ");
+			args.add(MatchMode.ANYWHERE.toMatchString(tsMc));
+		}
+		// 图书类别
+		if (getModel().getLbxx()!=null&&getModel().getLbxx().getId()!=null) {
+			hql.append("and p.lbxx.id = ? ");
+			args.add(getModel().getLbxx().getId());
+		}
+		// 作者
+		if (author != null && !author.equals("")) {
+			hql.append("and p.author = ?  ");
+			args.add(author);
+		}
+		hql.append("order by p.id ");
+		page = PageUtil.getPage(getPageNo(), getPageSize());
+		page = getManager().pageQuery(page, hql.toString(), args.toArray());
+		items = page.getData();
+	}
 	/**
 	 * 查询全部，重定向，不带值
 	 * 
@@ -277,18 +167,15 @@ public class TsglAction extends DefaultCrudAction<Tsxx, TsglManager> {
 	 */
 	@Override
 	public String save() {
-		// 获取输入的条件
-		String name = getModel().getLbmc();
-		Lbxx lbxx = lbxxManager.getZcxxByKdname(name);
-
+		
 		// getModel().setZcxx(zcxx);
 		// 主键为hilo策略，会自动的生成id。不需要手动给id赋值，当取得的id是空时，提示“添加成功”
 		if (getModel().getId() == null || getModel().getId() == 0) {
 			getModel().setSyNum(getModel().getTotalNum());// 剩余数量等于入库数量
-			getModel().setLbxx(lbxx);
+			
 			addActionMessage("添加成功！");// 提示
 			getManager().getDao().getHibernateTemplate().clear();
-			getManager().save(getModel(), lbxx.getId());
+			getManager().save(getModel(), getModel().getLbxx().getId());
 
 		} else {
 			// 剩余数量 为总数量减去借出去的数量
@@ -300,7 +187,7 @@ public class TsglAction extends DefaultCrudAction<Tsxx, TsglManager> {
 			
 			addActionMessage("更新成功！");
 			getManager().getDao().getHibernateTemplate().clear();
-			getManager().save(getModel(), lbxx.getId());
+			getManager().save(getModel(), getModel().getLbxx().getId());
 		}
 
 		return "success";
@@ -310,20 +197,6 @@ public class TsglAction extends DefaultCrudAction<Tsxx, TsglManager> {
 	 * 跳转到编辑页面
 	 */
 	public String toEdit() {
-
-		lbxxList = lbxxManager.queryAlljkjss();
-
-		for (Lbxx kd : lbxxList) {
-			String name = kd.getLbMc();
-			names.add(name);
-		}
-		int zx = Integer.parseInt(getRequest().getParameter("zx"));
-		if (zx == 1) {// 更新
-			String lbmc = getModel().getLbxx().getLbMc();// 拿到目录的名称
-			getModel().setLbmc(lbmc);
-
-		}
-		getRequest().setAttribute("names", names); // request传值
 		return "input1";
 	}
 	/**
@@ -371,16 +244,20 @@ public class TsglAction extends DefaultCrudAction<Tsxx, TsglManager> {
 				getManager().removeBookPhoto(getModel(), getServletContext());		
 			}
 		}
-
-		lbxxList = lbxxManager.queryAlljkjss();
-        
-		for (Lbxx kd : lbxxList) {
-			String name = kd.getLbMc();
-			names.add(name);
-		}
-		
-		String lbmc = getModel().getLbxx().getLbMc();// 拿到目录的名称
-		getModel().setLbmc(lbmc);
 		return "input1";
 	}
+	
+	/**
+	 * 获得类型下拉列表数据源
+	 * @return
+	 */
+	public Map<Integer, String> getTypeMap() {
+		return lbxxManager.getTypeMap();
+	}
+	
+	public List<Lbxx> getlbxxList() {
+		return lbxxList;
+	}
+
+
 }

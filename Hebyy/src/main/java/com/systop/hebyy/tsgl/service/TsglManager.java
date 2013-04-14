@@ -36,7 +36,7 @@ public class TsglManager extends BaseGenericsManager<Tsxx> {
 	 * 
 	 * @return
 	 */
-	public List<Tsxx> queryAlljkjss() {
+	public List<Tsxx> queryAll() {
 		
 		String sql = "from Tsxx j";
 		return query(sql);
