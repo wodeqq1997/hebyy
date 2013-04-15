@@ -171,8 +171,8 @@ var nodes = [
         {name:"档案管理", icon:"${ctx}/images/icons/roll_manage.gif", children:[
         {name:"案卷管理", target:"main", url:"${ctx}/archive/index.do",icon:"${ctx}/images/icons/roll_manage.gif"},
         {name:"文件管理", target:"main", url:"${ctx}/archive/file/index.do",icon:"${ctx}/images/icons/roll_manage.gif"},
-        {name:"案卷借阅", url:"${ctx}/archive/file/lend/index.do", target:"main", icon:"${ctx}/images/icons/roll_manage.gif"},
-        {name:"案卷借阅记录", target:"main", url:"${ctx}/archive/file/lend/allIndex.do",icon:"${ctx}/images/icons/roll_manage.gif"}
+        {name:"案卷查阅", url:"${ctx}/archive/archiveIndex.do", target:"main", icon:"${ctx}/images/icons/roll_manage.gif"},
+        {name:"案卷查阅记录", target:"main", url:"${ctx}/archive/file/lend/allIndex.do",icon:"${ctx}/images/icons/roll_manage.gif"}
 
      ]}
 
