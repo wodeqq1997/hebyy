@@ -59,8 +59,8 @@ public class EmpContractAction extends DefaultCrudAction<EmpContract, EmpContrac
 			getManager().save(getModel(), getModel().getEmployee().getId());
 			getModel().getEmployee().setLastContractBegin(getModel().getStartTime());
 			getModel().getEmployee().setLastContractEnd(getModel().getEndTime());
-			getModel().setStartTime(startDate);
-			getModel().setEndTime(endDate);
+			getModel().setStartTime(getModel().getStartTime());
+			getModel().setEndTime(getModel().getEndTime());
 			employeeManager.update(getModel().getEmployee());
 		}
 		return SUCCESS;
