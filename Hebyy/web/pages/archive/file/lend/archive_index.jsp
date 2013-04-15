@@ -28,7 +28,7 @@
 		   		<input type="submit" value="查询" class="button" />
 			</td>
 			<td align="right">
-				<a href="${ctx}/archive/file/lend/index.do"><img src="${ctx}/images/icons/rem-all.gif">案卷借阅管理</a>
+				<a href="${ctx}/archive/archiveIndex.do"><img src="${ctx}/images/icons/rem-all.gif">案卷查阅管理</a>
 				&nbsp;
 			</td>
 		</tr>
