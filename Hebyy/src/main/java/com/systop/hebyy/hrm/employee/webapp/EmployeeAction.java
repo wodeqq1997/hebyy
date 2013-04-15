@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.xwork.StringUtils;
 import org.apache.struts2.interceptor.validation.SkipValidation;
+import org.hibernate.criterion.MatchMode;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -36,10 +38,21 @@ public class EmployeeAction extends DefaultCrudAction<Employee, EmployeeManager>
 	private boolean notifiedMessage;
 	
 	//private boolean _notifiedSms;
-	
+    /**
+     * 查看所有员工基本信息
+     */
 	public String showUsers(){
 		List<Object> args = new ArrayList<Object>();
-		StringBuffer hql = new StringBuffer("from Employee ");
+		StringBuffer hql = new StringBuffer("from Employee e where 1=1");
+		if(getModel() != null && StringUtils.isNotBlank(getModel().getName())){
+			hql.append(" and e.name like ?");
+			args.add(MatchMode.ANYWHERE.toMatchString(getModel().getName()));
+		}
+		if(getModel() != null && getModel().getDept() !=null && StringUtils.isNotBlank(getModel().getDept().getName())){
+			hql.append(" and e.dept.name like ?");
+			args.add(MatchMode.ANYWHERE.toMatchString(getModel().getDept().getName()));
+		}
+		hql.append(" order by e.id desc");
 		page = PageUtil.getPage(getPageNo(), getPageSize());
 		page = getManager().pageQuery(page, hql.toString(), args.toArray());
 		restorePageData(page);
