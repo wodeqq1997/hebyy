@@ -59,7 +59,7 @@
 <div><%@ include file="/common/messages.jsp"%></div>
 <div id="importEmployee" class="showImport">
 <s:form action="importSupplier" id="save" method="post" theme="simple" validate="true"
- namespace="/employee" enctype="multipart/form-data">
+ namespace="/employee" enctype="multipart/form-data" name="form7">
 
 	<s:hidden id="model.id" name="model.id"/>
 	<table width="600px" align="center"> 
@@ -70,14 +70,14 @@
                 <table>
                   <tr>
                      <td align="right" width="150">选择文件：</td>
-                     <td><s:file name="upload" cssClass="FileText" cssStyle="width:400px"  id="upload"/></td>
+                     <td><s:file name="upload" cssClass="FileText" cssStyle="width:400px"  id="upload" required="required"/></td>
                   </tr>
                 </table> 
               </fieldset>
               <table width="100%" style="margin-bottom:10px;">
 				<tr>
 					<td style="text-align:center;">
-						<s:submit value="上传" cssClass="button" onclick="noSubAgain()" />
+						<input value="上传" type="button" class="button" onclick="noSubAgain()" />
 						<s:reset value="重置" cssClass="button"/>
                     </td>
               	</tr>
@@ -92,16 +92,33 @@
 	$(document).ready(function() {
 	$("#save").validate();
 });
-	
+function submit(){
+	document.form7.submit();
+}
 	function noSubAgain(){
-				alert("dddddddd");
-		$(".showbox").css('display','inline');
-		$(".showImport").css('display','none');
-		$(".showbox").css('display','block');
-		$(".loadingWord").css('display','block');
-		$(".overlay").css('display','block');
-		$(".overlay").css('opacity','0.8');
-		$(".showbox").stop(true).animate({'margin-top':'300px','opacity':'1'},200);
+		var fileupload = document.getElementById("upload");
+        var filename = fileupload.value;
+        // 获取该文件名的后缀名
+        var extend = filename.substring(filename.lastIndexOf(".") + 1);
+        if(filename == ""){
+          alert('请输入上传excel！');
+        }else{
+        	alert(extend);
+        	if (extend != "xls" && extend != "xlsx") {
+                alert("必须上传xls/xlsx格式文件");
+                // 清空上传文件控件的值
+                fileupload.outerHTML = fileupload.outerHTML;
+            }else{
+            	$(".showbox").css('display','inline');
+        		$(".showImport").css('display','none');
+        		$(".showbox").css('display','block');
+        		$(".loadingWord").css('display','block');
+        		$(".overlay").css('display','block');
+        		$(".overlay").css('opacity','0.8');
+        		$(".showbox").stop(true).animate({'margin-top':'300px','opacity':'1'},200);
+        		submit();
+            }
+        }
 	}
 </script>
 </body>
