@@ -28,10 +28,12 @@ function importSupplier(){
 	<table width="100%">
 		<tr>
 			<td width="95%">&nbsp;姓 名:&nbsp;
-			<s:textfield id="userName" name="model.employee.name" />&nbsp;&nbsp;
+			<s:textfield id="userName" name="model.name" />&nbsp;&nbsp;
 			&nbsp;部 门:&nbsp;
-			<s:textfield id="dept" name="model.employee.dept.name" />&nbsp;&nbsp; &nbsp;
-			<s:submit value="查询" cssClass="button" /></td>
+			<s:textfield id="dept" name="model.dept.name" />&nbsp;&nbsp; &nbsp;
+			<s:submit value="查询" cssClass="button" />
+			<input type="button" value="重  置" class="button" onclick="location.replace(location.href);"/>
+</td>
 			<td style="text-align: right; padding-right: 1em;" width="5%">
 			<a href="${ctx}/employee/editNew.do?from=hr">
 			<img src="${ctx}/images/icons/add.gif">新建员工信息</a></td>
@@ -48,6 +50,7 @@ function importSupplier(){
 <th>序号</th>
 <th>员工姓名</th>
 <th>性别</th>
+<th>部门</th>
 <th>操作</th>
 </tr>
 <s:iterator value="#attr.items"  var="item" status="st">
@@ -59,7 +62,10 @@ function importSupplier(){
             <c:if test="${item.sex eq 'M'}">男</c:if>
             <c:if test="${item.sex eq 'F'}">女</c:if>
             </td>
-            <td width="80"><a href="${ctx}/employee/edit.do?model.id=${item.id}">编辑</a></td>
+			<td width="100" style="ellipsis:true">${item.dept.name}</td>
+            <td width="80"><a href="${ctx}/employee/edit.do?model.id=${item.id}">编辑</a>|
+            <a href="${ctx}/employee/view.do?model.id=${item.id}" title="查看">查看</a> 
+            </td>
 		</tr>
 	</s:iterator>
 	<tr>
